@@ -4,12 +4,12 @@ import DrawerNavigation from "./DrawerNavigation";
 
 const Navbar = () => {
   return (
-    <header className="h-24 border-b border-[#676767] items-center max-w-6xl mx-auto  flex justify-between">
-      <article className="flex gap-3  items-center ">
+    <header className="h-24 border-b border-[#676767] items-center max-w-6xl mx-auto  flex justify-between ">
+      <article className="flex gap-3  items-center  ">
         <img src={logo} className="size-12" />
 
         <p className="text-[white]">DRIVEX</p>
-        <article className=" text-[#a6a5a5] hidden sm:flex gap-3">
+        <article className=" text-[#a6a5a5] hidden sm:flex gap-3 pl-8">
           {homeRoutes?.map((route) => (
             <p>{route?.name}</p>
           ))}
@@ -17,8 +17,14 @@ const Navbar = () => {
       </article>
 
       {/* lg */}
+      <div>
       <div className="hidden sm:flex">
-      <button className="bg-[white]  uppercase p-1 rounded-lg px-5">Register</button>
+      <button className="text-[white] text-sm bg-[#621fcd]  uppercase p-2 rounded-lg px-5">Sign Up</button>
+      </div>
+      {/* <div className="hidden sm:flex">
+      <button className="text-[white] text-sm bg-[#313030]  uppercase p-2 rounded-lg px-5">Sign Up</button>
+      </div> */}
+
       </div>
 
       {/* sm */}

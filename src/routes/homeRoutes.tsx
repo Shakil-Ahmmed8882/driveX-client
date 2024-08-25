@@ -7,34 +7,21 @@ export const homeRoutes = [
   },
   //   food
   {
-    name: "Food",
-    path: "food",
+    name: "About us",
+    path: "about",
     // element: <FoodsLayout />,
   },
   //   faq
   {
-    name: "FAQ",
-    path: "faq",
+    name: "Booking",
+    path: "booking",
     // element: <FAQ />,
   },
   // blog
   {
-    name: "Blog",
-    path: "blog",
+    name: "Contact",
+    path: "contact",
     // element: <BlogLayout />,
   },
-  {
-    path: "blog/:id",
-    // element: <BlogDetailPage match={undefined} />,
-  },
-  // recipes
-  {
-    name: "Recipes",
-    path: "recipe/new",
-    // element: <RecipePageLayout />,
-  },
-  {
-    path: "recipe/:id",
-    // element: <RecipeDetailPage />
-  },
+ 
 ];
