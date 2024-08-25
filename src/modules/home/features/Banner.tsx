@@ -18,37 +18,35 @@ const cars = [
 const Banner = () => {
   return (
     <section className=" text-white max-w-6xl mx-auto py-16">
-      <div className="flex gap-3 items-end">
-        <article className="flex-2 w-2/3">
-
-
-        <div className="pb-8">
-          <h2 className="text-xl leading-snug font-bold mb-8">
-            Elevate Your Travel Experience
-          </h2>
-          <div className="flex  items-center">
-            <div className="bg-[#1e1e1e] rounded-lg px-6 py-2 w-2/3">
-              <input placeholder="search cars" type="text" className="bg-transparent w-full focus-within:outline-none" />
+      <div className="md:flex gap-3   items-end">
+        <article className="flex-2 w-full h-72 flex flex-col items-center justify-center md:w-2/3 absolute md:static top-32 z-20">
+          <div className="pb-8 w-full text-center md:text-left md:items-start">
+            <h2 className="text-xl leading-snug font-bold mb-4 md:mb-8">
+              Elevate Your Travel Experience
+            </h2>
+            <div className="flex items-center justify-center md:justify-start">
+              <div className="bg-[#1e1e1ea1] md:bg-[#1e1e1e] rounded-lg px-6 py-2 w-[80%] md:w-2/3">
+                <input
+                  placeholder="search cars"
+                  type="text"
+                  className="bg-transparent w-full focus-within:outline-none"
+                />
+              </div>
             </div>
-            {/* <button className="bg-[#333333] text-[white] font-semibold px-6 py-2 text-sm p-2 rounded-r-full shadow-lg hover:bg-gray-200 transition duration-300">
-              BOOK NOW
-            </button> */}
           </div>
-
-        </div>
-          <div className="flex gap-6 items-end pt-8">
+          <div className="gap-6 items-end pt-8 hidden md:flex">
             {cars.map((car, index) => (
               <div key={index} className="relative grid-rows-2">
                 <img
                   src={car.imageUrl}
                   alt={car.name}
-                  className={` h-40 object-cover w-[300px] rounded-lg`}
+                  className="h-40 object-cover w-[300px] rounded-lg"
                 />
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="font-semibold text-lg">{car.name}</h3>
                   <div className="flex items-center space-x-2">
                     <span>{car.count}</span>
-                    <span className="inline-block w-4 h-4 bg-white rounded-full text-black flex items-center justify-center"></span>
+                    <span className="w-4 h-4 bg-white rounded-full text-black flex items-center justify-center"></span>
                   </div>
                 </div>
               </div>
@@ -56,19 +54,20 @@ const Banner = () => {
           </div>
         </article>
 
-        <article className="flex-2">
+        {/*  */}
+        <article className="flex-2  absolute md:static top-32 ">
           <div className="relative grid-rows-2">
             <img
               src={
                 "https://i.pinimg.com/564x/86/66/d2/8666d2f83d0928c482efe1955b0cea04.jpg"
               }
-              className=" object-cover h-96 w-[700px] rounded-lg"
+              className=" object-cover h-72 md:h-96 w-[700px] rounded-lg"
             />
             <div className="absolute bottom-4 left-4 text-white">
               <h3 className="font-semibold text-lg">Name</h3>
               <div className="flex items-center space-x-2">
                 <span>{43}</span>
-                <span className="inline-block w-4 h-4 bg-white rounded-full text-black flex items-center justify-center"></span>
+                <span className=" w-4 h-4 bg-white rounded-full text-black flex items-center justify-center"></span>
               </div>
             </div>
           </div>
