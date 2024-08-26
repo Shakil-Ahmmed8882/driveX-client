@@ -14,7 +14,6 @@ const CarQueryInput = ({
   const [search, setSearch] = useState<string | null>(null);
   const [isClickOutside, setIsClickOutside] = useState<boolean>(true);
 
-
   const queryRef = useRef<HTMLDivElement | null>(null);
 
   const handleSearchByName = () => {
@@ -56,19 +55,17 @@ const CarQueryInput = ({
         <BiLocationPlus onClick={handleSearchByLocation} className="size-6" />
         <MdDateRange onClick={handleSearchDateRange} className="size-6" />
 
-        { isClickOutside && ( // Show only on initial load and when clicking outside
-          
+        {isClickOutside && ( // Show only on initial load and when clicking outside
           <motion.button
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={buttonVariants}
-            transition={{ duration: 0.5 , delay: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className="absolute -top-2 left-32 transform -translate-x-1/2 px-4 py-2 bg-[#621fcd] text-white rounded-lg shadow-lg"
           >
             Book Now
           </motion.button>
-          
         )}
       </div>
 
@@ -103,7 +100,7 @@ const CarQueryInput = ({
             exit="hidden"
             variants={inputVariants}
             transition={{ duration: 0.5 }}
-            className="bg-[#1e1e1ea1] lg:bg-[#1e1e1e] w-[80%] rounded-lg px-6 py-2 w-full"
+            className="bg-[#1e1e1ea1] lg:bg-[#1e1e1e] w-[80%] rounded-lg px-6 py-2 "
           >
             <input
               onChange={(e) => setSearchValue(e.target.value)}

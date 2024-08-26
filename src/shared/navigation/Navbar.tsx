@@ -19,7 +19,7 @@ const Navbar = () => {
       {/* lg */}
       <div>
       <div className="hidden sm:flex">
-      <button className="text-[white] text-sm bg-[#621fcd]  uppercase p-2 rounded-lg px-5">Sign Up</button>
+      <button className="text-[white] text-sm bg-primaryColor  uppercase p-2 rounded-lg px-5">Sign Up</button>
       </div>
       {/* <div className="hidden sm:flex">
       <button className="text-[white] text-sm bg-[#313030]  uppercase p-2 rounded-lg px-5">Sign Up</button>
