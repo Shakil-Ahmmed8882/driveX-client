@@ -14,3 +14,19 @@ body{
     font-style: normal;
     color: #fff;
 }
+
+.description {
+    @apply text-[#c1c1c1] 
+
+}
+
+
+
+/* Custom CSS to change placeholder text color */
+.custom-picker-placeholder-style .ant-picker-input > input::placeholder {
+    color: #8f8f8f; /* Replace with your desired color */
+  }
+
+
+  
+  

@@ -1,31 +1,29 @@
-// @ts-nocheck
-
 import { Form, DatePicker } from "antd";
 import { Controller } from "react-hook-form";
+import React from "react";
+import { Dayjs } from "dayjs";
 
-// const PHInput = ({ type, name, label }: TInputProps) => {
-const RSDatePicker = ({ name, label }) => {
+type TDatePickerProps = {
+  name: string;
+  label?: string;
+};
 
-  const onChange =  (date, dateString) => {
-    console.log(date, dateString);
-  };
+const DDatePicker: React.FC<TDatePickerProps> = ({ name, label }) => {
+
   return (
     <Form.Item
-      label={label}
-      style={{
-        marginBottom: "20px",
-      }}
+      className="mb-5" // Tailwind class for margin-bottom
     >
       <Controller
         name={name}
         render={({ field }) => (
           <DatePicker
-            onChange={onChange}
-            picker=""
+            className="custom-picker-placeholder-style bg-[#343434be] border-none text-white placeholder:text-[#8f8f8f] hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]"
             style={{ width: "100%" }}
             size="large"
             {...field}
             id={name}
+            placeholder={label}
           />
         )}
       />
@@ -33,4 +31,4 @@ const RSDatePicker = ({ name, label }) => {
   );
 };
 
-export default RSDatePicker;
+export default DDatePicker;

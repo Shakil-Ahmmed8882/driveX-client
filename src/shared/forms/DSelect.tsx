@@ -1,23 +1,19 @@
 import { Form, Select } from "antd";
 import { Controller } from "react-hook-form";
-import React from "react";
 import { TFormSelectProps } from "./types";
 
-
-
-const RSSelect = ({
+const DSelect = ({
   label,
   name,
   options,
   defaultValue,
   disabled,
 }: TFormSelectProps): JSX.Element => {
-// }) => {
+  // }) => {
   return (
     <Controller
       name={name}
       render={({ field, fieldState: { error } }) => (
-        
         <Form.Item label={label}>
           <Select
             disabled={disabled}
@@ -26,6 +22,7 @@ const RSSelect = ({
             {...field}
             options={options}
             size="large"
+            
           />
           {error && <small style={{ color: "red" }}>{error.message}</small>}
         </Form.Item>
@@ -34,4 +31,4 @@ const RSSelect = ({
   );
 };
 
-export default RSSelect;
+export default DSelect;

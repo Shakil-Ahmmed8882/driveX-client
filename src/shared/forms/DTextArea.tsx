@@ -1,10 +1,12 @@
 import { Input } from "antd";
 const { TextArea } = Input;
-
-import React from "react";
 import { Controller } from "react-hook-form";
 
-const RSTextArea = ({ name, placeholder }) => {
+type TTextAreaProps = {
+  name: string;
+  placeholder: string;
+};
+const DTextArea = ({ name, placeholder }: TTextAreaProps) => {
   return (
     <Controller
       name={name}
@@ -15,4 +17,4 @@ const RSTextArea = ({ name, placeholder }) => {
   );
 };
 
-export default RSTextArea;
+export default DTextArea;

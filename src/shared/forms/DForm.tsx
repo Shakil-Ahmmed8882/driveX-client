@@ -1,33 +1,33 @@
 import { Form } from "antd";
-import React from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import  { ReactNode } from "react";
+import { FormProvider, SubmitHandler, useForm, UseFormProps, FieldValues } from "react-hook-form";
 
-// type TFormConfig = {
-//   defaultValues?: Record<string, any>;
-//   resolver?: any;
-// };
+type TFormConfig = {
+  defaultValues?: Record<string, any>;
+  resolver?: any;
+};
 
-// type TFormProps = {
-//   onSubmit: SubmitHandler<FieldValues>;
-//   children: ReactNode;
-// } & TFormConfig;
+type TFormProps = {
+  onSubmit: SubmitHandler<FieldValues>;
+  children: ReactNode;
+} & TFormConfig;
 
-const RSForm = ({ onSubmit, children, defaultValues, resolver }) => {
-  const formConfig = {};
+const DForm = ({ onSubmit, children, defaultValues, resolver }: TFormProps) => {
+  // Define the formConfig type to include possible UseFormProps
+  const formConfig: Partial<UseFormProps<FieldValues>> = {};
 
   //  default values & resolver set-up
   if (defaultValues) {
-    formConfig["defaultValues"] = defaultValues;
+    formConfig.defaultValues = defaultValues;
   }
 
   if (resolver) {
-    formConfig["resolver"] = resolver;
+    formConfig.resolver = resolver;
   }
 
   const methods = useForm(formConfig);
 
-  //   const submit: SubmitHandler<FieldValues> = (data) => {
-  const submit = (data) => {
+  const submit: SubmitHandler<FieldValues> = (data) => {
     onSubmit(data);
     methods.reset();
   };
@@ -41,4 +41,4 @@ const RSForm = ({ onSubmit, children, defaultValues, resolver }) => {
   );
 };
 
-export default RSForm;
+export default DForm;

@@ -1,31 +1,46 @@
-// @ts-nocheck
 import { Form, Input } from "antd";
-import { useTheme } from "next-themes";
+
 import { Controller } from "react-hook-form";
 
-// type TInputProps = {
-//   type: string;
-//   name: string;
-//   label?: string;
-// };
+type TInputProps = {
+  type: string;
+  name: string;
+  label?: string;
+  className?: string;
+};
 
-// const PHInput = ({ type, name, label }: TInputProps) => {
-const RSInput = ({ type, name, label, className }) => {
-  const {theme} = useTheme()
+const DInput = ({ type, name, label, className }: TInputProps) => {
+  const { theme } = { theme: "dark" };
+
   return (
-    <Form.Item  label={label} style={{
-       marginBottom: "20px" }}>
+    <Form.Item
+      // label={label}
+      style={{
+        marginBottom: "20px",
+      }}
+    >
       <Controller
         name={name}
-        render={({ field }) => <Input className={`
+        render={({ field }) => (
+          <Input
+            autoComplete="off"
+            placeholder={label}
+            className={`
           ${className}
-          ${theme === "dark" ? "bg-[#3c3c3c20] border-none  text-[white]" : ""}
-          text-xl
-          
-          `} {...field} type={type} id={name} />}
+          ${
+            theme === "dark"
+              ? "bg-[#343434be] placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]  text-[white]"
+              : ""
+          }
+          text-xl`}
+            {...field}
+            type={type}
+            id={name}
+          />
+        )}
       />
     </Form.Item>
   );
 };
 
-export default RSInput;
+export default DInput;
