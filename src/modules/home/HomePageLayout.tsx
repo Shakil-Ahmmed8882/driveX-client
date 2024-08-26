@@ -1,8 +1,7 @@
 // import Banner from "./features/Banner";
 
-import Login from "../../stockComponents/Login";
 import CarDetails from "../carDetails/CarDetails";
-import CarListingPage from "../carListingPage/CarListingPage";
+import PaymentLayout from "../payment/feature/PaymentLayout";
 
 
 const HomePageLayout= (): JSX.Element => {
@@ -10,7 +9,8 @@ const HomePageLayout= (): JSX.Element => {
     <>
     {/* // <Banner/> */}
     {/* <CarListingPage/> */}
-    <CarDetails/>
+    {/* <CarDetails/> */}
+    <PaymentLayout/>
     {/* <Login></Login> */}
 
 
