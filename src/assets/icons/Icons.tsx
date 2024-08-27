@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from "react";
 // import { useAuth } from "../../Utils/useAuthHelper";
 /*
@@ -64,10 +63,9 @@ export const Close = () => {
   );
 };
 
-export function DownArrowIcon(props) {
+export function DownArrowIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -84,14 +82,14 @@ export function DownArrowIcon(props) {
 }
 
 // Notification
-import { IoIosNotificationsOutline } from "react-icons/io";
+// import { IoIosNotificationsOutline } from "react-icons/io";
 
 export const Notification = () => {
   return (
     <>
       <div className="p-2 rounded-full bg-[#f7f7f7] relative flex-start">
         <span className="absolute w-[8px] h-[8px] border border-[white] block bg-deepPink top-[10px] right-[12px] z-10 rounded-full"></span>
-        <IoIosNotificationsOutline className="text-2xl relative"></IoIosNotificationsOutline>
+        {/* <IoIosNotificationsOutline className="text-2xl relative"></IoIosNotificationsOutline> */}
       </div>
     </>
   );
@@ -115,7 +113,7 @@ export const Notification = () => {
 //   );
 // };
 
-export const EyeIcon = (props) => (
+export const EyeIcon = () => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -124,7 +122,6 @@ export const EyeIcon = (props) => (
     role="presentation"
     viewBox="0 0 20 20"
     width="1em"
-    {...props}
   >
     <path
       d="M12.9833 10C12.9833 11.65 11.65 12.9833 10 12.9833C8.35 12.9833 7.01666 11.65 7.01666 10C7.01666 8.35 8.35 7.01666 10 7.01666C11.65 7.01666 12.9833 8.35 12.9833 10Z"
@@ -218,7 +215,8 @@ export const CommentIcon = () => {
   );
 };
 
-export const SearchIcon = ({handleClick}) => {
+// export const SearchIcon = ({handleClick}) => {
+export const SearchIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -226,8 +224,7 @@ export const SearchIcon = ({handleClick}) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6 cursor-pointer"
-      onClick={()=>handleClick("search")}
+      className="size-5 cursor-pointer"
     >
       <path
         strokeLinecap="round"
@@ -238,7 +235,7 @@ export const SearchIcon = ({handleClick}) => {
   );
 };
 
-export const BookMarkIcon = ({ className }) => {
+export const BookMarkIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +243,7 @@ export const BookMarkIcon = ({ className }) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={`${className} size-6 text-[#727272] hover:text-[black] transition500`}
+      className={`size-6 text-[#727272] hover:text-[black] transition500`}
     >
       <path
         strokeLinecap="round"
@@ -257,7 +254,7 @@ export const BookMarkIcon = ({ className }) => {
   );
 };
 
-export const MarkFavoriteIcon = ({className = ''}) => {
+export const MarkFavoriteIcon = ({ className = "" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

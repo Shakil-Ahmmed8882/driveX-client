@@ -1,10 +1,10 @@
 import { BiLocationPlus } from "react-icons/bi";
 import { SearchIcon } from "../../../../assets/icons/Icons";
 import { MdDateRange } from "react-icons/md";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import useClickOutside from "../../../../hooks/useClickOutside";
-import { Link, Router } from "react-router-dom";
+
 
 const CarQueryInput = ({
   setSearchValue,
@@ -49,9 +49,9 @@ const CarQueryInput = ({
   };
 
   return (
-    <div className="lg:flex items-center justify-center lg:justify-start relative">
+    <div className=" hidden lg:flex items-center justify-center lg:justify-start relative">
       <div className="flex justify-center lg:justify-start gap-4 items-center">
-        <SearchIcon handleClick={handleSearchByName} />
+        <SearchIcon />
         <BiLocationPlus onClick={handleSearchByLocation} className="size-6" />
         <MdDateRange onClick={handleSearchDateRange} className="size-6" />
 

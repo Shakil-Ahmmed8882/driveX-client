@@ -68,7 +68,7 @@ const CarFeatures = () => {
     ];
   
     return (
-      <div className="flex gap-4 pb-6">
+      <div className="flex flex-wrap gap-4 pb-6">
         {features.map((feature, index) => (
           <CarFeature key={index} icon={feature.icon} text={feature.text} />
         ))}
