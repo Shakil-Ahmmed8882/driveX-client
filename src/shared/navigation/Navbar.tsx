@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { homeRoutes } from "../../routes/homeRoutes";
+import { homePaths } from "../../routes/homeRoutes";
 import Logo from "../ui/Logo";
 import DrawerNavigation from "./DrawerNavigation";
 
@@ -9,7 +9,7 @@ const Navbar = () => {
       <article className="flex gap-3  items-center  ">
         <Logo/>
         <article className=" text-[#a6a5a5] hidden sm:flex gap-3 pl-8">
-          {homeRoutes?.map((route) => (
+          {homePaths?.map((route) => (
             <NavLink to={route.path}>{route?.name}</NavLink>
           ))}
         </article>

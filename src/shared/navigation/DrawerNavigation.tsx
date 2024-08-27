@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useState } from "react";
 import { Button, Drawer, Radio, Space } from "antd";
-import { homeRoutes } from "../../routes/homeRoutes";
+import { homePaths } from "../../routes/homeRoutes";
 import { NavLink } from "react-router-dom";
 
 const DrawerNavigation = () => {
@@ -36,7 +36,7 @@ const DrawerNavigation = () => {
         key={placement}
       >
         <article className=" flex flex-col items-start gap-2">
-          {homeRoutes?.map((route) => {
+          {homePaths?.map((route) => {
             if (route && route.name) {
               return (
                 <p

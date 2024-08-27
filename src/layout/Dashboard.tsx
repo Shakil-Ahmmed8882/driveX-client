@@ -1,6 +1,4 @@
 import { Outlet } from "react-router-dom";
-import { SearchIcon } from "../assets/icons/Icons";
-import UserDashboard from "../modules/userDashboard/dashboard/UserDashboard";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardSidebar from "./DashboardSidebar";
 
@@ -10,6 +8,7 @@ const Dashboard = (): JSX.Element => {
       <DashboardSidebar />
 
       <div className="flex flex-col bg-[#242424]">
+      
         <DashboardNavbar />
         <Outlet/>
       </div>

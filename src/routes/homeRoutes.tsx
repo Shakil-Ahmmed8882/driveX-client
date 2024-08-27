@@ -5,7 +5,7 @@ import UserDashboard from "../modules/userDashboard/dashboard/UserDashboard";
 import UserBookings from "../modules/userDashboard/manageBooking/UserBookings";
 import PickupAndReturn from "../modules/userDashboard/pickupAndReturn/PickupAndReturn";
 
-export const homeRoutes = [
+export const homePaths = [
   {
     name: "Home",
     path: "/",
@@ -25,6 +25,11 @@ export const homeRoutes = [
   {
     name: "Contact",
     path: "contact",
+    element: <Contact />,
+  },
+  {
+    name: "Dashboard",
+    path: "dashboard",
     element: <Contact />,
   },
 ];

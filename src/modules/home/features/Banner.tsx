@@ -1,15 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
-import { SearchIcon } from "../../../assets/icons/Icons";
-import { BiLocationPlus } from "react-icons/bi";
-import { MdDateRange } from "react-icons/md";
 import CarQueryInput from "../components/banner/CarQueryInput";
 import { motion } from "framer-motion";
 
 const cars = [
   {
     name: "Lamborghini",
-    // imageUrl:
-    //   "https://i.pinimg.com/736x/a3/3a/2f/a33a2f7acb9be0587930c93ad684b9d1.jpg",
     imageUrl:
       "https://i.pinimg.com/564x/fd/18/0b/fd180b826f3f21fde530e8a4e38899e5.jpg",
     count: 6,
@@ -42,7 +38,9 @@ const Banner = () => {
             <CarQueryInput {...{ setSearchValue }} />
 
             {/* for small device */}
-            <p className="text-lg block lg:hidden">Lorem ipsum dolor sit amet consectetur adipisicing </p>
+            <p className="text-lg block lg:hidden">
+              Lorem ipsum dolor sit amet consectetur adipisicing{" "}
+            </p>
           </div>
 
           <div className="gap-6 items-end pt-5 hidden lg:flex">

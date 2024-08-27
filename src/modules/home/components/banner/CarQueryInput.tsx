@@ -16,10 +16,10 @@ const CarQueryInput = ({
 
   const queryRef = useRef<HTMLDivElement | null>(null);
 
-  const handleSearchByName = () => {
-    setIsClickOutside(false);
-    setSearch(search === "search" ? null : "search");
-  };
+  // const handleSearchByName = () => {
+  //   setIsClickOutside(false);
+  //   setSearch(search === "search" ? null : "search");
+  // };
 
   const handleSearchByLocation = () => {
     setIsClickOutside(false);

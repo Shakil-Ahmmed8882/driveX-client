@@ -1,95 +1,77 @@
-const UserDashboard = (): JSX.Element => {
+
+
+
+import React from 'react';
+import RadialChart from '../../../shared/charts/RadialChart';
+import OverviewCard from './compoents/OverviewCard';
+import RecentActivity from './compoents/RecentActivity';
+import Notification from './compoents/Notification';
+import { DashboardData } from './types';
+
+
+// Sample data
+const dashboardData: DashboardData = {
+  totalBookings: 12,
+  pendingPayments: 408,
+  totalSpendings: 1200,
+  recentActivities: [
+    { description: 'Booked a car: BMW X5', time: '2 hours ago' },
+    { description: 'Payment received for booking: Audi A4', time: '1 day ago' },
+    { description: 'Cancelled booking: Tesla Model 3', time: '3 days ago' },
+  ],
+  notifications: [
+    { message: 'Payment reminder: $408 pending', time: '30 minutes ago' },
+    { message: 'Booking confirmed for: Mercedes-Benz C-Class', time: '2 days ago' },
+    { message: 'Profile updated successfully', time: '1 week ago' },
+  ],
+};
+
+const CustomerDashboard: React.FC = () => {
+  const chartData1 = {
+    series: [90], // Data for the radial chart
+    label: 'Average Results', // Label for the chart
+  };
+
+  const chartData2 = {
+    series: [40], // Data for the radial chart
+    label: 'Average Results', // Label for the chart
+  };
+
   return (
     <div>
-      {/* Main Content */}
       <main className="flex-1 p-10 overflow-y-auto">
         {/* Overview Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
-          <div className="bg-gray-800 p-5 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold">Total Bookings</h2>
-            <p className="text-2xl mt-3">12</p>
-          </div>
-          <div className="bg-gray-800 p-5 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold">Upcoming Bookings</h2>
-            <p className="text-2xl mt-3">3</p>
-          </div>
-          <div className="bg-gray-800 p-5 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold">Pending Payments</h2>
-            <p className="text-2xl mt-3">$250</p>
-          </div>
-          <div className="bg-gray-800 p-5 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold">Total Spendings</h2>
-            <p className="text-2xl mt-3">$1200</p>
-          </div>
+        <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
+          <OverviewCard title="Total Bookings" value={dashboardData.totalBookings} />
+          <OverviewCard title="Pending Payments" value={`$${dashboardData.pendingPayments}`} />
+          <OverviewCard title="Total Spendings" value={`$${dashboardData.totalSpendings}`} />
         </section>
 
         {/* Charts Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          <div className="bg-gray-800 p-5 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold mb-3">Monthly Bookings</h2>
-            <div className="h-64 bg-gray-700 rounded-lg">
-              {/* Replace with a chart component */}
-              <p className="flex justify-center items-center h-full">
-                Chart Placeholder
-              </p>
+          <div className="bg-[#2C2C2C] p-11 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold mb-3 text-[#9e9e9e]">Monthly Bookings</h2>
+            <div className="rounded-lg">
+              <RadialChart series={chartData1.series} label={chartData1.label} />
             </div>
           </div>
-          <div className="bg-gray-800 p-5 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold mb-3">Revenue Overview</h2>
-            <div className="h-64 bg-gray-700 rounded-lg">
-              {/* Replace with a chart component */}
-              <p className="flex justify-center items-center h-full">
-                Chart Placeholder
-              </p>
+
+          <div className="bg-[#2C2C2C] p-11 rounded-lg shadow-lg">
+            <h2 className="text-lg font-semibold mb-3 text-[#9e9e9e]">Monthly Bookings</h2>
+            <div className="rounded-lg">
+              <RadialChart series={chartData2.series} label={chartData2.label} />
             </div>
           </div>
         </section>
 
-        {/* Recent Activity Section */}
-        <section className="bg-gray-800 p-5 rounded-lg shadow-lg">
-          <h2 className="text-lg font-semibold mb-3">Recent Activity</h2>
-          <div className="space-y-4">
-            <div className="flex justify-between items-center bg-gray-700 p-4 rounded-lg">
-              <p>Booking #1234 has been confirmed.</p>
-              <span className="text-gray-400 text-sm">5 minutes ago</span>
-            </div>
-            <div className="flex justify-between items-center bg-gray-700 p-4 rounded-lg">
-              <p>Payment of $250 has been received.</p>
-              <span className="text-gray-400 text-sm">10 minutes ago</span>
-            </div>
-            <div className="flex justify-between items-center bg-gray-700 p-4 rounded-lg">
-              <p>New booking request from Jane Doe.</p>
-              <span className="text-gray-400 text-sm">30 minutes ago</span>
-            </div>
-            <div className="flex justify-between items-center bg-gray-700 p-4 rounded-lg">
-              <p>Profile updated successfully.</p>
-              <span className="text-gray-400 text-sm">1 hour ago</span>
-            </div>
-          </div>
-        </section>
+        {/* Recent Activities Section */}
+        <RecentActivity activities={dashboardData.recentActivities} />
+
+        {/* Notifications Section */}
+        <Notification notifications={dashboardData.notifications} />
       </main>
-
-      {/* Overview Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div className="bg-gray-800 p-5 rounded-lg">
-          <h2 className="text-lg font-semibold">Total Bookings</h2>
-          <p className="text-2xl mt-3">12</p>
-        </div>
-        <div className="bg-gray-800 p-5 rounded-lg">
-          <h2 className="text-lg font-semibold">Upcoming Bookings</h2>
-          <p className="text-2xl mt-3">3</p>
-        </div>
-        <div className="bg-gray-800 p-5 rounded-lg">
-          <h2 className="text-lg font-semibold">Pending Payments</h2>
-          <p className="text-2xl mt-3">$250</p>
-        </div>
-        <div className="bg-gray-800 p-5 rounded-lg">
-          <h2 className="text-lg font-semibold">Total Spendings</h2>
-          <p className="text-2xl mt-3">$1200</p>
-        </div>
-      </section>
     </div>
   );
 };
 
-export default UserDashboard;
+export default CustomerDashboard;

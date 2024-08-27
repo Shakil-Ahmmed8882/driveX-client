@@ -7,14 +7,14 @@ import Signup from "../modules/signup/SignUp";
 import Login from "../modules/signup/Login";
 import Dashboard from "../layout/Dashboard";
 import { routeGenerator } from "../utils/routesGenerator";
-import { homeRoutes, userDashboardPaths } from "./homeRoutes";
+import { homePaths, userDashboardPaths } from "./homeRoutes";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: routeGenerator(homeRoutes)
+    children: routeGenerator(homePaths)
   },
   {
     path: "/car-listing-page",
