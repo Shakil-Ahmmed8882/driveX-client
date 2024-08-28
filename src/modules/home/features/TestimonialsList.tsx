@@ -9,10 +9,10 @@ const TestimonialsList: React.FC = () => {
     <section className="bg-[#2525257a]">
     <Container>
       <div className="text-center">
-        <h2 className="text-4xl font-bold text-center mb-4 ">
+        <h2 className="text-4xl font-bold text-center my-4 ">
           Testimonials
         </h2>
-        <p className="text-[#d0d0d0] text-lg">
+        <p className="text-[#c4c3c3] text-lg pb-16">
           You are alwaWelcome in our drivers good luck for you
         </p>
       </div>

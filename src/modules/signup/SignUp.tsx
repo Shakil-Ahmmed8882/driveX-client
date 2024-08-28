@@ -3,14 +3,28 @@ import DInput from "../../shared/forms/DInput";
 import DForm from "../../shared/forms/DForm";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import SidePanel from "./shared/SidePanel";
+import { Link } from "react-router-dom";
+import { Button } from "antd";
+import { useSignUpMutation } from "../../redux/features/auth/authApi";
 
 function Signup() {
+
+  const [signUp] = useSignUpMutation()
+
+
+
   const hanleSignUp: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+
+    const userData = {
+      ...data,
+      role: "user"
+    }
+    console.log(userData);
+    signUp(userData)
   };
   return (
     <div className="min-h-screen flex items-center justify-center ">
-      <div className="flex bg-[#1e1e1e]  shadow-lg rounded-lg overflow-hidden max-w-4xl w-full">
+      <div className="flex bg-[#313131]  shadow-lg rounded-lg overflow-hidden max-w-4xl w-full my-11">
         <div className="w-full md:w-1/2 px-4 md:px-8 py-10">
           <div className="flex flex-col items-center mb-10">
             <Logo isLabel={false} />
@@ -18,39 +32,23 @@ function Signup() {
               Sign up to your account
             </h2>
           </div>
-          <DForm onSubmit={hanleSignUp}>
-            <div className="mb-4">
+          <DForm onSubmit={hanleSignUp} className="space-y-6" >
+              <DInput type="text" label="Name" name="name" />
               <DInput type="text" label="Email" name="email" />
-            </div>
-            <div className="mb-4">
               <DInput type="text" label="Password" name="password" />
-            </div>
+              <DInput type="number" label="Phone" name="phone" />
+              <DInput type="text" label="Address" name="address" />
 
             {/* remember & forgot pass */}
-            <div className="flex items-center justify-between py-3">
-              <label className="flex items-center text-sm text-white">
-                <input
-                  type="checkbox"
-                  className="form-checkbox h-4 w-4 text-blue-500"
-                />
-                <span className="ml-2">Remember me</span>
-              </label>
-              <a href="#" className="text-sm text-white hover:text-blue-400">
-                Forgot password?
-              </a>
-            </div>
-            <button
-              type="submit"
-              className="mt-6 w-full bg-primaryColor text-white py-3 rounded-md font-semibold hover:bg-primaryColor/90 transition divide-neutral-400"
+            <RememberAndForgetPassword/>
+            <Button
+              htmlType="submit"
+              className="border-none  hover:!bg-primaryColor/90 hover:!text-white mt-6 w-full bg-primaryColor text-white"
             >
               Sign up
-            </button>
-            <p className="mt-4 text-center text-sm text-white">
-              Don't have an account?{" "}
-              <a href="#" className="text-blue-400 hover:text-blue-500">
-                Sign up
-              </a>
-            </p>
+            </Button>
+            <SwitchBetweenLoginToSignin/>
+          
           </DForm>
         </div>
 
@@ -66,3 +64,36 @@ function Signup() {
 }
 
 export default Signup;
+
+
+const SwitchBetweenLoginToSignin = () => {
+  return (
+    <p className="pt-3 text-center text-sm text-white">
+    Alreadt have an account?{" "}
+    <Link to="/login" className="text-blue-400 hover:text-blue-500">
+      Sign in
+    </Link>
+  </p>
+  )
+}
+
+
+
+export const RememberAndForgetPassword = () => {
+  return (
+    <div className="flex px-4 items-center justify-between py-3">
+    <label className="flex items-center text-sm text-white">
+      <input
+        type="checkbox"
+        className="form-checkbox h-4 w-4 text-blue-500"
+      />
+      <span className="ml-2">Remember me</span>
+    </label>
+    <a href="#" className="text-sm text-white hover:text-blue-400">
+      Forgot password?
+    </a>
+  </div>
+  )
+}
+
+

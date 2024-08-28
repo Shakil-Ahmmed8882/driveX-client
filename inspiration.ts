@@ -34,5 +34,6 @@ https://dribbble.com/shots/22499868-Car-Rental-Dashboard-Where-Every-Journey-Beg
 // banner background 
 https://i.pinimg.com/736x/53/47/da/5347da012c5173ff17db741de923cf65.jpg
 https://i.pinimg.com/736x/c0/4f/2c/c04f2c6bede69acfc3e180886b2370e0.jpg
+https://www.pinterest.com/pin/934074778945689981/
 
 */

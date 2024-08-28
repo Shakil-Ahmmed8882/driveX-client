@@ -50,7 +50,7 @@ const Footer = () => {
           <a className="link link-hover">Cookies</a>
         </div>
         <div className="text-[#ff5cb047]">
-          <BiFork className="w-60 h-72 absolute -top-3 right-16"></BiFork>
+          {/* <BiFork className="w-60 h-72 absolute -top-3 right-16"></BiFork> */}
         </div>
       </footer>
     </div>

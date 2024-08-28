@@ -10,9 +10,10 @@ type TFormConfig = {
 type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
+  className?:string
 } & TFormConfig;
 
-const DForm = ({ onSubmit, children, defaultValues, resolver }: TFormProps) => {
+const DForm = ({ onSubmit, children, defaultValues, resolver, className }: TFormProps) => {
   // Define the formConfig type to include possible UseFormProps
   const formConfig: Partial<UseFormProps<FieldValues>> = {};
 
@@ -29,12 +30,12 @@ const DForm = ({ onSubmit, children, defaultValues, resolver }: TFormProps) => {
 
   const submit: SubmitHandler<FieldValues> = (data) => {
     onSubmit(data);
-    methods.reset();
+    // methods.reset();
   };
 
   return (
     <FormProvider {...methods}>
-      <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
+      <Form layout="vertical" className={`${className}`} onFinish={methods.handleSubmit(submit)}>
         {children}
       </Form>
     </FormProvider>

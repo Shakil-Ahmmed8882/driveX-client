@@ -29,7 +29,7 @@ const DInput = ({ type, name, label, className }: TInputProps) => {
           ${className}
           ${
             theme === "dark"
-              ? "bg-[#343434be] placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]  text-[white]"
+              ? "bg-[#343434be] shadow placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3f99] focus-within:bg-[#343434be]  text-[white]"
               : ""
           }
           text-xl`}

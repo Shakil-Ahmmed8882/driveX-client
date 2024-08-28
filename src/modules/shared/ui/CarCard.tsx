@@ -25,7 +25,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
         <img
           src={car.imageUrl}
           alt={car.name}
-          className="w-full  object-cover"
+          className="w-44 object-cover"
         />
         <div className="p-4">
           <h3 className="text-xl font-semibold">{car.name}</h3>

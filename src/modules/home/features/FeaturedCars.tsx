@@ -18,7 +18,7 @@ const FeaturedCars = () => {
         <h2 className="text-3xl font-bold mb-6">Featured Cars</h2>
         <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6" layout>
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-8" layout>
           <AnimatePresence>
             {filteredCars.map((car, index) => (
               <CarCard key={`${car.name}-${index}`} car={car} />

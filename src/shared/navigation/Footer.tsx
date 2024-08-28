@@ -116,12 +116,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-            <p>
-              &copy; {new Date().getFullYear()} Car Rental Site. All rights
-              reserved.
-            </p>
-          </div>
+          
         </div>
       </Container>
     </footer>

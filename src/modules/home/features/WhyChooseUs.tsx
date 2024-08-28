@@ -1,7 +1,7 @@
 import React from "react";
 import featuresData from "../data"; // Adjust the path based on your project structure
 import Container from "../../../shared/layouts/Container";
-import bgCar2 from "../../../assets/images/home/featured/bg-car2.jpg";
+
 
 const WhyChooseUs: React.FC = () => {
   return (

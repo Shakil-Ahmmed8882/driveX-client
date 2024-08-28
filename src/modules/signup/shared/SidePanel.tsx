@@ -11,9 +11,9 @@ const SidePanel = ({
 }: TSidePanelProps) => {
 
   return (
-    <div className="hidden md:block md:w-1/2 bg-[#232323] relative">
+    <div className="hidden md:block md:w-1/2  bg-[#232323] relative">
       <img
-        className="h-[100vh] w-full object-cover  absolute top-0 z-10 "
+        className="w-full object-cover  absolute top-0 z-10 "
         src={backgroundImage}
         alt="background"
       />
