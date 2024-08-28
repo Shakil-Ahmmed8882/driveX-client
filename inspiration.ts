@@ -23,12 +23,16 @@ https://dribbble.com/shots/24244862-Car-Rental-Sign-up-Page-UI-Design
 // dashboard
 https://www.cmarix.com/blog/8-time-tested-dark-theme-design-tips-to-advance-dashboard-development/
 https://dribbble.com/shots/17578107/attachments/12725752?mode=media
-
+https://dribbble.com/shots/18919988-Ausbildung-de-Dashboard-Components-Dark-Mode
 
 // Car Rental Dashboard: Where Every Journey Begins Dark Mode
 https://dribbble.com/shots/22499868-Car-Rental-Dashboard-Where-Every-Journey-Begins-Dark-Mode
 
 
 
+
+// banner background 
+https://i.pinimg.com/736x/53/47/da/5347da012c5173ff17db741de923cf65.jpg
+https://i.pinimg.com/736x/c0/4f/2c/c04f2c6bede69acfc3e180886b2370e0.jpg
 
 */
