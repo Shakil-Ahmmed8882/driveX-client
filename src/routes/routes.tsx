@@ -8,6 +8,7 @@ import Login from "../modules/signup/Login";
 import Dashboard from "../layout/Dashboard";
 import { routeGenerator } from "../utils/routesGenerator";
 import { homePaths, userDashboardPaths } from "./homeRoutes";
+import PaymentLayout from "../modules/payment/feature/PaymentLayout";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
     children: routeGenerator(userDashboardPaths),
+  },
+  {
+    path: "/payment",
+    element: <PaymentLayout />,
   },
   {
     path: "/sign-up",

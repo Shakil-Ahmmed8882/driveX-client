@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 const Container = ({
-  className = "pb-8",
+  className = "pb-20",
   children,
 }: {
   children: ReactNode;

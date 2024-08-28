@@ -11,7 +11,7 @@ import Container from "../layouts/Container";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-300 py-12">
+    <footer className="bg-[#000000a3] text-gray-300 py-12">
       <Container>
         <div className=" mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

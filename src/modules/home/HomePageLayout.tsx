@@ -1,5 +1,6 @@
 import Banner from "./features/Banner";
 import FeaturedCars from "./features/FeaturedCars";
+import TestimonialsList from "./features/TestimonialsList";
 import WhyChooseUs from "./features/WhyChooseUs";
 
 const HomePageLayout = (): JSX.Element => {
@@ -8,6 +9,7 @@ const HomePageLayout = (): JSX.Element => {
       <Banner />
       <FeaturedCars/>
       <WhyChooseUs/>
+      <TestimonialsList/>
     </>
   );
 };

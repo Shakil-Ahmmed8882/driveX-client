@@ -1,9 +1,11 @@
+import Container from "../../shared/layouts/Container";
 
-
-const AllCarsLayout= (): JSX.Element => {
+const AllCarsLayout = (): JSX.Element => {
   return (
-    <h1>AllCarsLayout</h1>
+    <Container>
+      <h1>AllCarsLayout</h1>
+    </Container>
   );
 };
 
-export default AllCarsLayout; 
+export default AllCarsLayout;

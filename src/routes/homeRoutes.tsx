@@ -1,4 +1,6 @@
 import About from "../modules/about/About";
+import AllCarsLayout from "../modules/allCars/AllCarsLayout";
+import CarDetails from "../modules/carDetails/CarDetails";
 import Contact from "../modules/contact/Contact";
 import HomePageLayout from "../modules/home/HomePageLayout";
 import UserDashboard from "../modules/userDashboard/dashboard/UserDashboard";
@@ -31,6 +33,20 @@ export const homePaths = [
     name: "Dashboard",
     path: "dashboard",
     element: <Contact />,
+  },
+  {
+    name: "All Cars",
+    path: "all-cars",
+    element: <AllCarsLayout />,
+  },
+  
+
+
+
+  // Details page
+  {
+    path: "cars/:id",
+    element: <CarDetails />,
   },
 ];
 
