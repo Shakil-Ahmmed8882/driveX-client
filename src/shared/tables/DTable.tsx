@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Table, Pagination, Button } from "antd";
-import {Query} from "../../utils/index"
+import { Query } from "../../utils/index";
+import "./table.css"; // Import your custom CSS
+import { Delete } from "../../assets/icons/Icons";
+import { Edit2 } from "lucide-react";
 
-/**
- * Reusable Table component.
- *
- * @param  columns - Column configurations for the table.
- * @param  fetchData - Function to fetch data.
- * @param  actions - Object containing action handlers.
- * @param  searchValue - Search term for filtering.
- */
 const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
   const [params, setParams] = useState(undefined);
   const [page, setPage] = useState(1);
@@ -18,24 +13,22 @@ const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
   const tableData = data?.data?.result || [];
   const meta = data?.data?.meta || {};
 
-  // Handle custom actions
   const handleAction = (actionType, record) => {
     if (actions && actions[actionType]) {
       actions[actionType](record);
     }
   };
 
-  // Handle action column
   const actionColumn = {
     title: "Action",
     key: "action",
-    render: (text, record) => (
-      <div className="flex gap-3">
+    render: (text, record:ReactNode) => (
+      <div className="flex gap-3 hover:bg-[redd]">
         {actions && actions.edit && (
-          <Button onClick={() => handleAction('edit', record)}>Edit</Button>
+          <Button className="bg-transparent border-none hover:!bg-[#282828]" onClick={() => handleAction("edit", record)}><Edit2 className="text-primaryColor size-5"/></Button>
         )}
         {actions && actions.delete && (
-          <Button onClick={() => handleAction('delete', record)}>Delete</Button>
+          <Button className="bg-transparent border-none hover:!bg-[#282828]" onClick={() => handleAction("delete", record)}><Delete/></Button>
         )}
       </div>
     ),
@@ -44,14 +37,15 @@ const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
 
   const updatedColumns = [...columns, actionColumn];
 
-  
   return (
     <>
       <Table
+        className="dark-theme-table px-5 py-5"
         loading={isFetching}
         columns={updatedColumns}
         dataSource={tableData}
         onChange={(pagination, filters) => {
+         
           const queryParams = [];
 
           Object.keys(filters).forEach((key) => {
@@ -62,15 +56,14 @@ const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
             }
           });
 
-          // @ts-ignore          setParams(queryParams);
-          console.log(queryParams);
+          setParams(queryParams);
         }}
-        showSorterTooltip={{ target: "sorter-icon" }}
         pagination={false}
       />
       <div className="flex justify-start my-3 mr-6">
         <Pagination
-          onChange={(value)=> setPage(value)}
+          className="dark-theme-table"
+          onChange={(value) => setPage(value)}
           total={meta?.total}
           pageSize={meta?.limit}
           current={page}

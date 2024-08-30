@@ -7,7 +7,7 @@ type TInputProps = {
   name: string;
   label?: string;
   className?: string;
-  defaultValue?: string
+  defaultValue?: string | number 
 };
 
 const DInput = ({ type, name, label, className, defaultValue }: TInputProps) => {

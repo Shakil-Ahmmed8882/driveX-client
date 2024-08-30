@@ -1,0 +1,43 @@
+
+  .dark-theme-table .ant-table-thead > tr > th {
+    background-color: #2B2B2B; /* Darker shade for header background */
+    
+    color: #fff; /* White text */
+    border: none; /* Remove header border */
+  }
+  
+  .dark-theme-table .ant-table-tbody > tr > td{
+    background-color: #121212; /* Slightly lighter shade for body background */
+    color: #fff; /* White text */
+    border: none; /* Remove cell borders */
+  }
+  
+  /* HOVER EFFECT */
+  .dark-theme-table .ant-table-tbody > tr:hover > td {
+    background-color: #2a2a2a !important; /* Gray hover effect */
+    color: #fff;
+  }
+  
+  .dark-theme-table .ant-pagination-item {
+    background-color: #1c1c1c; /* Pagination background */
+    color: #fff  !important; /* White text */
+    border: none; /* Remove pagination item border */
+  }
+  
+  .dark-theme-table .ant-pagination-item-active {
+    background-color: #2a2a2a; /* Active pagination item background */
+    color: #fff; /* White text */
+    border: none; /* Remove active pagination item border */
+  }
+  
+  /* Optional: If you want to add custom borders, you can do it here */
+  .dark-theme-table .ant-table, 
+  .dark-theme-table .ant-table-thead > tr > th, 
+  .dark-theme-table .ant-table-tbody > tr > td {
+    border: none; /* Ensure no borders are present */
+  }
+  
+  /* Remove the default table border */
+  .dark-theme-table .ant-table-wrapper {
+    border: none;
+  }

@@ -58,7 +58,7 @@ const BookingLayout: React.FC = () => {
     }
 
     setCarQuery(queries); // Set the query parameters
-    console.log(queries)
+    console.log(queries);
   };
 
   const handleBookNow = (car: Car) => {

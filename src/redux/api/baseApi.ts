@@ -62,7 +62,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 
       result = await baseQuery(args, api, extraOptions);
     } else {
-      api.dispatch(logout());
+      // api.dispatch(logout());
     }
   }
 
@@ -72,5 +72,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
+  tagTypes: ["booking"],
   endpoints: () => ({}),
 });

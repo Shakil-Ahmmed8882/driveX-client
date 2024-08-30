@@ -10,7 +10,7 @@ const OverviewCard: React.FC<OverviewCardProps> = ({ title, value }) => (
   <div className="bg-gradient-to-r from-[#2d2d2d] to-[#2B2B2B] p-7 rounded-lg shadow-lg w-full mt-4 lg:mt-0">
     <h2 className="text-xl text-[#9e9e9e] leading-10 font-semibold">{title}</h2>
     <p className="text-4xl mt-4">
-      <span className="text-[gray] pr-3 ">$</span>{value}
+      <span className="text-[gray] pr-3 "></span>{value}
     </p>
   </div>
 );

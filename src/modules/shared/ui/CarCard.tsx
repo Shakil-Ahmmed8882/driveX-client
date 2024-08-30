@@ -12,8 +12,10 @@ type CarCardProps = {
 };
 
 const CarCard: React.FC<CarCardProps> = ({ car }) => {
+  
   return (
-    <Link to='/cars/id'>
+    // <Link to={`/cars/${car}`}>
+    <Link to={`/cars/66d167466537d47a8f9db63e`}>
       <motion.div
         className="rounded-lg shadow-lg overflow-hidden"
         layout

@@ -12,8 +12,6 @@ const CarBookingForm = ({carId}) => {
 
   const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
     // Formatting the date and time using moment.js
-
-    console.log(carId)
     const formattedData = {
       ...data,
       carId,
@@ -29,10 +27,9 @@ const CarBookingForm = ({carId}) => {
     
     try {
       // Send the data to the backend using axios
-      const res = await bookCar(formattedData)
-      if(res?.data?.url){
-        window.location.replace(res?.data?.url)
-      }
+      // const res = await bookCar(formattedData)
+       await bookCar(formattedData)
+    
       // navigate("/payment");
     } catch (error) {
       console.error("Error during booking:", error);
@@ -48,7 +45,7 @@ const CarBookingForm = ({carId}) => {
           Fill out the form below to reserve your car.
         </p>
       </div>
-      <DForm onSubmit={handleSubmit} className="grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 items-center">
+      <DForm onSubmit={handleSubmit} className="grid sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 items-center">
         <DInput defaultValue="shakil ahmmed" type="text" name="name" label="Full Name:" />
         <DInput defaultValue="shakil@gmail.com" type="text" name="email" label="Email:" />
         <DInput defaultValue="123456" type="number" name="phone" label="Phone:" />
@@ -58,7 +55,7 @@ const CarBookingForm = ({carId}) => {
         <DTimePicker name={"pick-up-time"} label={"Pick-up time"} />
         <DTimePicker name={"drop-off-time"} label={"Drop-off time"} />
         <Button
-          className="bg-primaryColor  border-none mt-3 md:-mt-5 text-white"
+          className="bg-primaryColor   border-none mt-3 md:-mt-5 text-white"
           htmlType="submit"
         >
           Reserve Now

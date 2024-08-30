@@ -1,5 +1,5 @@
 import { RoundCheckBadge } from "../../../assets/icons/Icons";
-import SunRays from "../../../shared/animations/SunRays";
+
 
 const PaymentLayout = (): JSX.Element => {
   return (
