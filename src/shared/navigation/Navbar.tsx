@@ -2,15 +2,18 @@ import { Link, NavLink } from "react-router-dom";
 import { homePaths } from "../../routes/homeRoutes";
 import Logo from "../ui/Logo";
 import DrawerNavigation from "./DrawerNavigation";
-import { selectCurrentUser } from "../../redux/features/auth/authSlice";
-import { useAppSelector } from "../../redux/hooks";
+import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import Container from "../layouts/Container";
 
 const Navbar = () => {
   const user = useAppSelector(selectCurrentUser)
+  const dispach =useAppDispatch()
 
 
   return (
-    <header className="h-24 border-b border-[#676767] items-center max-w-6xl mx-auto  flex justify-between ">
+    <Container className="pb-0">
+    <header className="h-24 border-b relative border-[#676767] z-50 items-center  flex justify-between ">
       <article className="flex gap-3  items-center  ">
         <Logo/>
         <article className=" text-[#a6a5a5] hidden sm:flex gap-3 pl-8">
@@ -27,7 +30,12 @@ const Navbar = () => {
       {/* lg */}
       <div>
       <div className="hidden sm:flex">
-        {user ?<div className="size-10 rounded-full bg-[#80808066]"></div>:  <Link to={'/sign-up'}>
+        {user ?
+        
+        
+      <button onClick={(()=> dispach(logout()))} className="text-[white] text-sm bg-primaryColor  p-2 rounded-lg px-5">Logout</button>
+        
+        :  <Link to={'/sign-up'}>
       <button className="text-[white] text-sm bg-primaryColor  uppercase p-2 rounded-lg px-5">Sign up</button>
         </Link>
         
@@ -44,6 +52,7 @@ const Navbar = () => {
 
 
     </header>
+    </Container>
   );
 };
 

@@ -74,19 +74,19 @@ export default featuresData;
 
 export const testimonialsData = [
   {
-    name: "John Doe",
+    name: "Arju",
     position: "CEO at Company",
     image:"https://i2.wp.com/d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg",
     text: "This service is amazing! The team was incredibly professional and delivered top-notch results.",
   },
   {
-    name: "Jane Smith",
+    name: "Maisha",
     position: "CTO at Another Company",
     image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu_83ooClxCCq-eCkvNtsUKBu5c3bm6JsMHlEQt5P-XI3LCK3m8ArRHWtEnsxd25myjnw&usqp=CAU", 
     text: "I am highly impressed with the quality and timeliness of their work. Highly recommended!",
   },
   {
-    name: "Alice Johnson",
+    name: "Robin",
     position: "Manager at Some Company",
     image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s",
     text: "Exceptional service and support throughout the project. I will definitely work with them again.",

@@ -1,12 +1,14 @@
 import { FillStar } from "../../assets/icons/Index";
 
-const Ratings = (): JSX.Element => {
+const Ratings = ({times = [1,2,3,4], unfilled = true, className = ''}): JSX.Element => {
   return (
-    <div className="flex items-center gap-2">
-      {[1, 2, 3, 4].map((star) => (
-        <FillStar className="text-[#f09903]" />
+    <div className={` flex items-center gap-2`}>
+      {[...times].map(() => (
+        <FillStar className={`${className} text-[#f09903] size-5`} />
       ))}
-      <FillStar className="text-[gray]" />
+      {
+        unfilled && <FillStar className={`text-[gray] ${className}`} />
+      }
       <div className="flex items-center gap-2">
         <span className="text-sm font-medium">(4.8)</span>
       </div>

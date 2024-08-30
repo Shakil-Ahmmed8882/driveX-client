@@ -3,50 +3,65 @@
 @tailwind utilities;
 
 /* Font (inter) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-
-body{
-    /* background-color: #141414; */
-    background-color: #141414;
-    font-family: "Inter", system-ui;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: #fff;
+body {
+  /* background-color: #141414; */
+  background-color: #141414;
+  font-family: "Inter", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #fff;
 }
 
 .description {
-    @apply text-[#c1c1c1] 
-
+  @apply text-[#c1c1c1];
 }
 .transition {
-    @apply transition-all divide-neutral-400
-
+  @apply transition-all divide-neutral-400;
 }
-
-
 
 /* Custom CSS to change placeholder text color */
 .custom-picker-placeholder-style .ant-picker-input > input::placeholder {
-    color: #383737; /* Replace with your desired color */
-  }
+  color: #383737; /* Replace with your desired color */
+}
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
 
-  
-  
-  /* Scrollbar */
-  ::-webkit-scrollbar {
-    width: 3px;
-  }
-  
-   ::-webkit-scrollbar-track {
-    background: #1e1d1d;
-  }
-  
-   ::-webkit-scrollbar-thumb {
-    background: #393939;
-  }
-  
-   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+::-webkit-scrollbar-track {
+  background: #1e1d1d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #393939;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*  */
+/* In your global stylesheet or a CSS module */
+
+.custom-select .ant-select-selector {
+  background-color: #333 !important; /* Dark background for the select box */
+  border: 1px solid #444 !important; /* Border color for the select box */
+  color: #ffff !important; /* Text color for the selected option and placeholder */
+}
+
+.custom-select .ant-select-selection-placeholder {
+  color: #aaa !important; /* Placeholder text color */
+}
+/* stick booking reveal on scroll */
+.sticky {
+  position: sticky;
+  top: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.-top-full {
+  transform: translateY(-100%);
+}

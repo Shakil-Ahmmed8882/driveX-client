@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 const Container = ({
   className = "pb-20",
-  children,
+  children
 }: {
   children: ReactNode;
   className?: string;

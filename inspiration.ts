@@ -37,3 +37,13 @@ https://i.pinimg.com/736x/c0/4f/2c/c04f2c6bede69acfc3e180886b2370e0.jpg
 https://www.pinterest.com/pin/934074778945689981/
 
 */
+
+
+
+// Select all image elements with the src attribute
+// let imageElements = document.querySelectorAll('img[src]');
+// let imageUrls = Array.from(imageElements).map(img => img.src);
+// let pngUrls = imageUrls.filter(url => url.endsWith('.png'));
+// console.log(pngUrls);
+// copy(pngUrls.join('\n'));
+

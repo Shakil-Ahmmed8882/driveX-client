@@ -1,5 +1,6 @@
 import About from "../modules/about/About";
 import AllCarsLayout from "../modules/allCars/AllCarsLayout";
+import BookingLayout from "../modules/booking/BookingLayout";
 import CarDetails from "../modules/carDetails/CarDetails";
 import Contact from "../modules/contact/Contact";
 import HomePageLayout from "../modules/home/HomePageLayout";
@@ -21,7 +22,7 @@ export const homePaths = [
   {
     name: "Bookings",
     path: "bookings",
-    element: <h1>Bookings</h1>,
+    element: <BookingLayout/> ,
   },
   // blog
   {
@@ -39,15 +40,13 @@ export const homePaths = [
     path: "all-cars",
     element: <AllCarsLayout />,
   },
-  
-
-
 
   // Details page
   {
     path: "cars/:id",
     element: <CarDetails />,
   },
+  
 ];
 
 export const userDashboardPaths = [

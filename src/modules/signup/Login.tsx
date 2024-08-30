@@ -3,7 +3,7 @@ import DInput from "../../shared/forms/DInput";
 import DForm from "../../shared/forms/DForm";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import SidePanel from "./shared/SidePanel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { RememberAndForgetPassword } from "./SignUp";
 import { useAppDispatch } from "../../redux/hooks";
@@ -17,6 +17,11 @@ import { LoginResponse } from "./type";
 function Login() {
   const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
+
+
+
+
   const handleSignIn: SubmitHandler<FieldValues> = async (data) => {
     try {
       // Correctly type the response using LoginResponse
@@ -30,6 +35,7 @@ function Login() {
           token: res.token,
         };
         dispatch(setUser(userData));
+        navigate('/')
       }
     } catch (error) {
       console.error("Login failed:", error);
@@ -47,8 +53,8 @@ function Login() {
             </h2>
           </div>
           <DForm onSubmit={handleSignIn}>
-            <DInput type="text" label="Email" name="email" />
-            <DInput type="text" label="Password" name="password" />
+            <DInput    type="text" label="Email" name="email" />
+            <DInput    type="text" label="Password" name="password" />
 
             {/* remember & forgot pass */}
             <RememberAndForgetPassword />

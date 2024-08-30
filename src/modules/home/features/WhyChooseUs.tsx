@@ -35,9 +35,9 @@ const WhyChooseUs: React.FC = () => {
                 {feature.gradient ? (
                   <div className="flex flex2 items-end mb-2">
                     <h3 className="text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-                      72
+                     24/
                     </h3>
-                    <span className="text-5xl">hrs</span>
+                    <span className="text-6xl font-bold text-[#cfcfcf]">7</span>
                   </div>
                 ) : 
                 

@@ -9,6 +9,8 @@ import Dashboard from "../layout/Dashboard";
 import { routeGenerator } from "../utils/routesGenerator";
 import { homePaths, userDashboardPaths } from "./homeRoutes";
 import PaymentLayout from "../modules/payment/feature/PaymentLayout";
+import PaymentSuccess from "../modules/payment/feature/PaymentSuccess";
+import PaymentFailed from "../modules/payment/feature/PaymentFail";
 
 
 const router = createBrowserRouter([
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
   {
     path: "/payment",
     element: <PaymentLayout />,
+  },
+  {
+    path: "payment/success/:transectionId",
+    element: <PaymentSuccess />,
+  },
+  {
+    path: "payment/fail/:transectionId",
+    element: <PaymentFailed />,
   },
   {
     path: "/sign-up",

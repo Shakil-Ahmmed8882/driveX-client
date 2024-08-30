@@ -7,9 +7,10 @@ type TInputProps = {
   name: string;
   label?: string;
   className?: string;
+  defaultValue?: string
 };
 
-const DInput = ({ type, name, label, className }: TInputProps) => {
+const DInput = ({ type, name, label, className, defaultValue }: TInputProps) => {
   const { theme } = { theme: "dark" };
 
   return (
@@ -23,6 +24,7 @@ const DInput = ({ type, name, label, className }: TInputProps) => {
         name={name}
         render={({ field }) => (
           <Input
+          defaultValue={defaultValue}
             autoComplete="off"
             placeholder={label}
             className={`

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import CarQueryInput from "../components/banner/CarQueryInput";
 import { motion } from "framer-motion";
+import Container from "../../../shared/layouts/Container";
 
 const cars = [
   {
@@ -27,9 +28,8 @@ const imageVariants = {
 
 const Banner = () => {
   const [searchValue, setSearchValue] = useState("");
-
   return (
-    <section className="text-white max-w-6xl mx-auto py-16">
+    <Container className="">
       <div className="lg:flex gap-3 items-end">
         <article className="flex-2 w-full h-72 lg:h-auto flex flex-col items-center justify-center lg:w-2/3 absolute lg:static top-32 z-20">
           <div className="pb-8 w-full text-center lg:text-left lg:items-start">
@@ -102,7 +102,7 @@ const Banner = () => {
           </motion.div>
         </article>
       </div>
-    </section>
+    </Container>
   );
 };
 
