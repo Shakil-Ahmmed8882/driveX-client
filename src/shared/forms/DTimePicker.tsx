@@ -27,7 +27,7 @@
             control={control}
             render={({ field }) => (
             <TimePicker
-            className="custom-picker-placeholder-style bg-[#343434be] placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]  !text-[white]"
+            className="custom-picker-placeholder-style p-2 bg-[#343434be] placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]  !text-[white]"
                 style={{ width: "100%" }}
                 size="large"
                 {...field}

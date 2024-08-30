@@ -41,14 +41,14 @@ const CarBookingForm = ({carId}) => {
   };
 
   return (
-    <div className="grid gap-4 md:gap-8  py-6 px-3 rounded-b-lg  bg-[#35353579]">
+    <div className="grid gap-4 md:gap-8  py-8 px-6 rounded-b-lg  bg-[#35353579]">
       <div className="grid gap-2">
-        <h2 className="text-2xl font-bold">Book Your Rental</h2>
-        <p className="description mt-2">
+        <h2 className="text-3xl font-bold">Book Your Rental</h2>
+        <p className="description mt-2 pb-3">
           Fill out the form below to reserve your car.
         </p>
       </div>
-      <DForm onSubmit={handleSubmit}>
+      <DForm onSubmit={handleSubmit} className="grid md:grid-cols-2 md:gap-3 lg:grid-cols-3 items-center">
         <DInput defaultValue="shakil ahmmed" type="text" name="name" label="Full Name:" />
         <DInput defaultValue="shakil@gmail.com" type="text" name="email" label="Email:" />
         <DInput defaultValue="123456" type="number" name="phone" label="Phone:" />
@@ -58,7 +58,7 @@ const CarBookingForm = ({carId}) => {
         <DTimePicker name={"pick-up-time"} label={"Pick-up time"} />
         <DTimePicker name={"drop-off-time"} label={"Drop-off time"} />
         <Button
-          className="bg-primaryColor border-none text-white mt-5"
+          className="bg-primaryColor  border-none mt-3 md:-mt-5 text-white"
           htmlType="submit"
         >
           Reserve Now

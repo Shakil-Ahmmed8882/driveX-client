@@ -31,7 +31,7 @@ const DInput = ({ type, name, label, className, defaultValue }: TInputProps) => 
           ${className}
           ${
             theme === "dark"
-              ? "bg-[#343434be] shadow placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3f99] focus-within:bg-[#343434be]  text-[white]"
+              ? "bg-[#343434be] shadow placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3f99] focus-within:bg-[#343434be]  text-[white] p-2"
               : ""
           }
           text-xl`}

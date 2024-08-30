@@ -1,14 +1,19 @@
+import placeholder from "../../../assets/images/home/featured/bg-car3.jpg";
+
 const CarImage = ({ url }: { url: string }) => {
+  // Handle image error
+  const handleError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    event.currentTarget.src = placeholder;
+  };
+
   return (
     <img
-      src={
-        url ||
-        "https://i.pinimg.com/564x/fd/18/0b/fd180b826f3f21fde530e8a4e38899e5.jpg"
-      }
+      src={url || placeholder}
       alt="Car Image"
       width="800"
       height="600"
       className="w-full rounded-lg overflow-hidden object-cover aspect-[4/3]"
+      onError={handleError} // Attach the error handler
     />
   );
 };

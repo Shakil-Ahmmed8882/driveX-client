@@ -8,7 +8,6 @@ const Dashboard = (): JSX.Element => {
       <DashboardSidebar />
 
       <div className="flex flex-col bg-[#242424]">
-      
         <DashboardNavbar />
         <Outlet/>
       </div>

@@ -41,14 +41,14 @@ const CustomerDashboard: React.FC = () => {
     <div>
       <main className="flex-1 p-10 overflow-y-auto">
         {/* Overview Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
+        <section className="lg:flex gap-6 mb-10">
           <OverviewCard title="Total Bookings" value={dashboardData.totalBookings} />
           <OverviewCard title="Pending Payments" value={`$${dashboardData.pendingPayments}`} />
           <OverviewCard title="Total Spendings" value={`$${dashboardData.totalSpendings}`} />
         </section>
 
         {/* Charts Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
           <div className="bg-[#2C2C2C] p-11 rounded-lg shadow-lg">
             <h2 className="text-xl font-semibold mb-3 text-[#9e9e9e]">Monthly Bookings</h2>
             <div className="rounded-lg">

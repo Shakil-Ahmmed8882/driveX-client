@@ -87,7 +87,7 @@ export const RememberAndForgetPassword = () => {
         type="checkbox"
         className="form-checkbox h-4 w-4 text-blue-500"
       />
-      <span className="ml-2">Remember me</span>
+      <span className="ml-2">T&Q</span>
     </label>
     <a href="#" className="text-sm text-white hover:text-blue-400">
       Forgot password?

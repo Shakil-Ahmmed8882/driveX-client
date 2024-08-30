@@ -18,7 +18,7 @@ const DDatePicker: React.FC<TDatePickerProps> = ({ name, label }) => {
         name={name}
         render={({ field }) => (
           <DatePicker
-            className="custom-picker-placeholder-style bg-[#343434be] border-none text-white placeholder:text-[#8f8f8f] hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]"
+            className="custom-picker-placeholder-style p-2 bg-[#343434be] border-none text-white placeholder:text-[#8f8f8f] hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]"
             style={{ width: "100%" }}
             size="large"
             {...field}
