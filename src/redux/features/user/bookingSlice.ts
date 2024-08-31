@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
-import { TMybooking } from '../../../types/booking.type';
+import { Tbooking } from '../../../types/booking.type';
 
 interface BookingState {
-  bookings: TMybooking[];
+  bookings: Tbooking[];
 }
 
 const initialState: BookingState = {
@@ -14,10 +14,10 @@ const bookingSlice = createSlice({
   name: 'bookings',
   initialState,
   reducers: {
-    setBookings: (state, action: PayloadAction<TMybooking[]>) => {
+    setBookings: (state, action: PayloadAction<Tbooking[]>) => {
       state.bookings = action.payload;
     },
-    addBooking: (state, action: PayloadAction<TMybooking>) => {
+    addBooking: (state, action: PayloadAction<Tbooking>) => {
       state.bookings.push(action.payload);
     },
     clearBookings: (state) => {

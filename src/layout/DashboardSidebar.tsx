@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import Logo from "../shared/ui/Logo";
-import { userDashboardPaths } from "../routes/homeRoutes";
+import { adminPath } from "../routes/adminRoutes";
+import { userDashboardPaths } from "../routes/userDashboardRoutes";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../redux/features/auth/authSlice";
+import { ROLE } from "../shared/constants/global";
 
 const DashboardSidebar = (): JSX.Element => {
-  const role = "customer";
-  let routes;
+  const user = useSelector(selectCurrentUser);
 
-  switch (role) {
-    case "customer":
+  let routes;
+  switch (user?.role) {
+    case ROLE.USER:
       routes = userDashboardPaths;
+      break;
+    case ROLE.ADMIN:
+      routes = adminPath;
   }
 
   return (
@@ -20,7 +27,7 @@ const DashboardSidebar = (): JSX.Element => {
         {routes?.map((route) => {
           return (
             <Link
-              to={`/dashboard/${route.path === "/dashboard" ? "" : route.path}`}
+              to={`${route.path === "user/dashboard" ? "" : route.path}`}
               className="py-3 px-4 transition-all duration-300 cursor-pointer text-lg hover:bg-[#3a3a3a]"
             >
               {route.name}

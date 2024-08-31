@@ -2,7 +2,7 @@ import { SearchIcon } from "../assets/icons/Icons";
 
 const DashboardNavbar = (): JSX.Element => {
   return (
-    <header className="flex h-16 pt-3 items-center gap-4 bg-[#252525] px-6 lg:h-[60px]">
+    <header className="flex h-16 pt-3 items-center gap-4 bg-[#252525] lg:h-[60px]">
       <h1 className="flex-1 font-semibold text-lg">Dashboard</h1>
       <div className="flex items-center gap-4">
         <form className="flex-1 sm:flex-initial ">

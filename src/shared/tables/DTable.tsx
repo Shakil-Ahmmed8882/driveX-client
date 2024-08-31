@@ -7,10 +7,12 @@ import { Edit2 } from "lucide-react";
 
 const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
   const [params, setParams] = useState(undefined);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(6);
   const { data, isFetching } = fetchData(Query(page, searchValue));
 
-  const tableData = data?.data?.result || [];
+
+  
+  const tableData = data?.data?.result || data?.data || [];
   const meta = data?.data?.meta || {};
 
   const handleAction = (actionType, record) => {
@@ -25,7 +27,7 @@ const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
     render: (text, record:ReactNode) => (
       <div className="flex gap-3 hover:bg-[redd]">
         {actions && actions.edit && (
-          <Button className="bg-transparent border-none hover:!bg-[#282828]" onClick={() => handleAction("edit", record)}><Edit2 className="text-primaryColor size-5"/></Button>
+          <Button className="relative bg-transparent border-none hover:!bg-[#282828]" onClick={() => handleAction("edit", record)}><Edit2 className="text-primaryColor size-5"/></Button>
         )}
         {actions && actions.delete && (
           <Button className="bg-transparent border-none hover:!bg-[#282828]" onClick={() => handleAction("delete", record)}><Delete/></Button>
@@ -40,7 +42,7 @@ const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
   return (
     <>
       <Table
-        className="dark-theme-table px-5 py-5"
+        className="dark-theme-table "
         loading={isFetching}
         columns={updatedColumns}
         dataSource={tableData}
@@ -65,8 +67,8 @@ const ReusableTable = ({ columns, fetchData, actions, searchValue }) => {
           className="dark-theme-table"
           onChange={(value) => setPage(value)}
           total={meta?.total}
-          pageSize={meta?.limit}
-          current={page}
+          pageSize={meta?.limit }
+          current={3}
         />
       </div>
     </>

@@ -63,7 +63,7 @@ const UserBookings = (): JSX.Element => {
   };
   
   
-
+console.log(data)
 
   // 
 

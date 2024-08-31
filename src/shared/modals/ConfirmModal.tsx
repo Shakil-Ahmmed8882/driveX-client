@@ -1,59 +1,58 @@
-// CustomConfirmModal.tsx
-import  { useState } from "react";
-import { Modal, Button, Flex } from "antd";
-import { WarningIcon } from "../../assets/icons/icons";
+import { Button } from "antd";
+import { useState } from "react";
 
-
-
-// Define types for props
-interface TConfirmModalProps {
-  content?: string;
-  onOk: () => void;
-  customFooter?: React.ReactNode; // Optional footer prop if needed
+interface DeleteModalProps {
+  setIsDelete: (isOpen: boolean) => void;
+  onConfirm: () => void; // Callback when the user confirms
+  onCancel: () => void; // Callback when the user cancels
+  title: string; // Title for the confirmation dialog
+  description: string; // Description for the confirmation dialog
 }
 
-// const ConfirmModal = ({ content, onOk, customFooter }) => {
-const ConfirmModal = ({ content, onOk }:TConfirmModalProps) => {
-  const [visible, setVisible] = useState(false);
+const DeleteConfirmationModal = ({
+  setIsDelete,
+  onConfirm,
+  onCancel,
+  title,
+  description,
+}: DeleteModalProps): JSX.Element => {
+  const [isDeleteConfirm, setIsDeleteConfirm] = useState<boolean>(false);
 
-  const showModal = () => {
-    setVisible(true);
-  };
-
-  const handleOk = () => {
-    onOk();
-    setVisible(false);
+  const handleConfirm = () => {
+    onConfirm(); // Notify parent of successful confirmation
+    setIsDelete(false); // Close the modal after operation
   };
 
   const handleCancel = () => {
-    setVisible(false);
+    setIsDelete(false); // Close the modal
+    onCancel(); // Notify parent of cancellation
   };
 
   return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        Delete
-      </Button>
-      <Modal
-        visible={visible}
-        title={
-          <Flex gap={5} align="center">
-            <WarningIcon /> <h2 className="md:text-[22px]">Are you sure?</h2>
-          </Flex>
-        }
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={
-          <>
-            <Button onClick={handleCancel}>Cancel</Button>
-            <Button onClick={handleOk}>Cancel</Button>
-          </>
-        }
-      >
-        <p className="pl-9">{content || "This won't be revert"}</p>
-      </Modal>
-    </>
+    <div className="modal flex h-screen items-center justify-center flex-col">
+      <div className="w-1/2 grid justify-center text-center">
+        <h1 className="text-2xl md:text-5xl leading-loose">{title}</h1>
+        <p className="description text-[20px] mt-3">{description}</p>
+        <div className="flex gap-3 items-center justify-center mt-8">
+          <Button
+            type="primary"
+            className="px-20 py-5"
+            danger
+            onClick={() => {
+              if (isDeleteConfirm) {
+                handleConfirm();
+              } else {
+                setIsDeleteConfirm(true);
+              }
+            }}
+          >
+            {isDeleteConfirm ? "Confirm" : "Ok"}
+          </Button>
+          <Button className="px-20 py-5" onClick={handleCancel}>Cancel</Button>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default ConfirmModal;
+export default DeleteConfirmationModal;

@@ -1,16 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { TQueryParam, TResponseRedux } from '../../../types';
-import { baseApi } from '../../api/baseApi';
-
-
-
-
+import { TQueryParam, TResponseRedux } from "../../../types";
+import { baseApi } from "../../api/baseApi";
 
 const carApi = baseApi.injectEndpoints({
-  endpoints: (builder:any) => ({
-    
-     getAllCars: builder.query({
-      query: (args:TQueryParam[]) => {
+  endpoints: (builder) => ({
+    getAllCars: builder.query({
+      query: (args: TQueryParam[]) => {
         const params = new URLSearchParams();
 
         if (args) {
@@ -31,13 +25,14 @@ const carApi = baseApi.injectEndpoints({
           meta: response?.meta,
         };
       },
+      providesTags: ['carList'], // Use a different tag for list
     }),
 
-     getSingleCar: builder.query({
-      query: (carId:string) => {
+    getSingleCar: builder.query({
+      query: (carId: string) => {
         return {
           url: `/cars/${carId}`,
-          method: "GET"
+          method: "GET",
         };
       },
       transformResponse: (response: TResponseRedux<any[]>) => {
@@ -46,12 +41,34 @@ const carApi = baseApi.injectEndpoints({
           meta: response?.meta,
         };
       },
+      providesTags: (result, error, carId) => [{ type: 'car', id: carId }],
     }),
 
+    updateCar: builder.mutation({
+      query: ({ data, carId }: { data: any; carId: string }) => ({
+        url: `/cars/${carId}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: (result, error, { carId }) => [{ type: 'car', id: carId }],
+    }),
 
-
-
-}),
+    deleteCar: builder.mutation({
+      query: (carId: string) => ({
+        url: `/cars/${carId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: (result, error, carId) => [
+        { type: 'car', id: carId },
+        { type: 'carList' } // Invalidate the list to trigger a refetch
+      ],
+    }),
+  }),
 });
 
-export const { useGetAllCarsQuery, useGetSingleCarQuery } = carApi;
+export const {
+  useUpdateCarMutation,
+  useGetAllCarsQuery,
+  useGetSingleCarQuery,
+  useDeleteCarMutation
+} = carApi;

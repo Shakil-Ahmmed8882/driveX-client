@@ -6,8 +6,7 @@ const Dashboard = (): JSX.Element => {
   return (
     <div className="max-w-[1700px] overflow-x-hidden mx-auto grid min-h-screen w-full grid-cols-[280px_1fr] bg-gradient-to-tr from-[#2B2C34] to-[#1A1C21] overflow-hidden">
       <DashboardSidebar />
-
-      <div className="flex flex-col bg-[#242424]">
+      <div className="flex flex-col bg-[#242424] px-6">
         <DashboardNavbar />
         <Outlet/>
       </div>

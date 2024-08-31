@@ -7,26 +7,41 @@ import Signup from "../modules/signup/SignUp";
 import Login from "../modules/signup/Login";
 import Dashboard from "../layout/Dashboard";
 import { routeGenerator } from "../utils/routesGenerator";
-import { homePaths, userDashboardPaths } from "./homeRoutes";
+import { homePaths } from "./homeRoutes";
 import PaymentLayout from "../modules/payment/feature/PaymentLayout";
 import PaymentSuccess from "../modules/payment/feature/PaymentSuccess";
 import PaymentFailed from "../modules/payment/feature/PaymentFail";
-
+import ProtectedRoute from "../layout/ProtectedRoute";
+import { userDashboardPaths } from "./userDashboardRoutes";
+import { adminPath } from "./adminRoutes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: routeGenerator(homePaths)
+    children: routeGenerator(homePaths),
   },
   {
     path: "/car-listing-page",
     element: <CarListingPage />,
   },
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "/user/dashboard",
+    element: (
+      <ProtectedRoute role="user">
+        <Dashboard />
+      </ProtectedRoute>
+    ),
     children: routeGenerator(userDashboardPaths),
+  },
+  {
+    path: "/admin/dashboard",
+    element: (
+      <ProtectedRoute role="admin">
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+    children: routeGenerator(adminPath),
   },
   {
     path: "/payment",

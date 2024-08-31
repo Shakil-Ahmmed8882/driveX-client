@@ -1,4 +1,4 @@
-export type TMybooking = {
+export type Tbooking = {
     _id: string
     "pick-up-date": string
     user: TUser

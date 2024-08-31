@@ -5,9 +5,6 @@ import BookingFormPage from "../modules/bookingFormPage/BookingFormPage";
 import CarDetails from "../modules/carDetails/CarDetails";
 import Contact from "../modules/contact/Contact";
 import HomePageLayout from "../modules/home/HomePageLayout";
-import UserDashboard from "../modules/userDashboard/dashboard/UserDashboard";
-import UserBookings from "../modules/userDashboard/manageBooking/UserBookings";
-import PickupAndReturn from "../modules/userDashboard/pickupAndReturn/PickupAndReturn";
 
 export const homePaths = [
   {
@@ -32,11 +29,6 @@ export const homePaths = [
     element: <Contact />,
   },
   {
-    name: "Dashboard",
-    path: "dashboard",
-    element: <Contact />,
-  },
-  {
     name: "All Cars",
     path: "all-cars",
     element: <AllCarsLayout />,
@@ -51,25 +43,5 @@ export const homePaths = [
   {
     path: "booking-form/:carId",
     element: <BookingFormPage />,
-  },
-];
-
-export const userDashboardPaths = [
-  {
-    name: "Dashboard",
-    path: "/dashboard",
-    element: <UserDashboard />,
-  },
-  //   food
-  {
-    name: "Bookings",
-    path: "booking",
-    element: <UserBookings />,
-  },
-  //   faq
-  {
-    name: "Pick up & Return",
-    path: "pickup-and-return",
-    element: <PickupAndReturn />,
   },
 ];

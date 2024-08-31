@@ -1,10 +1,27 @@
-import React from "react";
-import RadialChart from "../../../shared/charts/RadialChart";
-import OverviewCard from "./compoents/OverviewCard";
-import RecentActivity from "./compoents/RecentActivity";
-import Notification from "./compoents/Notification";
-import { DashboardData } from "./types";
-import { useGetMyAllBookingsQuery } from "../../../redux/features/user/booking.api";
+import { useGetAllCarsQuery } from "../../../../redux/features/cars/carsApi";
+import { useGetAllBookingsQuery, useGetMyAllBookingsQuery } from "../../../../redux/features/user/booking.api";
+import RadialChart from "../../../../shared/charts/RadialChart";
+import { Tbooking } from "../../../../types/booking.type";
+import Notification from "../../../userDashboard/dashboard/compoents/Notification";
+import OverviewCard from "../../../userDashboard/dashboard/compoents/OverviewCard";
+import RecentActivity from "../../../userDashboard/dashboard/compoents/RecentActivity";
+
+
+
+
+
+
+const chartData1 = {
+  series: [90], // Data for the radial chart
+  label: "Average Results", // Label for the chart
+};
+
+const chartData2 = {
+  series: [40], // Data for the radial chart
+  label: "Average Results", // Label for the chart
+};
+
+
 
 // Sample data
 const dashboardData: DashboardData = {
@@ -26,31 +43,33 @@ const dashboardData: DashboardData = {
   ],
 };
 
-const CustomerDashboard: React.FC = () => {
-  const { data, isLoading } = useGetMyAllBookingsQuery(undefined);
 
+
+
+const AdminDashboard: React.FC = () => {
+
+  const { data, isLoading } = useGetAllBookingsQuery(undefined);
+  const { data:carData } = useGetAllCarsQuery([{name:'status', value:'available'}]);
   if (isLoading) return <>...</>;
 
-  const bookingData = data?.data?.result;
+  const allBookedData = data?.data;
+  const allCarData  = carData?.data
 
-  const { totalSpending } = data?.data?.totalSpendings[0] || {
-    totalSpending: 0,
-  };
-  const pendingBookings = bookingData?.filter(
-    (item) => item.status === "pending"
-  ).length;
-  const approvedBookings = bookingData?.filter(
-    (item) => item.status === "approved"
-  ).length;
+  
+  const totalSpending  = 0
+  const pendingBookings = allBookedData?.filter((item:Tbooking) => item.status === "pending").length;
+  const approvedBookings = allBookedData?.filter((item:Tbooking) => item.status === "approved").length;
+  
+  
 
   const chartData1 = {
-    series: [90], // Data for the radial chart
-    label: "Average Results", // Label for the chart
+    series: [60], 
+    label: "Average Results", 
   };
 
   const chartData2 = {
-    series: [40], // Data for the radial chart
-    label: "Average Results", // Label for the chart
+    series: [80], 
+    label: "Average Results", 
   };
 
   return (
@@ -58,12 +77,12 @@ const CustomerDashboard: React.FC = () => {
       <main className="flex-1 p-10 overflow-y-auto">
         {/* Overview Section */}
         <section className="lg:flex gap-6 mb-10">
-          <OverviewCard title="My Bookings" value={pendingBookings || 0} />
+          <OverviewCard title="Total Bookings" value={allBookedData.length || 0} />
           <OverviewCard
             title="Pending Bookings"
-            value={`${approvedBookings || 0}`}
+            value={`${pendingBookings || 0}`}
           />
-          <OverviewCard title="Total Spendings" value={`$${totalSpending}`} />
+          <OverviewCard title="Available Cars" value={`$${allCarData.length || 0}`} />
         </section>
 
         {/* Charts Section */}
@@ -103,4 +122,4 @@ const CustomerDashboard: React.FC = () => {
   );
 };
 
-export default CustomerDashboard;
+export default AdminDashboard;

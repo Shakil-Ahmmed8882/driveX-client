@@ -7,7 +7,6 @@ import {
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
-import { logout, setUser } from "../features/auth/authSlice";
 import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
@@ -38,33 +37,33 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     toast.error(result?.error?.data?.message);
   }
 
-  if (result?.error?.status === 401) {
-    //* Send Refresh
-    console.log("Sending refresh token");
+  // if (result?.error?.status === 401) {
+  //   //* Send Refresh
+  //   console.log("Sending refresh token");
 
-    const res = await fetch("http://localhost:5000/api/auth/refresh-token", {
-      method: "POST",
-      credentials: "include",
-    });
+  //   const res = await fetch("http://localhost:5000/api/auth/refresh-token", {
+  //     method: "POST",
+  //     credentials: "include",
+  //   });
 
-    const data = await res.json();
+  //   const data = await res.json();
 
-    if (data?.token) {
+  //   if (data?.token) {
       
-      const user = (api.getState() as RootState).auth.user;
+  //     const user = (api.getState() as RootState).auth.user;
 
-      api.dispatch(
-        setUser({
-          user:data.data,
-          token: data.token,
-        })
-      );
+  //     api.dispatch(
+  //       setUser({
+  //         user:data.data,
+  //         token: data.token,
+  //       })
+  //     );
 
-      result = await baseQuery(args, api, extraOptions);
-    } else {
-      // api.dispatch(logout());
-    }
-  }
+  //     result = await baseQuery(args, api, extraOptions);
+  //   } else {
+  //     // api.dispatch(logout());
+  //   }
+  // }
 
   return result;
 };
@@ -72,6 +71,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
-  tagTypes: ["booking"],
+  tagTypes: ["booking","car"],
   endpoints: () => ({}),
 });

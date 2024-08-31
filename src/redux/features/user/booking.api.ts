@@ -6,6 +6,30 @@ import { baseApi } from "../../api/baseApi";
 const bookingApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     // My-bookings
+    getAllBookings: builder.query({
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item: TQueryParam) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+
+        return {
+          url: "/bookings",
+          method: "GET",
+          params: params,
+        };
+      },
+
+      transformResponse: (response: TResponseRedux<any>) => {
+        return {
+          data: response?.data,
+          meta: response?.meta,
+        };
+      },
+      providesTags: ["booking"],
+    }),
     getMyAllBookings: builder.query({
       query: (args) => {
         const params = new URLSearchParams();
@@ -78,6 +102,7 @@ const bookingApi = baseApi.injectEndpoints({
 export const {
   useDeleteBookingMutation,
   useUpdateBookingMutation,
+  useGetAllBookingsQuery,
   useGetSingleBookingQuery,
   useGetMyAllBookingsQuery,
   useBookCarMutation,

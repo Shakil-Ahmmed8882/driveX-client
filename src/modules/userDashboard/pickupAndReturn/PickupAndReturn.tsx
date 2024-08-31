@@ -45,7 +45,6 @@ const ReturnAndPaymentPage: React.FC = () => {
     // so from here intially store data in mongodb 
     // those what are depended on payment like , transaction id , isPaid, 
     // update them just recieving from success url params will be hitted once succed
-    
     const res = await SSLPayement({price:100})
     if(res?.data?.url){
       window.location.replace(res?.data?.url)

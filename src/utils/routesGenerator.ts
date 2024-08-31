@@ -1,11 +1,14 @@
 import { TRoute, TUserPath } from "../types/sidebar";
 
 export const routeGenerator = (items: TUserPath[]) => {
+
+
+  
   const routes = items.reduce((acc: TRoute[], item) => {
     if (item.path && item.element) {
-      if (item.path === "/dashboard") {
+      if (item.path == "user/dashboard") {
         acc.push({
-          index: true,
+          path:"",
           element: item.element,
         });
       } else {

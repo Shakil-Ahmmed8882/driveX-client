@@ -14,7 +14,7 @@ export type TSidebarItem = {
 
 
 export type TUserPath = {
-  name: string;
+  name?: string;
   index?:boolean;
   path?: string;
   element?: ReactNode;

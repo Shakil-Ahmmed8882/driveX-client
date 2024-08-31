@@ -9,7 +9,7 @@ const DModal = ({ setOpen, open, children }) => {
           ? " visible translate-x-0 opacity-100"
           : " fixed bg-primaryColor  translate-x-80 invisible opacity-0 "
       }
-    transition-all duration-500 p-2 absolute z-50 left-0 top-20 bottom-0 w-full bg-[black]`}
+    transition-all duration-500 p-2  fixed inset-0 z-50  w-full bg-[black]`}
     >
       {children}
       <button
