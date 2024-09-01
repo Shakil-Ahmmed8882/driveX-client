@@ -1,9 +1,15 @@
+import { Menu } from "lucide-react";
 import { SearchIcon } from "../assets/icons/Icons";
+import { useAppDispatch } from "../redux/hooks";
+import { setNavbarState } from "../redux/features/global/global.slice";
 
 const DashboardNavbar = (): JSX.Element => {
+  const dispach = useAppDispatch()
+
   return (
-    <header className="flex h-16 pt-3 items-center gap-4 bg-[#252525] lg:h-[60px]">
-      <h1 className="flex-1 font-semibold text-lg">Dashboard</h1>
+    <header className="flex h-16 pt-16 pb-8 items-center gap-4 bg-[#252525] lg:h-[60px]">
+      <Menu onClick={() => dispach(setNavbarState(false))} className="cursor-pointer md:hidden block ml-6"/>
+      <h1 className="flex-1 font-semibold text-lg "></h1>
       <div className="flex items-center gap-4">
         <form className="flex-1 sm:flex-initial ">
           <div className="relative flex items-center bg-[#3e3e3e] py-2 rounded-full px-3">

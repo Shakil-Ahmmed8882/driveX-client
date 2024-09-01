@@ -1,16 +1,28 @@
 import { Button } from "antd";
 
+interface PrimaryButtonProps {
+  onClick: () => void;
+  className?: string;
+  children?: React.ReactNode; // Allow for custom button text or other elements
+  type?: "default" | "primary" | "dashed" | "link"; // Allow different button types
+  loading?: boolean; // Add support for loading state
+}
+
 const PrimaryButton = ({
-  clickHanlder,
-}: {
-  clickHanlder: () => void;
-}): JSX.Element => {
+  onClick,
+  className = "",
+  children = "Button", // Default text if none provided
+  type = "primary",
+  loading = false,
+}: PrimaryButtonProps): JSX.Element => {
   return (
     <Button
-      onClick={clickHanlder}
-      className="w-1/3 bg-primaryColor/80 border-none !text-white hover:!bg-primaryColor/90"
+      onClick={onClick}
+      className={`${className} w-1/3 bg-primaryColor/80 border-none !text-white hover:!bg-primaryColor/90`}
+      type={type}
+      loading={loading}
     >
-      Book
+      {children || "Book"}
     </Button>
   );
 };

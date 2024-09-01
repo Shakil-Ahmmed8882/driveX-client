@@ -7,7 +7,7 @@ const PaymentFailed = () => {
   const navigate = useNavigate();
 
   const handleRetry = () => {
-    navigate('/checkout'); // Adjust this route based on your application structure
+    navigate('/user/dashboard/pickup-and-return'); // Adjust this route based on your application structure
   };
 
   const handleGoHome = () => {

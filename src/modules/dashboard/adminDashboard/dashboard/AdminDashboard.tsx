@@ -56,9 +56,9 @@ const AdminDashboard: React.FC = () => {
   const allCarData  = carData?.data
 
   
-  const totalSpending  = 0
-  const pendingBookings = allBookedData?.filter((item:Tbooking) => item.status === "pending").length;
-  const approvedBookings = allBookedData?.filter((item:Tbooking) => item.status === "approved").length;
+  
+  const pendingBookings = allBookedData?.filter((item:Tbooking) => item.status === "pending")?.length;
+  const approvedBookings = allBookedData?.filter((item:Tbooking) => item.status === "approved")?.length;
   
   
 
@@ -82,7 +82,8 @@ const AdminDashboard: React.FC = () => {
             title="Pending Bookings"
             value={`${pendingBookings || 0}`}
           />
-          <OverviewCard title="Available Cars" value={`$${allCarData.length || 0}`} />
+          <OverviewCard title="Available Cars" value={`$${allCarData?.length || 0}`} />
+          <OverviewCard title="Approved Bookings" value={`$${approvedBookings || 0}`} />
         </section>
 
         {/* Charts Section */}

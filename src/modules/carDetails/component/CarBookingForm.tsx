@@ -10,32 +10,55 @@ import { useBookCarMutation } from "../../../redux/features/user/booking.api";
 const CarBookingForm = ({carId}) => {
   const [bookCar] = useBookCarMutation();
 
+  // const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
+  //   // Parsing and formatting the time values with moment.js
+  //   const pickUpTime = moment(data["pick-up-time"], "HH:mm:ss");
+  //   const dropOffTime = moment(data["drop-off-time"], "HH:mm:ss");
+  
+  //   const formattedData = {
+  //     ...data,
+  //     carId,
+  //     "pick-up-date": moment(data["pick-up-date"]).format("YYYY-MM-DD"),
+  //     "drop-off-date": moment(data["drop-off-date"]).format("YYYY-MM-DD"),
+  //     "pick-up-time": pickUpTime.isValid() ? pickUpTime.format("HH:mm:ss") : null,
+  //     "drop-off-time": dropOffTime.isValid() ? dropOffTime.format("HH:mm:ss") : null,
+  //   };
+  
+  //   try {
+  //     // Send the data to the backend
+  //     await bookCar(formattedData);
+  //     // Handle successful booking
+  //   } catch (error) {
+  //     console.error("Error during booking:", error);
+  //     // Handle error appropriately (e.g., show a message to the user)
+  //   }
+  // };
+  
+
+
   const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
-    // Formatting the date and time using moment.js
+    console.log("Pick-up time raw:", data["pick-up-time"]);
+    console.log("Drop-off time raw:", data["drop-off-time"]);
+  
     const formattedData = {
       ...data,
       carId,
       "pick-up-date": moment(data["pick-up-date"]).format("YYYY-MM-DD"),
       "drop-off-date": moment(data["drop-off-date"]).format("YYYY-MM-DD"),
-      "pick-up-time": moment(data["pick-up-time"]).format("HH:mm:ss"),
-      "drop-off-time": moment(data["drop-off-time"]).format("HH:mm:ss"),
-      
+      "pick-up-time": moment(data["pick-up-time"], "HH:mm").format("HH:mm:ss"),
+      "drop-off-time": moment(data["drop-off-time"], "HH:mm").format("HH:mm:ss"),
     };
-
-    
-    
-    
+  
+    console.log("Formatted data to send:", formattedData);
+  
     try {
-      // Send the data to the backend using axios
-      // const res = await bookCar(formattedData)
-       await bookCar(formattedData)
-    
-      // navigate("/payment");
+      await bookCar(formattedData);
     } catch (error) {
       console.error("Error during booking:", error);
-      // Handle error appropriately (e.g., show a message to the user)
     }
   };
+  
+
 
   return (
     <div className="grid gap-4 md:gap-8  py-8 px-6 rounded-b-lg  bg-[#35353579]">

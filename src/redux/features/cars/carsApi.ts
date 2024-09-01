@@ -25,7 +25,7 @@ const carApi = baseApi.injectEndpoints({
           meta: response?.meta,
         };
       },
-      providesTags: ['carList'], // Use a different tag for list
+      providesTags: ["carList"],
     }),
 
     getSingleCar: builder.query({
@@ -41,7 +41,18 @@ const carApi = baseApi.injectEndpoints({
           meta: response?.meta,
         };
       },
-      providesTags: (result, error, carId) => [{ type: 'car', id: carId }],
+      providesTags: (result, error, carId) => [{ type: "carList", id: carId }],
+    }),
+
+    addCar: builder.mutation({
+      query: ( data ) => ({
+        url: `/cars/`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: (result, error, { carId }) => [
+        { type: "carList", id: carId },
+      ],
     }),
 
     updateCar: builder.mutation({
@@ -50,7 +61,9 @@ const carApi = baseApi.injectEndpoints({
         method: "PUT",
         body: data,
       }),
-      invalidatesTags: (result, error, { carId }) => [{ type: 'car', id: carId }],
+      invalidatesTags: (result, error, { carId }) => [
+        { type: "carList", id: carId },
+      ],
     }),
 
     deleteCar: builder.mutation({
@@ -59,8 +72,8 @@ const carApi = baseApi.injectEndpoints({
         method: "DELETE",
       }),
       invalidatesTags: (result, error, carId) => [
-        { type: 'car', id: carId },
-        { type: 'carList' } // Invalidate the list to trigger a refetch
+        { type: "carList", id: carId },
+        { type: "carList" }, // Invalidate the list to trigger a refetch
       ],
     }),
   }),
@@ -69,6 +82,7 @@ const carApi = baseApi.injectEndpoints({
 export const {
   useUpdateCarMutation,
   useGetAllCarsQuery,
+  useAddCarMutation,
   useGetSingleCarQuery,
-  useDeleteCarMutation
+  useDeleteCarMutation,
 } = carApi;

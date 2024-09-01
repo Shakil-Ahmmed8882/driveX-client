@@ -1,62 +1,47 @@
-import React, { useState, useEffect, useRef } from 'react';
-import car from '../../../assets/images/home/featured/car1.png';
-import { useSSLPayAndReturnCarMutation } from '../../../redux/features/user/payment.api';
-
-const bookings = [
-  {
-    bookingId: '123',
-    carDetails: {
-      make: 'Toyota',
-      model: 'Corolla',
-      year: '2022',
-      image: car,
-    },
-    totalCost: 120.00,
-  }
-];
+import React, { useState, useEffect, useRef } from "react";
+import placeholder from "../../../assets/images/home/featured/bg-car3.jpg";
+import { useSSLPayAndReturnCarMutation } from "../../../redux/features/user/payment.api";
+import { useGetMyAllBookingsQuery } from "../../../redux/features/user/booking.api";
+import { Tbooking, TCar, TUser } from "../../../types/booking.type";
+import { handleError } from "../../carDetails/component/CarImage";
 
 const ReturnAndPaymentPage: React.FC = () => {
-
-
+  const { data, isLoading } = useGetMyAllBookingsQuery(undefined);
 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-  const [selectedBooking, setSelectedBooking] = useState<any | null>(null);
-  const [paymentMethod, setPaymentMethod] = useState<string>('');
+  const [selectedBooking, setSelectedBooking] = useState<Tbooking | null>(null);
   const [error, setError] = useState<string | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
+  // hooks
+  const [SSLPayment] = useSSLPayAndReturnCarMutation();
 
-  // hooks 
-  const [SSLPayement] = useSSLPayAndReturnCarMutation()
-
-  const handleReturnCar = async(booking: any) => {
+  const handleReturnCar = (booking: Tbooking) => {
     setSelectedBooking(booking);
     setIsModalVisible(true);
   };
 
-  const handlePay = async() => {
-    if (!paymentMethod) {
-      setError('Payment method is required.');
+  const handlePay = async () => {
+    if (!selectedBooking) {
+      setError("Booking information is missing.");
       return;
     }
 
-    // send all data => keep and store some 
-    // why some? cause from SSL success url you can't send body
-    // so from here intially store data in mongodb 
-    // those what are depended on payment like , transaction id , isPaid, 
-    // update them just recieving from success url params will be hitted once succed
-    const res = await SSLPayement({price:100})
-    if(res?.data?.url){
-      window.location.replace(res?.data?.url)
-    }
+    const paymentData = {
+      bookingId: selectedBooking._id,
+      price: selectedBooking?.car?.pricePerHour,
+    };
 
+    const res = await SSLPayment(paymentData);
+    if (res?.data?.url) {
+      window.location.replace(res?.data?.url);
+    }
 
     setIsModalVisible(false);
     setError(null);
   };
 
   const handleCancel = () => {
-    console.log('Payment canceled.');
     setIsModalVisible(false);
     setError(null);
   };
@@ -69,59 +54,53 @@ const ReturnAndPaymentPage: React.FC = () => {
 
   useEffect(() => {
     if (isModalVisible) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isModalVisible]);
 
-  return (
-    <div className="bg-gray-900 text-white p-5 rounded-lg text-center">
-      <h2 className="text-xl mb-4">Return and Pay</h2>
+  if (isLoading) return <>...</>;
 
-      <div className="flex flex-wrap gap-4 justify-center">
-        {bookings.map(booking => (
-          <div key={booking.bookingId} className="bg-gray-800 text-white rounded-lg p-4 flex items-center w-full max-w-md">
-            <img src={booking.carDetails.image} alt={`${booking.carDetails.make} ${booking.carDetails.model}`} className="w-32 h-auto rounded-lg mr-4" />
-            <div className="flex-1">
-              <p><strong>Car:</strong> {booking.carDetails.make} {booking.carDetails.model} ({booking.carDetails.year})</p>
-              <p><strong>Booking ID:</strong> {booking.bookingId}</p>
-              <p><strong>Total Cost:</strong> ${booking.totalCost.toFixed(2)}</p>
-              <button
-                onClick={() => handleReturnCar(booking)}
-                className="bg-blue-500 text-white px-4 py-2 rounded mt-2 hover:bg-blue-600"
-              >
-                Return Car
-              </button>
-            </div>
-          </div>
-        ))}
+  const allUserBookings = data?.data?.result;
+
+  return (
+    <div className="text-white p-5 rounded-lg ">
+
+      <div className="md:grid lg:grid-cols-2 gap-8 pt-11 lg:justify-center">
+        {allUserBookings?.map((booking: Tbooking) => {
+          const { car, user } = booking || {};
+          return (
+            <ReturnBookingCard
+              {...{ car, user, booking, handleReturnCar }}
+              key={booking.bookingId}
+            />
+          );
+        })}
       </div>
 
-      {isModalVisible && (
+      {isModalVisible && selectedBooking && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div ref={modalRef} className="bg-gray-700 text-white p-5 rounded-lg w-80 text-center">
+          <div
+            ref={modalRef}
+            className="bg-gray-700 text-white p-5 rounded-lg w-80 text-center"
+          >
             <h3 className="text-lg mb-2">Complete Payment</h3>
-            <p className="mb-4">Do you want to proceed with the payment?</p>
-            <div className="flex flex-col mb-4">
-              <label htmlFor="paymentMethod" className="text-gray-400 mb-2">Payment Method:</label>
-              <input
-                id="paymentMethod"
-                placeholder="Enter payment method (e.g., Credit Card)"
-                value={paymentMethod}
-                onChange={(e) => setPaymentMethod(e.target.value)}
-                className="bg-gray-600 text-white p-2 border border-gray-500 rounded"
-              />
-              {error && <span className="text-red-400 text-sm mt-2">{error}</span>}
-            </div>
+            <p className="mb-4">Proceed with the payment for the total cost?</p>
             <div className="flex justify-center gap-2">
-              <button onClick={handlePay} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                Pay ${selectedBooking?.totalCost.toFixed(2) || 0}
+              <button
+                onClick={handlePay}
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+              >
+                Pay ${selectedBooking?.car?.pricePerHour}
               </button>
-              <button onClick={handleCancel} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+              <button
+                onClick={handleCancel}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              >
                 Cancel
               </button>
             </div>
@@ -133,3 +112,40 @@ const ReturnAndPaymentPage: React.FC = () => {
 };
 
 export default ReturnAndPaymentPage;
+
+const ReturnBookingCard: React.FC<{
+  car: TCar;
+  user: TUser;
+  booking: Tbooking;
+  handleReturnCar: (booking: Tbooking) => void;
+}> = ({ car, user, booking, handleReturnCar }) => {
+  return (
+    <div className="overflow-hidden bg-[#2B2B2B] rounded-lg p-4 flex items-center w-full shadow-lg transition-all duration-500 hover:-translate-y-2">
+      <div className="flex-1 w-1/2">
+        <img
+          src={car?.image || placeholder}
+          alt={`${car?.name}`}
+          className="w-full h-40 object-cover rounded-lg"
+          onError={handleError}
+        />
+      </div>
+      <div className="flex-1 ml-4 text-right ">
+        <h3 className="text-lg    font-semibold mb-1">Car: {car?.name}</h3>
+        <p className="text-lg   description   mt-4"><span className="text-green">Booked Name:</span> {booking?.name}</p>
+
+        <button
+          disabled={booking.isPaid}
+          onClick={() => handleReturnCar(booking)}
+          className={`
+          ${
+            booking.isPaid
+              ? "bg-gradient-to-r cursor-not-allowed  from-[#a7aea97d] to-[#9a9c9ac7] text-white"
+              : "bg-primaryColor  text-sm rounded-lg hover:bg-primaryColor/90 "
+          }    transition-colors rounded-lg duration-200 px-5 mt-6 py-3`}
+        >
+          Return Car
+        </button>
+      </div>
+    </div>
+  );
+};

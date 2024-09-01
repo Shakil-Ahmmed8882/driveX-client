@@ -19,8 +19,13 @@ const UserBookings = (): JSX.Element => {
   const columns = [
     {
       title: "Name",
-      dataIndex: ["car", "name"], // Nested data structure
+      dataIndex: "name",
       key: "name",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
     },
     {
       title: "image",
@@ -62,10 +67,7 @@ const UserBookings = (): JSX.Element => {
     },
   };
   
-  
-console.log(data)
-
-  // 
+   
 
   // Pass the data directly to ReusableTable
   return (

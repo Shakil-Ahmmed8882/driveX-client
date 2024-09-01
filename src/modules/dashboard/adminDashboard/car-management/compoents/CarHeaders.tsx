@@ -2,6 +2,7 @@ import { Search } from "lucide-react";
 
 const CarHeaders = ({ title, description, onChangeValue }): JSX.Element => {
   return (
+
     <div className="bg-gradient-to-r  from-primaryColor to-indigo-800 h-60 flex justify-center w-full my-16 rounded-lg">
       <div className="relative z-20 flex flex-col w-1/2 text-center space-y-4">
         <h1 className="text-4xl pt-8">{title}</h1>

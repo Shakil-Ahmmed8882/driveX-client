@@ -11,7 +11,7 @@ const Navbar = () => {
   const user = useAppSelector(selectCurrentUser);
   const dispach = useAppDispatch();
 
-  console.log(user)
+
 
   return (
     <Container className="pb-0">

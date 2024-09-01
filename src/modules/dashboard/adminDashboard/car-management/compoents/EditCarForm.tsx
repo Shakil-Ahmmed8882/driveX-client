@@ -33,7 +33,7 @@ const EditCarForm = ({ carId }: { carId: string }): JSX.Element => {
     }
   };
 
-  return <CarForm initialValues={singleCarData} onSubmit={handleEditForm} />;
+  return <CarForm onSubmit={handleEditForm} />;
 };
 
 export default EditCarForm;

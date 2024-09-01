@@ -30,3 +30,13 @@ export type TQueryParam = {
   name: string;
   value: boolean | React.Key;
 };
+
+
+
+
+
+// util function
+export const extractErrorMessage = (error: unknown): string => {
+  const typedError = error as TError;
+  return typedError?.data?.message || "An unknown error occurred";
+};

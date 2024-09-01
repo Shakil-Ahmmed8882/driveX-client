@@ -18,7 +18,6 @@ const CarForm: React.FC<CarFormProps> = ({ isUpdateForm, onSubmit }) => {
       isElectric: formData.isElectric,
       status: formData.status,
       pricePerHour: formData.pricePerHour,
-      isDeleted: formData.isDeleted,
       image: formData.image,
     };
     onSubmit(formattedData);
@@ -39,11 +38,6 @@ const CarForm: React.FC<CarFormProps> = ({ isUpdateForm, onSubmit }) => {
           <DInput name="description" type="text" label="Description:" />
           <DInput name="color" type="text" label="Color:" />
           <DSelect name="status" label="Status:" options={carStatusOptions} />
-          <DInput
-            name="features"
-            type="text"
-            label="Features (comma-separated):"
-          />
           <DInput name="pricePerHour" type="number" label="Price Per Hour:" />
           <DInput name="image" type="text" label="Image URL:" />
           <Button

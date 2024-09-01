@@ -8,6 +8,7 @@ import CarHeaders from "./compoents/CarHeaders";
 import { Badge } from "antd";
 import EditCarForm from "./compoents/EditCarForm";
 import DeleteCar from "./compoents/DeleteCar";
+import AddCar from "./compoents/AddCar";
 
 const ManageCars = (): JSX.Element => {
   // Fetch bookings data from API
@@ -88,9 +89,12 @@ const ManageCars = (): JSX.Element => {
         onChangeValue={setSearchValue}
         title={"All Cars"}
         description={
-          "          Drivex provides wide ransge of high quality vehicles."
+          "Drivex provides wide ransge of high quality vehicles."
         }
       />
+  <AddCar {...{setIsOpen, carId}}/>
+        
+
       <ReusableTable
         columns={columns}
         fetchData={() => ({ data, isFetching: isLoading })}

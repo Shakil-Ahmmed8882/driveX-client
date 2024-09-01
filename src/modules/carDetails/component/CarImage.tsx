@@ -1,10 +1,11 @@
 import placeholder from "../../../assets/images/home/featured/bg-car3.jpg";
 
+export const handleError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  event.currentTarget.src = placeholder;
+};
+
 const CarImage = ({ url }: { url: string }) => {
   // Handle image error
-  const handleError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    event.currentTarget.src = placeholder;
-  };
 
   return (
     <img
