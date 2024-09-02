@@ -23,7 +23,7 @@ const DrawerNavigation = () => {
   return (
     <>
       <Space className="block sm:hidden ml-auto my-3">
-        <Button  className="bg-primaryColor" onClick={showDrawer}>
+        <Button  className="primaryGradient" onClick={showDrawer}>
           Open
         </Button>
       </Space>

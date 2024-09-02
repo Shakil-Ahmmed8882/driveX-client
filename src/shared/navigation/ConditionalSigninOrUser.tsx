@@ -60,7 +60,7 @@ const logout = () => {}
         </>
       ) : (
         <NavLink
-          className={`p-2 px-5 text-[white] bg-primaryColor text-white transition-all duration-700 rounded-full`}
+          className={`p-2 px-5 text-[white] primaryGradient text-white transition-all duration-700 rounded-full`}
           to="/sign-in"
         >
           Sign in

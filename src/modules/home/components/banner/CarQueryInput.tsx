@@ -1,5 +1,4 @@
 import { BiLocationPlus } from "react-icons/bi";
-import { SearchIcon } from "../../../../assets/icons/Icons";
 import { MdDateRange } from "react-icons/md";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -51,7 +50,7 @@ const CarQueryInput = ({
   return (
     <div className=" hidden lg:flex items-center justify-center lg:justify-start relative">
       <div className="flex justify-center lg:justify-start gap-4 items-center">
-        <SearchIcon />
+        
         <BiLocationPlus onClick={handleSearchByLocation} className="size-6" />
         <MdDateRange onClick={handleSearchDateRange} className="size-6" />
 
@@ -73,24 +72,7 @@ const CarQueryInput = ({
         ref={queryRef}
         className="relative w-[250px] sm:w-[400px] flex items-center"
       >
-        {search === "search" && (
-          <motion.div
-            layout
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={inputVariants}
-            transition={{ duration: 0.5 }}
-            className="bg-[#1e1e1ea1] lg:bg-[#1e1e1e] w-[80%] rounded-lg px-6 py-2"
-          >
-            <input
-              onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Search cars"
-              type="text"
-              className="bg-transparent w-full focus-within:outline-none"
-            />
-          </motion.div>
-        )}
+        
 
         {search === "location" && (
           <motion.div

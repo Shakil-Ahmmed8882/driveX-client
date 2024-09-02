@@ -61,8 +61,9 @@ const carApi = baseApi.injectEndpoints({
         method: "PUT",
         body: data,
       }),
-      invalidatesTags: (result, error, { carId }) => [
+      invalidatesTags: (result, error, carId) => [
         { type: "carList", id: carId },
+        { type: "carList" }, // Invalidate the list to trigger a refetch
       ],
     }),
 

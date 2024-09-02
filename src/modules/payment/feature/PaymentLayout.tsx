@@ -225,7 +225,7 @@ const PaymentLayout = (): JSX.Element => {
         </div>
         <button
           type="submit"
-          className="mt-6 block w-full rounded-md bg-primaryColor md:w-1/2 ml-auto py-3  text-sm font-semibold  hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="mt-6 block w-full rounded-md primaryGradient md:w-1/2 ml-auto py-3  text-sm font-semibold  hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           Confirm Payment
         </button>

@@ -48,7 +48,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
             </h2>
             <p className="mt-4">{message}</p>
             <div className="mt-6 text-right">
-              <Button className="bg-primaryColor text-white" onClick={onClose}>
+              <Button className="primaryGradient text-white" onClick={onClose}>
                 Close
               </Button>
             </div>

@@ -1,3 +1,4 @@
+import ProtectedRoute from "../layout/ProtectedRoute";
 import About from "../modules/about/About";
 import AllCarsLayout from "../modules/allCars/AllCarsLayout";
 import BookingLayout from "../modules/booking/BookingLayout";
@@ -20,7 +21,7 @@ export const homePaths = [
   {
     name: "Bookings",
     path: "bookings",
-    element: <BookingLayout/> ,
+    element: <BookingLayout />,
   },
   // blog
   {
@@ -37,11 +38,17 @@ export const homePaths = [
   // Details page
   {
     path: "cars/:id",
-    element: <CarDetails />,
+    element: (
+      <ProtectedRoute role="user">
+        <CarDetails />
+      </ProtectedRoute>
+    ),
   },
   // Booking form
   {
     path: "booking-form/:carId",
-    element: <BookingFormPage />,
+    element: <ProtectedRoute role="user">
+      <BookingFormPage />
+    </ProtectedRoute>,
   },
 ];

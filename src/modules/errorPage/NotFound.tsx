@@ -18,7 +18,7 @@ const NotFound = (): JSX.Element => {
           <div className="mt-11 md:mt-14 ">
             <Link
               to={"/"}
-              className="bg-primaryColor  p-3 px-8 md:px-16 md:py-4  rounded-full"
+              className="primaryGradient  p-3 px-8 md:px-16 md:py-4  rounded-full"
             >
               Go to Homepage
             </Link>

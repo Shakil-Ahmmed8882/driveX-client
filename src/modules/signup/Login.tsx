@@ -60,7 +60,7 @@ function Login() {
             <RememberAndForgetPassword />
             <button
               type="submit"
-              className="mt-6 w-full bg-primaryColor text-white py-3 rounded-md font-semibold hover:bg-primaryColor/90 transition divide-neutral-400"
+              className="mt-6 w-full primaryGradient text-white py-3 rounded-md font-semibold hover:primaryGradient/90 transition divide-neutral-400"
             >
               Sign in
             </button>

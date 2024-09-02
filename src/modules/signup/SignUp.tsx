@@ -43,7 +43,7 @@ function Signup() {
             <RememberAndForgetPassword/>
             <Button
               htmlType="submit"
-              className="border-none  hover:!bg-primaryColor/90 hover:!text-white mt-6 w-full bg-primaryColor text-white"
+              className="border-none  hover:!primaryGradient/90 hover:!text-white mt-6 w-full primaryGradient text-white"
             >
               Sign up
             </Button>

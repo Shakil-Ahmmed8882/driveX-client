@@ -1,4 +1,6 @@
+import { toast } from "sonner";
 import { useUpdateBookingMutation } from "../../../../../redux/features/user/booking.api";
+import { extractErrorMessage } from "../../../../../types";
 
 const StatusModal = ({
   show,
@@ -26,12 +28,15 @@ const StatusModal = ({
         },
       }).unwrap();
 
-      if (res.success) {
-        alert("updated");
+
+      if(res.success){
+        toast.success(`Booking is ${newStatus}`)
       }
     } catch (error) {
-      console.error("Failed to update status", error);
-    }
+      const errorMessage = extractErrorMessage(error)
+      toast.error(errorMessage)
+    }      
+
   };
 
   return (

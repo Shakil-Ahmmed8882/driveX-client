@@ -49,6 +49,10 @@ const BookingLayout: React.FC = () => {
   const submitHandler = (data: any) => {
     const queries: { name: string; value: string }[] = [];
 
+    if (data?.type?.reset) {
+      queries.push({ name: "", value: "" });
+    }
+
     if (data.type) {
       queries.push({ name: "type", value: data.type });
     }
@@ -57,8 +61,9 @@ const BookingLayout: React.FC = () => {
       queries.push({ name: "features", value: data.features });
     }
 
-    setCarQuery(queries); // Set the query parameters
-    console.log(queries);
+
+    setCarQuery(queries); 
+    
   };
 
   const handleBookNow = (car: Car) => {
@@ -97,7 +102,7 @@ const BookingLayout: React.FC = () => {
               />
               <button
                 type="submit"
-                className=" bg-primaryColor col-span-2 text-white py-2 -mt-2 px-4 rounded-lg w-full"
+                className=" primaryGradient col-span-2 text-white py-2 -mt-2 px-4 rounded-lg w-full"
               >
                 Search
               </button>

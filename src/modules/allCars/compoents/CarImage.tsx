@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion';
+import placeholderImg from '../../../assets/images/home/featured/bg-car.jpg'
+import { handleError } from '../../carDetails/component/CarImage';
+
 
 const CarImage = ({ url }: { url: string }): JSX.Element => {
   return (
     <>
       <img
-        src={url || "https://i.pinimg.com/236x/6d/d3/81/6dd3813d2c31ea48d9b746ddfd380858.jpg"}
+        src={url|| placeholderImg}
         alt="Ford Focus"
         className="w-full h-[340px] rounded-lg absolute object-center inset-0 object-cover"
+        onError={handleError}
       />
       <motion.div
         className="h-[340px] rounded-lg w-full absolute inset-0 bg-gradient-to-t from-[#1f1f1f] to-[#ff000000]"

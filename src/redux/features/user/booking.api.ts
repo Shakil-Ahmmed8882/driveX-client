@@ -81,20 +81,33 @@ const bookingApi = baseApi.injectEndpoints({
       invalidatesTags: ["booking"],
     }),
     updateBooking: builder.mutation({
-      query: ({ bookingId,formattedData }) => ({
-        url: `/bookings/${bookingId}`,
-        method: "PUT",
-        body: formattedData,
-      }),
+      query: ({ bookingId, formattedData }) => {
+        console.log({ bookingId, formattedData });
+        return {
+          url: `/bookings/${bookingId}`,
+          method: "PUT",
+          body: formattedData,
+        };
+      },
       invalidatesTags: ["booking"],
     }),
     // delete
     deleteBooking: builder.mutation({
-      query: (bookingId:string) => ({
+      query: (bookingId: string) => ({
         url: `/bookings/${bookingId}`,
-        method: "DELETE"
+        method: "DELETE",
       }),
-      invalidatesTags: ["booking"],
+      invalidatesTags: ["booking", "carList"],
+    }),
+
+    // REturn car and update booking collection
+    returnCar: builder.mutation({
+      query: (data) => ({
+        url: `/cars/return`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["booking", "carList"],
     }),
   }),
 });
@@ -106,4 +119,6 @@ export const {
   useGetSingleBookingQuery,
   useGetMyAllBookingsQuery,
   useBookCarMutation,
+  // return car
+  useReturnCarMutation,
 } = bookingApi;

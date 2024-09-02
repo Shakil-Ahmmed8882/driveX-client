@@ -1,6 +1,12 @@
 import { Form } from "antd";
-import  { ReactNode } from "react";
-import { FormProvider, SubmitHandler, useForm, UseFormProps, FieldValues } from "react-hook-form";
+import { ReactNode } from "react";
+import {
+  FormProvider,
+  SubmitHandler,
+  useForm,
+  UseFormProps,
+  FieldValues,
+} from "react-hook-form";
 
 type TFormConfig = {
   defaultValues?: Record<string, any>;
@@ -10,10 +16,16 @@ type TFormConfig = {
 type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
-  className?:string
+  className?: string;
 } & TFormConfig;
 
-const DForm = ({ onSubmit, children, defaultValues, resolver, className }: TFormProps) => {
+const DForm = ({
+  onSubmit,
+  children,
+  defaultValues,
+  resolver,
+  className,
+}: TFormProps) => {
   // Define the formConfig type to include possible UseFormProps
   const formConfig: Partial<UseFormProps<FieldValues>> = {};
 
@@ -35,7 +47,11 @@ const DForm = ({ onSubmit, children, defaultValues, resolver, className }: TForm
 
   return (
     <FormProvider {...methods}>
-      <Form layout="vertical" className={`${className}`} onFinish={methods.handleSubmit(submit)}>
+      <Form
+        layout="vertical"
+        className={`${className}`}
+        onFinish={methods.handleSubmit(submit)}
+      >
         {children}
       </Form>
     </FormProvider>

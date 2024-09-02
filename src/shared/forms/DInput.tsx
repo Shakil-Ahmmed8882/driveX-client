@@ -6,16 +6,17 @@ type TInputProps = {
   name: string;
   label?: string;
   className?: string;
+  defaultValue?: any;
 };
 
-const DInput = ({ type, name, label, className }: TInputProps) => {
+const DInput = ({ type, name, label, className, defaultValue }: TInputProps) => {
   const { theme } = { theme: "dark" };
 
   return (
     <Form.Item style={{ marginBottom: "20px" }}>
       <Controller
         name={name}
-        defaultValue="" // Set a default value here if needed
+        defaultValue={defaultValue}
         render={({ field }) => (
           <Input
             autoComplete="off"

@@ -53,6 +53,8 @@ const CustomerDashboard: React.FC = () => {
     label: "Average Results", // Label for the chart
   };
 
+  
+
   return (
     <div>
       <main className="flex-1 p-10 overflow-y-auto">
@@ -63,6 +65,7 @@ const CustomerDashboard: React.FC = () => {
             title="Pending Bookings"
             value={`${approvedBookings || 0}`}
           />
+
           <OverviewCard title="Total Spendings" value={`$${totalSpending}`} />
         </section>
 

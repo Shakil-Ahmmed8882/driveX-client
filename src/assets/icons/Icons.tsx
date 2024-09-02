@@ -44,7 +44,7 @@ export const Delete = () => {
   );
 };
 
-export const Close = () => {
+export const Close = ({className = ''}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export const Close = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className={`${className} size-6`}
     >
       <path
         strokeLinecap="round"
@@ -107,7 +107,7 @@ export const Notification = () => {
 //           alt=""
 //         />
 //       ) : (
-//         <span className={`${size} block  rounded-full bg-primaryColor`}></span>
+//         <span className={`${size} block  rounded-full primaryGradient`}></span>
 //       )}
 //     </>
 //   );

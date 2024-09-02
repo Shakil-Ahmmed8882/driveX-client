@@ -18,7 +18,7 @@ const PrimaryButton = ({
   return (
     <Button
       onClick={onClick}
-      className={`${className} w-1/3 bg-primaryColor/80 border-none !text-white hover:!bg-primaryColor/90`}
+      className={`${className} w-1/3 primaryGradient/80 border-none !text-white hover:!primaryGradient/90`}
       type={type}
       loading={loading}
     >

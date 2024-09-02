@@ -11,7 +11,7 @@ const DTextArea = ({ name, placeholder }: TTextAreaProps) => {
     <Controller
       name={name}
       render={({ field }) => (
-        <TextArea {...field} id={name} placeholder={placeholder} rows={4} />
+        <TextArea className="bg-[#343434be] shadow placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3f99] focus-within:bg-[#343434be]  text-[white] p-2" {...field} id={name} placeholder={placeholder} rows={4} />
       )}
     />
   );

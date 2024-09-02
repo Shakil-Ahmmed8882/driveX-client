@@ -82,7 +82,7 @@ const UserBookings = (): JSX.Element => {
       />
 
       <DModal setOpen={setIsOpen} open={open}>
-        <EditBookedCarForm bookingId={bookingId}/>
+        <EditBookedCarForm setOpen={setIsOpen} bookingId={bookingId}/>
       </DModal>
       <DModal setOpen={setIsDelete} open={isDelete}>
         <DeleteModel {...{setIsDelete,bookingId}}/>

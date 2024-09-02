@@ -103,10 +103,10 @@ const ManageCars = (): JSX.Element => {
       />
 
       <DModal setOpen={setIsOpen} open={open}>
-        <EditCarForm carId={carId}/>
+        <EditCarForm carId={carId} setIsOpen={setIsOpen}/>
       </DModal>
       <DModal setOpen={setIsDelete} open={isDelete}>
-        <DeleteCar {...{setIsDelete, carId}}/>
+        <DeleteCar {...{setIsDelete, setIsOpen, carId}}/>
       </DModal>
     </section>
   );

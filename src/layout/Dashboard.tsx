@@ -178,7 +178,7 @@ export default Dashboard;
             </div>
           </div>
           <div
-            className="rounded-lg bg-primaryColor text-card-foreground shadow-sm"
+            className="rounded-lg primaryGradient text-card-foreground shadow-sm"
             data-v0-t="card"
           >
             <div className="flex flex-col space-y-1.5 p-6">

@@ -140,7 +140,7 @@ const ReturnBookingCard: React.FC<{
           ${
             booking.isPaid
               ? "bg-gradient-to-r cursor-not-allowed  from-[#a7aea97d] to-[#9a9c9ac7] text-white"
-              : "bg-primaryColor  text-sm rounded-lg hover:bg-primaryColor/90 "
+              : "primaryGradient  text-sm rounded-lg hover:primaryGradient/90 "
           }    transition-colors rounded-lg duration-200 px-5 mt-6 py-3`}
         >
           Return Car

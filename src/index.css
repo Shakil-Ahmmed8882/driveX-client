@@ -65,3 +65,9 @@ body {
 .-top-full {
   transform: translateY(-100%);
 } */
+
+
+/* button */
+.primaryGradient {
+  @apply !bg-gradient-to-r !text-white transform from-[#4e009d] to-[#7904ff] hover:from-[#7904ff] hover:to-[#4e009d] transition-all duration-700 
+}

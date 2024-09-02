@@ -94,7 +94,7 @@ const ManageBookings = (): JSX.Element => {
         title={"All Bookings"}
         description={"Drivex provides wide range of high quality vehicles."}
       />
-      <AddCar {...{ setIsOpen, carId }} />
+      
 
       <ReusableTable
         columns={columns}
@@ -104,10 +104,10 @@ const ManageBookings = (): JSX.Element => {
       />
 
       <DModal setOpen={setIsOpen} open={open}>
-        <EditCarForm carId={carId} />
+        <EditCarForm setIsOpen={setIsOpen} carId={carId} />
       </DModal>
       <DModal setOpen={setIsDelete} open={isDelete}>
-        <DeleteCar {...{ setIsDelete, carId }} />
+        <DeleteCar  {...{ setIsDelete,setIsOpen, carId }} />
       </DModal>
     </section>
   );

@@ -6,7 +6,7 @@ const PrimaryButton = ({ handleClick, text, className }) => {
       <button
         type="submit"
         onClick={handleClick}
-        className={`${className} bg-primaryColor w-full p-2 rounded-lg active:scale-90 transition-all duration-500 text-[white]`}
+        className={`${className} primaryGradient w-full p-2 rounded-lg active:scale-90 transition-all duration-500 text-[white]`}
       >
         {text}
       </button>

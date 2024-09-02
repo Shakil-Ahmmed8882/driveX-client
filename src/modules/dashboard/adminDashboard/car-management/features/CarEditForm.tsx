@@ -41,7 +41,7 @@ const CarForm: React.FC<CarFormProps> = ({ isUpdateForm, onSubmit }) => {
           <DInput name="pricePerHour" type="number" label="Price Per Hour:" />
           <DInput name="image" type="text" label="Image URL:" />
           <Button
-            className="bg-primaryColor border-none mt-3 md:-mt-5 text-white"
+            className="primaryGradient border-none mt-3 md:-mt-5 text-white"
             htmlType="submit"
           >
             {isUpdateForm ? "Update Car" : "Add Car"}

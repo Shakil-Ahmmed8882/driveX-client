@@ -6,20 +6,31 @@ import moment from "moment";
 import { FieldValues, SubmitErrorHandler } from "react-hook-form";
 import DDatePicker from "../../../../shared/forms/DDatePicker";
 import DTimePicker from "../../../../shared/forms/DTimePicker";
-import { useGetSingleBookingQuery, useUpdateBookingMutation } from "../../../../redux/features/user/booking.api";
+import {
+  useGetSingleBookingQuery,
+  useUpdateBookingMutation,
+} from "../../../../redux/features/user/booking.api";
+import { toast } from "sonner";
+import { extractErrorMessage } from "../../../../types";
 
 const isValidMomentInput = (input: any): input is string | Date => {
   return moment(input).isValid();
 };
 
-const EditBookedCarForm = ({bookingId}: {bookingId: string;}): JSX.Element => {
+const EditBookedCarForm = ({
+  bookingId,
+  setOpen,
+}: {
+  bookingId: string;
+  setOpen: (param: boolean) => void;
+}): JSX.Element => {
   const { data, isLoading } = useGetSingleBookingQuery(bookingId);
-  const [updateBooking] = useUpdateBookingMutation()
+  const [updateBooking] = useUpdateBookingMutation();
 
   if (isLoading) return <>..</>;
 
   const {
-    "pick-up-date":pickUpDate,
+    "pick-up-date": pickUpDate,
     "drop-off-date": dropOffDate,
     "pick-up-time": pickUpTime,
     "drop-off-time": dropOffTime,
@@ -27,10 +38,7 @@ const EditBookedCarForm = ({bookingId}: {bookingId: string;}): JSX.Element => {
     email,
     phone,
     address,
-  }   = data?.data || {};
-  
-
-  
+  } = data?.data || {};
 
   const handleSubmit: SubmitErrorHandler<FieldValues> = async (data) => {
     // Extracting form data
@@ -38,39 +46,48 @@ const EditBookedCarForm = ({bookingId}: {bookingId: string;}): JSX.Element => {
     const dropOffDate = data["drop-off-date"];
     const pickUpTime = data["pick-up-time"];
     const dropOffTime = data["drop-off-time"];
-  
+
     // Formatting data for submission
     const formattedData = {
       bookingId,
-      name: data["name"] || name,   
+      name: data["name"] || name,
       email: data["email"] || email,
       phone: data["phone"] || phone,
       address: data["address"] || address, // Use existing data if not updated
       "pick-up-date": isValidMomentInput(pickUpDate)
         ? moment(pickUpDate).format("YYYY-MM-DD")
-        : isValidMomentInput(pickUpDate) ? moment(pickUpDate).format("YYYY-MM-DD") : pickUpDate,
+        : isValidMomentInput(pickUpDate)
+        ? moment(pickUpDate).format("YYYY-MM-DD")
+        : pickUpDate,
       "drop-off-date": isValidMomentInput(dropOffDate)
         ? moment(dropOffDate).format("YYYY-MM-DD")
-        : isValidMomentInput(dropOffDate) ? moment(dropOffDate).format("YYYY-MM-DD") : dropOffDate,
+        : isValidMomentInput(dropOffDate)
+        ? moment(dropOffDate).format("YYYY-MM-DD")
+        : dropOffDate,
       "pick-up-time": isValidMomentInput(pickUpTime)
         ? moment(pickUpTime).format("HH:mm:ss")
-        : isValidMomentInput(pickUpTime) ? moment(pickUpTime).format("HH:mm:ss") : pickUpTime,
+        : isValidMomentInput(pickUpTime)
+        ? moment(pickUpTime).format("HH:mm:ss")
+        : pickUpTime,
       "drop-off-time": isValidMomentInput(dropOffTime)
         ? moment(dropOffTime).format("HH:mm:ss")
-        : isValidMomentInput(dropOffTime) ? moment(dropOffTime).format("HH:mm:ss") : dropOffTime,
+        : isValidMomentInput(dropOffTime)
+        ? moment(dropOffTime).format("HH:mm:ss")
+        : dropOffTime,
     };
-  
-    console.log('Formatted Data:', formattedData);
-  
+
     try {
-      const response = await updateBooking({bookingId,formattedData});
-      console.log('Updated Booking Data:', response);
+      const res = await updateBooking({ bookingId, formattedData }).unwrap();
+
+      if (res.success) {
+        toast.success("Booking is updated successfully.");
+        setOpen(false);
+      }
     } catch (error) {
-      console.error('Error updating booking:', error);
+      const message = extractErrorMessage(error);
+      toast.error(message);
     }
   };
-
-
 
   return (
     <Container className="max-w-[1100px]">
@@ -130,7 +147,7 @@ const EditBookedCarForm = ({bookingId}: {bookingId: string;}): JSX.Element => {
             label={"Drop-off time"}
           />
           <Button
-            className="bg-primaryColor border-none mt-3 md:-mt-5 text-white"
+            className="primaryGradient border-none mt-3 md:-mt-5 text-white"
             htmlType="submit"
           >
             Reserve Now
