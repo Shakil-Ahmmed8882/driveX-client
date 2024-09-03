@@ -8,9 +8,11 @@ import {
 } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
 import { toast } from "sonner";
+import { TError } from "../../types";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api",
+  // baseUrl: "http://localhost:5000/api",
+  baseUrl: "https://drivex-backend.vercel.app/api",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
@@ -30,10 +32,15 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
 
-  // not found
+  
+  // Usage in your code:
   if (result?.error?.status === 404) {
-    toast.error(result?.error?.data?.message);
+    const errorMessage = (result?.error as TError)?.data?.message;
+    if (errorMessage) {
+      toast.error(errorMessage);
+    }
   }
+  
 
   // if (result?.error?.status === 401) {
   //   //* Send Refresh

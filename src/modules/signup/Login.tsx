@@ -10,24 +10,26 @@ import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
 import { LoginResponse } from "./type";
-
-
-
+import { validateFieldsOfLoginForm } from "../../utils/validation";
+import { toast } from "sonner";
 
 function Login() {
   const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
-
-
-
+  const navigate = useNavigate();
 
   const handleSignIn: SubmitHandler<FieldValues> = async (data) => {
+
+    
+    if (!validateFieldsOfLoginForm(data)) {
+      toast.warning("Please fill out all required fields.");
+      return;
+    }
+
     try {
       // Correctly type the response using LoginResponse
-      const res = await login(data).unwrap() as LoginResponse;
-      console.log(data)
-      
+      const res = (await login(data).unwrap()) as LoginResponse;
+
       if (res.token) {
         const user = verifyToken(res.token);
         const userData = {
@@ -35,7 +37,7 @@ function Login() {
           token: res.token,
         };
         dispatch(setUser(userData));
-        navigate('/')
+        navigate("/");
       }
     } catch (error) {
       console.error("Login failed:", error);
@@ -53,8 +55,8 @@ function Login() {
             </h2>
           </div>
           <DForm onSubmit={handleSignIn}>
-            <DInput    type="text" label="Email" name="email" />
-            <DInput    type="text" label="Password" name="password" />
+            <DInput type="text" label="Email" name="email" />
+            <DInput type="text" label="Password" name="password" />
 
             {/* remember & forgot pass */}
             <RememberAndForgetPassword />

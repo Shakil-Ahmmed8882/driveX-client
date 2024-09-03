@@ -3,13 +3,14 @@ export type Tbooking = {
     "pick-up-date": string
     user: TUser
     car: TCar
+    name:string,
     status: string
     userEmail: string
     "pick-up-time": string
     "drop-off-date": string
     "drop-off-time": string
     totalCost: number
-    isPaid: boolean
+    isPaid: boolean,
   }
   
   export type TUser = {

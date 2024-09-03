@@ -6,27 +6,28 @@ import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Container from "../layouts/Container";
 import { ROLE } from "../constants/global";
-import { motion } from "framer-motion";
 import SearchIcon from "../ui/search/ui/SearchIcon";
 import SearchResultLayout from "../ui/search/SearchResultLayout";
-import { useState } from "react";
+import { setSearchClick } from "../../redux/features/global/global.slice";
 
 const Navbar = () => {
   const user = useAppSelector(selectCurrentUser);
   const dispach = useAppDispatch();
-  const [isSearchClick, setSearchClick] = useState(false)
   
 
-  const handleSearch = (value: string) => {
-    console.log(value);
-  };
+  // search
+  const handleSearchClick = () => {
+    dispach(setSearchClick(true))
+  }
+  
+
 
   return (
-    <Container className="pb-0">
-      <header className="h-24 border-b pb-4 relative border-[#676767] z-50 items-center  flex justify-between ">
+    <Container className="pb-0 pt-3">
+      <header className="md:h-24 border-b pb-4 relative border-[#676767] z-50 items-center  flex justify-between ">
         <article className="flex gap-3  items-center  ">
           <Logo />
-          <article className=" text-[#a6a5a5] hidden sm:flex gap-3 pl-8">
+          <article className=" text-[#a6a5a5] hidden md:flex gap-3 pl-8">
             {homePaths?.map((route) => (
               <NavLink
                 to={route.path}
@@ -56,28 +57,33 @@ const Navbar = () => {
 
         {/* lg */}
         <div>
-          <div className="hidden sm:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             <div className="flex ">
-              <SearchIcon onClick={setSearchClick}/>
-              <SearchResultLayout {...{isSearchClick, setSearchClick}}/>
+              <SearchIcon onClick={handleSearchClick}/>
+              <SearchResultLayout/>
             </div>
 
             {user ? (
+              <div className="primaryGradient p-[2px] active:p-5 rounded-lg">
               <button
                 onClick={() => dispach(logout())}
-                className="text-[white] text-sm primaryGradient  p-2 rounded-lg px-5"
+                className="text-[white] text-sm bg-[#171919]  p-2 rounded-lg px-5"
               >
                 Logout
               </button>
+                </div>
             ) : (
               <Link to={"/sign-up"}>
-                <button className="text-[white] text-sm primaryGradient  uppercase p-2 rounded-lg px-5">
+                <div className="primaryGradient p-[2px] active:p-5 rounded-lg">
+                <button className="text-[white] text-sm bg-[#171919]  p-2 rounded-lg px-5">
                   Sign up
                 </button>
+
+                </div>
               </Link>
             )}
           </div>
-          {/* <div className="hidden sm:flex">
+          {/* <div className="hidden md:flex">
       <button className="text-[white] text-sm bg-[#313030]  uppercase p-2 rounded-lg px-5">Sign Up</button>
       </div> */}
         </div>

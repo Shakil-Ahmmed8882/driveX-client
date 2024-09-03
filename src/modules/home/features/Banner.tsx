@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
+
 import CarQueryInput from "../components/banner/CarQueryInput";
 import { motion } from "framer-motion";
 import Container from "../../../shared/layouts/Container";
@@ -27,17 +27,16 @@ const imageVariants = {
 };
 
 const Banner = () => {
-  const [searchValue, setSearchValue] = useState("");
   return (
     <Container className="">
       <div className="lg:flex gap-3 items-end">
         <article className="flex-2 w-full h-72 lg:h-auto flex flex-col items-center justify-center lg:w-2/3 absolute lg:static top-32 z-20">
           <div className="pb-8 w-full text-center lg:text-left lg:items-start">
-            <h2 className="text-3xl md:pb-4 sm:text-[30px] md:text-[35px] leading-snug font-bold mb-2 md:mb-4 lg:mb-8 lg:text-[48px]">
+            <h2 className="text-3xl md:pb-2 sm:text-[30px] md:text-[35px] leading-snug font-bold mb-2 md:mb-4 lg:mb-8 lg:text-[48px]">
               Elevate Your Travel Experience.
             </h2>
             {/* for large device */}
-            <CarQueryInput {...{ setSearchValue }} />
+            <CarQueryInput />
 
             {/* for small device */}
             <p className="text-lg block lg:hidden">

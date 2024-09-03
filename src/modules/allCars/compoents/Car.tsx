@@ -4,7 +4,7 @@ import Ratings from "../../../components/ui/Ratings";
 import CarImage from "./CarImage";
 import { motion } from "framer-motion";
 
-const Car = ({ car }): JSX.Element => {
+const Car = ({ car }: { car: any }): JSX.Element => {
   //   const { _id,name,description,color,isElectric,status,features,pricePerHour,isDeleted,image,createdAt,updatedAt,__v
   //   } = car || {}
   const { _id, name, description, status, pricePerHour, image } = car || {};
@@ -45,8 +45,10 @@ const Car = ({ car }): JSX.Element => {
               <h2 className="text-2xl  font-semibold mb-1">
                 {name.split(" ").slice(0, 1)}
               </h2>
-              <div className="flex group-hover:opacity-100 opacity-0 transition-all duration-300
-          -translate-y-4 group-hover:-translate-y-0 delay-100">
+              <div
+                className="flex group-hover:opacity-100 opacity-0 transition-all duration-300
+          -translate-y-4 group-hover:-translate-y-0 delay-100"
+              >
                 <Ratings times={[1]} unfilled={false} />
                 <span className="text-sm text-green-400">4.8 (352)</span>
               </div>
@@ -75,7 +77,7 @@ const Car = ({ car }): JSX.Element => {
               </div>
             </div>
             <div className="text-[18px] font-bold text-[#F09903] text- pt-4">
-              $ {pricePerHour} 
+              $ {pricePerHour}
               <span className="text-sm font-normal text-gray-400"> /hour</span>
             </div>
           </article>

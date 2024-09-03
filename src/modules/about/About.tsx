@@ -98,9 +98,8 @@ import product from "../../assets/images/home/featured/bg-car.jpg";
 // };
 
 // export default AboutUs;
-import React from "react";
+
 import Container from "../../shared/layouts/Container";
-import Title from "../../shared/ui/Title";
 import Description from "../../shared/ui/Description";
 
 const AboutUs = () => {
@@ -206,9 +205,7 @@ const OurTeam = () => {
     <section className="  bg-[#18221431] rounded-lg">
       <Container className="px-4">
         <div className="">
-          <Title className="!text-2xl sm:!text-2xl text-center pb-8 lg:pb-16">
-            Meet our Team
-          </Title>
+          <h2 className="flex justify-start md:justify-center  text-3xl">Meet our Team</h2>
           <div className="mt-8 space-y-4 grid gap-8 justify-center justify-self-center md:grid-cols-2 lg:grid-cols-3">
             <div className="bg-[#262d254a] p-8 rounded-lg w-[100%] sm:w-[80%] lg:w-[100%] mx-auto">
               <img

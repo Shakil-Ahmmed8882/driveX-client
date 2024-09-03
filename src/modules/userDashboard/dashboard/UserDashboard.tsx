@@ -5,6 +5,7 @@ import RecentActivity from "./compoents/RecentActivity";
 import Notification from "./compoents/Notification";
 import { DashboardData } from "./types";
 import { useGetMyAllBookingsQuery } from "../../../redux/features/user/booking.api";
+import { DSpinner } from "../../../shared/ui/loading/DSpinner";
 
 // Sample data
 const dashboardData: DashboardData = {
@@ -29,18 +30,22 @@ const dashboardData: DashboardData = {
 const CustomerDashboard: React.FC = () => {
   const { data, isLoading } = useGetMyAllBookingsQuery(undefined);
 
-  if (isLoading) return <>...</>;
+  if (isLoading) return <DSpinner/>;
 
   const bookingData = data?.data?.result;
 
   const { totalSpending } = data?.data?.totalSpendings[0] || {
     totalSpending: 0,
   };
+  const formattedTotalSpending = totalSpending.toFixed(2);
+
   const pendingBookings = bookingData?.filter(
-    (item) => item.status === "pending"
+    (item:{status:string}) => item.status === "pending"
   ).length;
+
+  
   const approvedBookings = bookingData?.filter(
-    (item) => item.status === "approved"
+    (item:{status:string}) => item.status === "approved"
   ).length;
 
   const chartData1 = {
@@ -59,14 +64,18 @@ const CustomerDashboard: React.FC = () => {
     <div>
       <main className="flex-1 p-10 overflow-y-auto">
         {/* Overview Section */}
-        <section className="lg:flex gap-6 mb-10">
+        <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           <OverviewCard title="My Bookings" value={pendingBookings || 0} />
           <OverviewCard
             title="Pending Bookings"
+            value={`${pendingBookings || 0}`}
+          />
+          <OverviewCard
+            title="Approved Bookings"
             value={`${approvedBookings || 0}`}
           />
 
-          <OverviewCard title="Total Spendings" value={`$${totalSpending}`} />
+          <OverviewCard title="Total Spendings" value={`$${formattedTotalSpending}`} />
         </section>
 
         {/* Charts Section */}

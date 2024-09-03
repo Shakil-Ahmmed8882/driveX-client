@@ -1,6 +1,13 @@
 import { Search } from "lucide-react";
 
-const CarHeaders = ({ title, description, onChangeValue }): JSX.Element => {
+type CarHeadersProps = {
+  title: string;
+  description: string;
+  onChangeValue: (value: string) => void;
+};
+
+const CarHeaders: React.FC<CarHeadersProps> = ({ title, description, onChangeValue }): JSX.Element => {
+
   return (
 
     <div className="bg-gradient-to-r  from-primaryColor to-indigo-800 h-60 flex justify-center w-full my-16 rounded-lg">

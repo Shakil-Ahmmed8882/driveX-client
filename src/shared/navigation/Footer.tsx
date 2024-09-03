@@ -101,15 +101,15 @@ const Footer = () => {
                 Follow Us
               </h3>
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=100089922151860" className="hover:text-white transition-colors">
                   <Facebook className="w-6 h-6" />
                   <span className="sr-only">Facebook</span>
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=100089922151860" className="hover:text-white transition-colors">
                   <Instagram className="w-6 h-6" />
                   <span className="sr-only">Instagram</span>
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=100089922151860" className="hover:text-white transition-colors">
                   <Twitter className="w-6 h-6" />
                   <span className="sr-only">Twitter</span>
                 </a>

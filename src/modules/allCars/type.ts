@@ -9,7 +9,13 @@ export type TCar = {
     features: string[];
     pricePerHour: number;
     isDeleted: boolean;
+    isBooked?: boolean;
     image: string;
-    createdAt: Date; 
-    updatedAt: Date; 
+    createdAt: string; 
+    updatedAt: string; 
   };
+
+
+  export type Tdata = {
+    data: TCar
+  }

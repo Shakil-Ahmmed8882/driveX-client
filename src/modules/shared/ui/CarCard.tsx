@@ -15,9 +15,9 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
   
   return (
     // <Link to={`/cars/${car}`}>
-    <Link to={`/cars/66d167466537d47a8f9db63e`}>
+    <Link to={`/all-cars`}>
       <motion.div
-        className="rounded-lg shadow-lg overflow-hidden"
+        className="rounded-lg bg-[#3131316e] shadow-lg overflow-hidden"
         layout
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}

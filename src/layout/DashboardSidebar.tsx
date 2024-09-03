@@ -1,4 +1,4 @@
-import {  NavLink, useParams } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import Logo from "../shared/ui/Logo";
 import { adminPath } from "../routes/adminRoutes";
 import { userDashboardPaths } from "../routes/userDashboardRoutes";
@@ -16,9 +16,8 @@ const DashboardSidebar = (): JSX.Element => {
   const user = useSelector(selectCurrentUser);
   const isMenuOpen = useAppSelector(navbarState);
   const dispach = useAppDispatch();
-  const pathName = 
+  
 
-  console.log(pathName)
 
   let routes;
   switch (user?.role) {
@@ -42,7 +41,7 @@ const DashboardSidebar = (): JSX.Element => {
     >
       <div className="py-3">
         <button
-          onClick={() => dispach(setNavbarState(false))}
+          onClick={() => dispach(setNavbarState())}
           className="cursor-pointer md:hidden block absolute right-5 top-8"
         >
           <Close />

@@ -23,5 +23,9 @@ export const userDashboardPaths = [
       path: "pickup-and-return",
       element: <PickupAndReturn />,
     },
+    {
+      path: "coming-soon",
+      element: <h1 className="text-5xl">Coming soon</h1>,
+    },
   ];
   

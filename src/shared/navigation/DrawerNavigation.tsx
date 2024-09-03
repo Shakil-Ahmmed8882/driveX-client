@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import { Button, Drawer, Radio, Space } from "antd";
 import { homePaths } from "../../routes/homeRoutes";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { Menu } from "lucide-react";
+import Logo from "../ui/Logo";
 
 const DrawerNavigation = () => {
   const [open, setOpen] = useState(false);
@@ -22,33 +24,38 @@ const DrawerNavigation = () => {
 
   return (
     <>
-      <Space className="block sm:hidden ml-auto my-3">
-        <Button  className="primaryGradient" onClick={showDrawer}>
-          Open
+      <Space className="block md:hidden ml-auto my-3">
+        <Button  className="!bg-transparent border-none text-white hover:!text-primaryColor " onClick={showDrawer}>
+          <Menu/>
         </Button>
       </Space>
       <Drawer
-        title="Basic Drawer"
         placement={placement}
         closable={false}
         onClose={onClose}
         open={open}
         key={placement}
+        className="!bg-[#1e1e1e] text-white"
       >
-        <article className=" flex flex-col items-start gap-2">
+
+
+        <div className="pl-4 pb-8">
+        <Logo className="size-8"/>
+        </div>
+        <article className=" flex flex-col items-start gap-4">
           {homePaths?.map((route) => {
             if (route && route.name) {
               return (
-                <p
+                <Link
                   onClick={onClose}
                   key={route.name}
                   className={`
                             ${route?.className}
-                            p-2 px-5  transition-all duration-700 rounded-full`}
-                  // to={route?.path}
+                             p-4 hover:bg-[#26262A] hover:text-white w-full  transition-all duration-700 `}
+                  to={route?.path}
                 >
                   {route.name}
-                </p>
+                </Link>
               );
             }
           })}

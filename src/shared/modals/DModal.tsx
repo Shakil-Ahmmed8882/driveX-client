@@ -1,6 +1,12 @@
+import { ReactNode } from "react";
 import { Close } from "../../assets/icons/Icons";
+type DModalProps = {
+  setOpen: (open: boolean) => void; // Function to set the open state
+  open: boolean; // Boolean indicating if the modal is open or not
+  children: ReactNode
+};
 
-const DModal = ({ setOpen, open, children }) => {
+const DModal: React.FC<DModalProps> = ({ setOpen, open, children }) => {
   return (
     <section
       className={`

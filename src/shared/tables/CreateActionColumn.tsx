@@ -1,3 +1,5 @@
+
+// Define a reusable function to generate the action column
 import React from "react";
 import { Button } from "antd";
 import { Delete } from "../../assets/icons/Icons";
@@ -11,7 +13,7 @@ export const createActionColumn = (
   return {
     title: "Action",
     key: "action",
-    render: (text: any, record: any) => {
+    render: (record: any) => { // Removed 'text' since it's not used
       if (customRender) {
         return customRender(record); // Use the custom render function if provided
       }

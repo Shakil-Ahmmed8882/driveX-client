@@ -5,6 +5,7 @@ import ReusableTable from "../../../shared/tables/DTable";
 import Card from "./component/Card";
 import EditBookedCarForm from "./component/EditBookedCarForm";
 import DeleteModel from "./component/DeleteModel";
+import { DSpinner } from "../../../shared/ui/loading/DSpinner";
 
 const UserBookings = (): JSX.Element => {
   // Fetch bookings data from API
@@ -13,7 +14,7 @@ const UserBookings = (): JSX.Element => {
   const [bookingId,setBookingId] = useState("")
   const [isDelete,setIsDelete] = useState(false)
   // Handle loading state
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <DSpinner/>;
 
   // Define columns
   const columns = [
@@ -31,7 +32,7 @@ const UserBookings = (): JSX.Element => {
       title: "image",
       dataIndex: ["car", "image"], // Nested data structure
       key: "email",
-      render: (item) => {
+      render: (item:string) => {
         return <img src={item} className="size-8 rounded-full " alt="" />
       }
     },
@@ -51,14 +52,14 @@ const UserBookings = (): JSX.Element => {
 
   // Define actions
   const actions = {
-    edit: (record) => {
+    edit: (record:any) => {
       const selectedBookingId = record?._id; // Get the car ID directly from the record
       setBookingId(selectedBookingId); // Update the state
       console.log(selectedBookingId)
       setIsOpen(true); // Open the modal
       
     },
-    delete: (record) => {
+    delete: (record:any) => {
       const selectedBookingId = record?._id; // Get the car ID directly from the record
       setBookingId(selectedBookingId); // Update the state
       console.log("Deleting record:", record);

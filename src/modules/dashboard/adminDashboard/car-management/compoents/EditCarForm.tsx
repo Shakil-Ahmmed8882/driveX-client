@@ -5,6 +5,7 @@ import {
 } from "../../../../../redux/features/cars/carsApi";
 import CarForm from "../features/CarEditForm";
 import { extractErrorMessage } from "../../../../../types";
+import { TCar } from "../../../../allCars/type";
 
 const EditCarForm = ({
   carId,
@@ -12,39 +13,33 @@ const EditCarForm = ({
 }: {
   carId: string;
   setIsOpen: (param: boolean) => void;
-}): JSX.Element => {
+}): JSX.Element | null => {
   const { data } = useGetSingleCarQuery(carId);
   const [updateCar] = useUpdateCarMutation();
 
-  const singleCarData = data?.data;
+  const singleCarData = data?.data as TCar | undefined;
+
+  // Ensure singleCarData is available before proceeding
+  if (!singleCarData) return null;
 
   const handleEditForm = async (updatedData: any) => {
-    if (!singleCarData) return; // Ensure singleCarData is available
+    const updatedCar: TCar = Object.keys(singleCarData).reduce((acc, key) => {
+      const typedKey = key as keyof TCar;
 
-    // Replace empty, undefined, or null fields in updatedData
-    //with corresponding values from singleCarData
-    // keeping existing field as default and updatte with new that were changed
-    const updatedCar = Object.keys(singleCarData).reduce((acc, key) => {
-      acc[key] =
-        updatedData[key] === undefined ||
-        updatedData[key] === null ||
-        updatedData[key] === ""
-          ? singleCarData[key]
-          : updatedData[key];
+      acc[typedKey] =
+        updatedData[typedKey] === undefined ||
+        updatedData[typedKey] === null ||
+        updatedData[typedKey] === ""
+          ? singleCarData[typedKey]
+          : updatedData[typedKey];
+
       return acc;
-    }, {} as typeof singleCarData);
+    }, {} as Partial<TCar>) as TCar;
 
-    // Remove _id field if it's present
-    // remove features cause we don't created form for it yet
-    // in backend expect featurs as array of string so Ommit it for now
-    const { _id, features,...carDataWithoutId } = updatedCar;
+    const { _id, features, ...carDataWithoutId } = updatedCar;
 
     try {
-
-      console.log(carDataWithoutId)
-      // Pass carDataWithoutId to updateCar mutation
       const res = await updateCar({ data: carDataWithoutId, carId }).unwrap();
-        console.log(res)
       if (res.success) {
         toast.success("Car is updated successfully.");
       }

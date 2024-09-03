@@ -2,26 +2,20 @@ import { useState } from "react";
 import { useGetAllBookingsQuery } from "../../../../redux/features/user/booking.api";
 import { Badge } from "antd";
 import CarHeaders from "../car-management/compoents/CarHeaders";
-import AddCar from "../car-management/compoents/AddCar";
 import ReusableTable from "../../../../shared/tables/DTable";
-import DModal from "../../../../shared/modals/DModal";
-import EditCarForm from "../car-management/compoents/EditCarForm";
-import DeleteCar from "../car-management/compoents/DeleteCar";
 import StatusModal from "./components/StatusModal";
+import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
 
 
 const ManageBookings = (): JSX.Element => {
   const [searchValue, setSearchValue] = useState("");
-  const [carId, setCarId] = useState("");
-  const [open, setIsOpen] = useState(false);
-  const [isDelete, setIsDelete] = useState(false);
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
 
   const { data, isLoading } = useGetAllBookingsQuery([
     { name: "searchTerm", value: searchValue },
   ]);
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <DSpinner/>;
 
   const columns = [
     {
@@ -63,7 +57,7 @@ const ManageBookings = (): JSX.Element => {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      render: (item, record, index) => (
+      render: (item:string, record:any, index:number) => (
         <div
           onMouseEnter={() => setHoveredRowIndex(index)}
           onMouseLeave={() => setHoveredRowIndex(null)}
@@ -103,12 +97,7 @@ const ManageBookings = (): JSX.Element => {
         searchValue={""}
       />
 
-      <DModal setOpen={setIsOpen} open={open}>
-        <EditCarForm setIsOpen={setIsOpen} carId={carId} />
-      </DModal>
-      <DModal setOpen={setIsDelete} open={isDelete}>
-        <DeleteCar  {...{ setIsDelete,setIsOpen, carId }} />
-      </DModal>
+      
     </section>
   );
 };

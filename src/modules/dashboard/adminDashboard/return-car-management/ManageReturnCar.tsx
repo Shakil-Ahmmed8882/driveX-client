@@ -3,11 +3,12 @@ import Card from "../../../userDashboard/manageBooking/component/Card";
 import ReusableTable from "../../../../shared/tables/DTable";
 import { Badge } from "antd";
 import ReturnCar from "./components/ReturnCar";
+import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
 
 const ManageBookings = (): JSX.Element => {
   const { data, isLoading } = useGetAllBookingsQuery([]);
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <DSpinner/>;
 
   const columns = [
     {
@@ -35,7 +36,7 @@ const ManageBookings = (): JSX.Element => {
       title: "Status",
       dataIndex: "isPaid",
       key: "isPaid",
-      render: (item) => {
+      render: (item:boolean) => {
         return (
           <div>
             <Badge

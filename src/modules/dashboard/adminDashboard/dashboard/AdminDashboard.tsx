@@ -1,26 +1,18 @@
 import { useGetAllCarsQuery } from "../../../../redux/features/cars/carsApi";
 import {
   useGetAllBookingsQuery,
-  useGetMyAllBookingsQuery,
 } from "../../../../redux/features/user/booking.api";
 import RadialChart from "../../../../shared/charts/RadialChart";
+import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
 import { Tbooking } from "../../../../types/booking.type";
 import Notification from "../../../userDashboard/dashboard/compoents/Notification";
 import OverviewCard from "../../../userDashboard/dashboard/compoents/OverviewCard";
 import RecentActivity from "../../../userDashboard/dashboard/compoents/RecentActivity";
 
-const chartData1 = {
-  series: [90], // Data for the radial chart
-  label: "Average Results", // Label for the chart
-};
 
-const chartData2 = {
-  series: [40], // Data for the radial chart
-  label: "Average Results", // Label for the chart
-};
 
 // Sample data
-const dashboardData: DashboardData = {
+const dashboardData = {
   totalBookings: 12,
   pendingPayments: 408,
   totalSpendings: 1200,
@@ -44,10 +36,10 @@ const AdminDashboard: React.FC = () => {
   const { data: carData } = useGetAllCarsQuery([
     { name: "status", value: "available" },
   ]);
-  if (isLoading) return <>...</>;
+  if (isLoading) return <DSpinner/>;
 
-  const allBookedData = data?.data;
-  const allCarData = carData?.data;
+  const allBookedData = data?.data? data.data : [];
+  const allCarData = carData?.data? carData?.data : []
 
   const pendingBookings = allBookedData?.filter(
     (item: Tbooking) => item.status === "pending"
@@ -93,6 +85,7 @@ const AdminDashboard: React.FC = () => {
 
           </div>
         </section>
+
 
         {/* Charts Section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">

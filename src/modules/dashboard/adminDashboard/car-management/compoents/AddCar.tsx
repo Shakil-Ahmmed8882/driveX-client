@@ -3,15 +3,11 @@ import DModal from "../../../../../shared/modals/DModal";
 import CarForm from "../features/CarEditForm";
 import { Button } from "antd";
 import { useAddCarMutation } from "../../../../../redux/features/cars/carsApi";
-import useModal from "../../../../../hooks/useModal";
-import { extractErrorMessage, TError } from "../../../../../types";
+import { extractErrorMessage } from "../../../../../types";
 import { toast } from "sonner";
 
-interface AddCarProps {
-  carId: string;
-}
 
-const AddCar: React.FC<AddCarProps> = ({ carId }): JSX.Element => {
+const AddCar: React.FC = (): JSX.Element => {
   const [open, setIsOpen] = useState(false);
   const [addCar] = useAddCarMutation();
 
@@ -24,7 +20,7 @@ const AddCar: React.FC<AddCarProps> = ({ carId }): JSX.Element => {
         isElectric:true,
     }
 
-    console.log(car)
+    
     try {
       const res = await addCar(car).unwrap();
      

@@ -12,6 +12,7 @@ import {
 } from "../../../../redux/features/user/booking.api";
 import { toast } from "sonner";
 import { extractErrorMessage } from "../../../../types";
+import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
 
 const isValidMomentInput = (input: any): input is string | Date => {
   return moment(input).isValid();
@@ -27,7 +28,7 @@ const EditBookedCarForm = ({
   const { data, isLoading } = useGetSingleBookingQuery(bookingId);
   const [updateBooking] = useUpdateBookingMutation();
 
-  if (isLoading) return <>..</>;
+  if (isLoading) return <DSpinner/>;
 
   const {
     "pick-up-date": pickUpDate,

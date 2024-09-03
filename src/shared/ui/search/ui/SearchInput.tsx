@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { SearchIcon } from "lucide-react";
 
 const SearchInput = ({
-  setSearchValut,
+  setSearchValue,
+  className =''
 }: {
-  setSearchValut: (param: string) => void;
+  setSearchValue: (param: string) => void;
+  className?:string
 }): JSX.Element => {
   return (
     <motion.div
@@ -13,14 +15,14 @@ const SearchInput = ({
       animate="visible"
       exit="hidden"
       transition={{ duration: 0.5 }}
-      className="bg-lightGray transition-all duration-500  shadow-md rounded-full px-6 py-2 flex items-center  gap-2 text-white"
+      className={`${className} bg-lightGray transition-all duration-500  shadow-md rounded-full  sm:px-6 sm:py-2 flex items-center  gap-2 text-white`}
     >
         <SearchIcon/>
       <input
-        onChange={(e) => setSearchValut(e.target.value)}
+        onChange={(e) => setSearchValue(e.target.value)}
         placeholder="Search cars"
         type="text"
-        className="bg-transparent py-3 w-full focus-within:outline-none"
+        className={` bg-transparent py-3 w-full focus-within:outline-none`}
       />
     </motion.div>
   );

@@ -34,7 +34,7 @@ const WhyChooseUs: React.FC = () => {
                 {/* gradient title and description */}
                 {feature.gradient ? (
                   <div className="flex flex2 items-end mb-2">
-                    <h3 className="text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
+                    <h3 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
                      24/
                     </h3>
                     <span className="text-6xl font-bold text-[#cfcfcf]">7</span>
@@ -44,15 +44,15 @@ const WhyChooseUs: React.FC = () => {
                 // image , title description
                 (
                   feature.image && (
-                    <img src={feature.image} className="w-24 mb-4" alt="" />
+                    <img src={feature.image} className="w-20 mb-4" alt="" />
                   )
                 )}
 
                 <h2 className="text-3xl text-gray-100 mt-8">
                   {feature.subtitle}
                 </h2>
-                <h3 className="text-2xl  font-bold mb-2">{feature.title}</h3>
-                <p className="mt-4 text-center text-xl text-[#a6a5a5]">
+                <h3 className="text-[22px]  font-bold mb-2">{feature.title}</h3>
+                <p className="mt-2 text-center text-lg text-[#a6a5a5]">
                   {feature.description}
                 </p>
               </div>

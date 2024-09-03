@@ -3,24 +3,40 @@ import DInput from "../../shared/forms/DInput";
 import DForm from "../../shared/forms/DForm";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import SidePanel from "./shared/SidePanel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import { useSignUpMutation } from "../../redux/features/auth/authApi";
+import { validateFieldsOfSingUpForm } from "../../utils/validation";
+import { toast } from "sonner";
+import { extractErrorMessage } from "../../types";
+import { SignUpResponse } from "./type";
 
 function Signup() {
+  const [signUp] = useSignUpMutation();
+  const navigate = useNavigate();
 
-  const [signUp] = useSignUpMutation()
-
-
-
-  const hanleSignUp: SubmitHandler<FieldValues> = (data) => {
+  const hanleSignUp: SubmitHandler<FieldValues> = async (data) => {
+    if (!validateFieldsOfSingUpForm(data)) {
+      toast.warning("Please fill out all required fields.");
+      return;
+    }
 
     const userData = {
       ...data,
-      role: "user"
+      role: "user",
+    };
+
+    try {
+      const res = (await signUp(userData).unwrap()) as SignUpResponse;
+      console.log(res);
+      if (res?.success) {
+        toast.success(`Singed in `);
+        navigate("/login");
+      }
+    } catch (error) {
+      const errorMessage = extractErrorMessage(error);
+      toast.error(errorMessage);
     }
-    console.log(userData);
-    signUp(userData)
   };
   return (
     <div className="min-h-screen flex items-center justify-center ">
@@ -32,23 +48,22 @@ function Signup() {
               Sign up to your account
             </h2>
           </div>
-          <DForm onSubmit={hanleSignUp} className="space-y-6" >
-              <DInput type="text" label="Name" name="name" />
-              <DInput type="text" label="Email" name="email" />
-              <DInput type="text" label="Password" name="password" />
-              <DInput type="number" label="Phone" name="phone" />
-              <DInput type="text" label="Address" name="address" />
+          <DForm onSubmit={hanleSignUp} className="space-y-6">
+            <DInput type="text" label="Name" name="name" />
+            <DInput type="text" label="Email" name="email" />
+            <DInput type="text" label="Password" name="password" />
+            <DInput type="number" label="Phone" name="phone" />
+            <DInput type="text" label="Address" name="address" />
 
             {/* remember & forgot pass */}
-            <RememberAndForgetPassword/>
+            <RememberAndForgetPassword />
             <Button
               htmlType="submit"
               className="border-none  hover:!primaryGradient/90 hover:!text-white mt-6 w-full primaryGradient text-white"
             >
               Sign up
             </Button>
-            <SwitchBetweenLoginToSignin/>
-          
+            <SwitchBetweenLoginToSignin />
           </DForm>
         </div>
 
@@ -65,35 +80,30 @@ function Signup() {
 
 export default Signup;
 
-
 const SwitchBetweenLoginToSignin = () => {
   return (
     <p className="pt-3 text-center text-sm text-white">
-    Alreadt have an account?{" "}
-    <Link to="/login" className="text-blue-400 hover:text-blue-500">
-      Sign in
-    </Link>
-  </p>
-  )
-}
-
-
+      Alreadt have an account?{" "}
+      <Link to="/login" className="text-blue-400 hover:text-blue-500">
+        Sign in
+      </Link>
+    </p>
+  );
+};
 
 export const RememberAndForgetPassword = () => {
   return (
     <div className="flex px-4 items-center justify-between py-3">
-    <label className="flex items-center text-sm text-white">
-      <input
-        type="checkbox"
-        className="form-checkbox h-4 w-4 text-blue-500"
-      />
-      <span className="ml-2">T&Q</span>
-    </label>
-    <a href="#" className="text-sm text-white hover:text-blue-400">
-      Forgot password?
-    </a>
-  </div>
-  )
-}
-
-
+      <label className="flex items-center text-sm text-white">
+        <input
+          type="checkbox"
+          className="form-checkbox h-4 w-4 text-blue-500"
+        />
+        <span className="ml-2">T&Q</span>
+      </label>
+      <a href="#" className="text-sm text-white hover:text-blue-400">
+        Forgot password?
+      </a>
+    </div>
+  );
+};

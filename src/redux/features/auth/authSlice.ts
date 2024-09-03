@@ -11,6 +11,7 @@ export type TUser = {
 type TAuthState = {
   user: null | TUser ;
   token: null | string;
+  email?:string,
 };
 
 const initialState: TAuthState = {

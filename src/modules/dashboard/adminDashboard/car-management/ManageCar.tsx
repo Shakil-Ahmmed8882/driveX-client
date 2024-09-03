@@ -9,6 +9,8 @@ import { Badge } from "antd";
 import EditCarForm from "./compoents/EditCarForm";
 import DeleteCar from "./compoents/DeleteCar";
 import AddCar from "./compoents/AddCar";
+import { TCar } from "../../../allCars/type";
+import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
 
 const ManageCars = (): JSX.Element => {
   // Fetch bookings data from API
@@ -24,7 +26,7 @@ const ManageCars = (): JSX.Element => {
   ]);
 
   
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <DSpinner/>;
   
 
   // Define columns
@@ -33,7 +35,7 @@ const ManageCars = (): JSX.Element => {
       title: "Image",
       dataIndex: "image",
       key: "image",
-      render: (item) => (
+      render: (item:string) => (
         <img className="size-12 rounded-full" src={item} alt="" />
       ),
     },
@@ -52,7 +54,7 @@ const ManageCars = (): JSX.Element => {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      render: (item) => (
+      render: (item:string) => (
         <Badge
           className={`${
             item === "available"
@@ -68,13 +70,13 @@ const ManageCars = (): JSX.Element => {
 
   // Define actions
   const actions = {
-    edit: (record) => {
+    edit: (record:TCar) => {
       const selectedCarId = record?._id;
       setCarId(selectedCarId);
       console.log(selectedCarId);
       setIsOpen(true);
     },
-    delete: (record) => {
+    delete: (record:TCar) => {
       const selectedCarId = record?._id; // Get the car ID directly from the record
       setCarId(selectedCarId); // Update the state
       console.log("Deleting record:", record);
@@ -92,7 +94,7 @@ const ManageCars = (): JSX.Element => {
           "Drivex provides wide ransge of high quality vehicles."
         }
       />
-  <AddCar {...{setIsOpen, carId}}/>
+  <AddCar />
         
 
       <ReusableTable

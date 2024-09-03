@@ -1,4 +1,5 @@
 import { TQueryParam, TResponseRedux } from "../../../types";
+import { TCar } from "../../../types/booking.type";
 import { baseApi } from "../../api/baseApi";
 
 const carApi = baseApi.injectEndpoints({
@@ -35,22 +36,23 @@ const carApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
-      transformResponse: (response: TResponseRedux<any[]>) => {
+      transformResponse: (response: TResponseRedux<TCar[]>) => {
         return {
           data: response?.data,
           meta: response?.meta,
         };
       },
-      providesTags: (result, error, carId) => [{ type: "carList", id: carId }],
+      providesTags: (_, __, carId) => [{ type: "carList", id: carId }],
+
     }),
 
     addCar: builder.mutation({
-      query: ( data ) => ({
+      query: (data) => ({
         url: `/cars/`,
         method: "POST",
         body: data,
       }),
-      invalidatesTags: (result, error, { carId }) => [
+      invalidatesTags: (_, __, { carId }) => [
         { type: "carList", id: carId },
       ],
     }),
@@ -61,10 +63,7 @@ const carApi = baseApi.injectEndpoints({
         method: "PUT",
         body: data,
       }),
-      invalidatesTags: (result, error, carId) => [
-        { type: "carList", id: carId },
-        { type: "carList" }, // Invalidate the list to trigger a refetch
-      ],
+      invalidatesTags:["carList"]
     }),
 
     deleteCar: builder.mutation({
@@ -72,7 +71,7 @@ const carApi = baseApi.injectEndpoints({
         url: `/cars/${carId}`,
         method: "DELETE",
       }),
-      invalidatesTags: (result, error, carId) => [
+      invalidatesTags: (_, __, carId) => [
         { type: "carList", id: carId },
         { type: "carList" }, // Invalidate the list to trigger a refetch
       ],

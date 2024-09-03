@@ -43,9 +43,9 @@ const ReusableTable: React.FC<ReusableTableProps> = ({
         loading={isFetching}
         columns={updatedColumns}
         dataSource={tableData}
-        onChange={(pagination, filters) => {
-          // Handle table change events if needed
-        }}
+        // onChange={(pagination, filters) => {
+        //   // Handle table change events if needed
+        // }}
         pagination={false}
       />
       <div className="flex justify-start my-3 mr-6">
