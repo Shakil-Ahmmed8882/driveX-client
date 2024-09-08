@@ -57,11 +57,13 @@ const Navbar = () => {
 
         {/* lg */}
         <div>
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex ">
+          <div className="flex items-center gap-6">
+            <div className="flex justify-end w-full ml-auto ">
               <SearchIcon onClick={handleSearchClick}/>
               <SearchResultLayout/>
             </div>
+
+            <div className="hidden md:flex items-center gap-6">
 
             {user ? (
               <div className="primaryGradient p-[2px] active:p-5 rounded-lg">
@@ -82,6 +84,8 @@ const Navbar = () => {
                 </div>
               </Link>
             )}
+            </div>
+
           </div>
           {/* <div className="hidden md:flex">
       <button className="text-[white] text-sm bg-[#313030]  uppercase p-2 rounded-lg px-5">Sign Up</button>

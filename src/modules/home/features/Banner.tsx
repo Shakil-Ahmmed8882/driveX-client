@@ -3,20 +3,20 @@
 import CarQueryInput from "../components/banner/CarQueryInput";
 import { motion } from "framer-motion";
 import Container from "../../../shared/layouts/Container";
+import car1 from "../../../assets/images/home/banner/car1.png";
+import car2 from "../../../assets/images/home/banner/car2.png";
+import car3 from "../../../assets/images/home/banner/car10.png";
 
 const cars = [
   {
     name: "Lamborghini",
     imageUrl:
-      // "https://i.pinimg.com/564x/fd/18/0b/fd180b826f3f21fde530e8a4e38899e5.jpg",
-      "https://i.pinimg.com/564x/5a/8c/8a/5a8c8a949cc383a6a169e339f143d6f7.jpg",
+      car1,
     count: 6,
   },
   {
     name: "McLaren",
-    imageUrl:
-      // "https://i.pinimg.com/564x/1f/62/47/1f62478782bade73d33aa4f68011ed6a.jpg",
-      "https://i.pinimg.com/736x/2d/3c/bd/2d3cbdf7642d3ec47baefac074719d50.jpg",
+    imageUrl:car2,
     count: 3,
   },
 ];
@@ -83,9 +83,9 @@ const Banner = () => {
           >
             <img
               src={
-                "https://i.pinimg.com/736x/5a/e7/9e/5ae79efba7f9aca7efdff1b079bf1ef7.jpg"
+                car3
               }
-              className="object-cover h-full lg:h-96 w-[800px] md:w-[1000px] lg:w-[700px] lg:rounded-lg"
+              className="object-cover  h-full lg:h-96 w-[800px] md:w-[1000px]  lg:w-[700px] lg:rounded-lg"
             />
 
             <div className="absolute bottom-4 left-4 text-white hidden lg:flex justify-between w-[90%]">

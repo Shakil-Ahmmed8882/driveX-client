@@ -15,14 +15,14 @@ const SearchInput = ({
       animate="visible"
       exit="hidden"
       transition={{ duration: 0.5 }}
-      className={`${className} bg-lightGray transition-all duration-500  shadow-md rounded-full  sm:px-6 sm:py-2 flex items-center  gap-2 text-white`}
+      className={`${className} w-full bg-[white] border-none transition-all duration-500  shadow-md rounded-lg   sm:px-6 sm:py-1 flex items-center  gap-2 text-white`}
     >
-        <SearchIcon/>
+        <SearchIcon className="text-[black]"/>
       <input
         onChange={(e) => setSearchValue(e.target.value)}
         placeholder="Search cars"
         type="text"
-        className={` bg-transparent py-3 w-full focus-within:outline-none`}
+        className={`text-black bg-transparent py-3 w-full focus-within:outline-none`}
       />
     </motion.div>
   );

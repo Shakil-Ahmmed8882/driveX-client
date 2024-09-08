@@ -1,40 +1,47 @@
+
 import { Close } from "../../../assets/icons/Icons";
 import Container from "../../layouts/Container";
 import SearchInput from "./ui/SearchInput";
-import carImg from "../../../assets/images/home/featured/bg-car3.jpg";
+import car from "../../../assets/images/home/banner/red-car.png";
 import { useRef, useState } from "react";
 import { useGetAllCarsQuery } from "../../../redux/features/cars/carsApi";
-import { handleError } from "../../../modules/carDetails/component/CarImage";
 import useClickOutside from "../../../hooks/useClickOutside";
 import {
   searchState,
   setSearchClick,
 } from "../../../redux/features/global/global.slice";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { TCar } from "../../../types/booking.type";
+import { DatePicker, TimePicker } from "antd";
+import SearchResultCard from "./ui/SearchResultCard";
+import { staticCars } from "./ui/staticCardData";
 
 const SearchResultLayout = (): JSX.Element => {
   const [searchValue, setSearchValue] = useState("");
   const searchLayoutRef = useRef(null);
   const isSearchClick = useAppSelector(searchState);
-  const dispach = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  console.log(isSearchClick)
   if (isSearchClick) {
     document.body.style.overflow = "hidden";
-  } else{
+  } else {
     document.body.style.overflow = "auto";
-    
   }
 
-  useClickOutside(searchLayoutRef, () => {
-    dispach(setSearchClick(false));
-  });
+  // useClickOutside(searchLayoutRef, () => {
+  //   dispatch(setSearchClick(false));
+  // });
 
-  const { data } = useGetAllCarsQuery([
-    { name: "limit", value: 4 },
-    { name: "searchTerm", value: searchValue },
-  ]);
+  const { data } = useGetAllCarsQuery(
+    searchValue
+      ? [
+          { name: "limit", value: 20 },
+          { name: "sort", value: "" },
+          { name: "searchTerm", value: searchValue },
+        ]
+      : []
+  );
+
+  const carsToDisplay = searchValue ? data?.data || [] : staticCars;
 
   return (
     <div
@@ -43,17 +50,29 @@ const SearchResultLayout = (): JSX.Element => {
         isSearchClick
           ? "h-[100vh] opacity-100 visible"
           : "h-[0vh] opacity-0 invisible"
-      } transition-all duration-500  bg-[#313131] pb-32 pt-20 overflow-y-scroll w-full z-50 fixed top-0 right-0 left-0`}
+      } transition-all duration-500 bg-[#f8f8f8] pb-32 pt-20 overflow-y-scroll w-full z-50 fixed top-0 right-0 left-0 overflow-x-hidden`}
     >
       <Container className="relative pt-24">
-        <SearchInput {...{ setSearchValue }} />
-        <button onClick={() => dispach(setSearchClick(false))}>
-          <Close className="absolute -top-4 right-10" />
+        <h1 className=" text-5xl sm:text-7xl w-1/2 font-bold text-[black] pb-8 lg:pb-0">
+          Search <span className="text-primaryColor">DriveX</span> collection
+        </h1>
+
+        <section className=" pt-10 lg:flex gap-8 items-center -mt-12">
+          <div className="md:flex w-full sm:w-2/3  space-y-3 md:space-y-0 lg:h-14  flex-2 justify-between gap-3">
+            <SearchInput {...{ setSearchValue }} />
+            <DatePicker className="w-full border-none sm:w-2/3 h-12 md:h-14 lg:h-auto shadow-lg shadow-[#e3e3e3]" />
+            <TimePicker format={"HH:mm"} className="w-full h-12 md:h-14 lg:h-auto  bg-[#ffffff] shadow-lg shadow-[#e3e3e3]" />
+          </div>
+          <img src={car} alt="" className="hidden lg:flex" />
+        </section>
+
+        <button onClick={() => dispatch(setSearchClick(false))}>
+          <Close className="absolute -top-4 right-10 text-[black] hover:bg-[white] bg-[#e5e5e5] transition-all duration-300 shadow-lg w-10 h-10 rounded-full p-2" />
         </button>
 
-        <main className="grid grid-cols-2 gap-20 pt-11">
-          {data?.data?.map((item) => (
-            <SearchResultCard {...{ item }} key={item._id} />
+        <main className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pt-11">
+          {carsToDisplay.map((item) => (
+            <SearchResultCard {...{ item, searchValue }} key={item._id} />
           ))}
         </main>
       </Container>
@@ -62,22 +81,3 @@ const SearchResultLayout = (): JSX.Element => {
 };
 
 export default SearchResultLayout;
-
-const SearchResultCard = ({ item }:{item:TCar}) => {
-  return (
-    <div className="group cursor-pointer overflow-y-hidden relative gap-4 bg-[#1a1919]  h-52 rounded-lg">
-      <img
-        src={item.image || carImg}
-        alt=""
-        className="w-full  object-cover"
-        onError={handleError}
-      />
-      <div className="absolute inset-0   group-hover:translate-y-80 translate-y-0 transition-all duration-500 bg-[#00000093] "></div>
-
-      <div className=" space-y-3 pt-2  absolute delay-100  group-hover:translate-y-80 translate-y-0 transition-all duration-500  bottom-4 left-2">
-        <h2 className="text-xl ">{item.name}</h2>
-        <p className="text-[#b7b7b7]">{item.description} </p>
-      </div>
-    </div>
-  );
-};
