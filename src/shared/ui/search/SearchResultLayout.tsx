@@ -54,6 +54,8 @@ const SearchResultLayout = (): JSX.Element => {
     >
       <Container className="relative pt-24">
         <h1 className=" text-5xl sm:text-7xl w-1/2 font-bold text-[black] pb-8 lg:pb-0">
+
+        
           Search <span className="text-primaryColor">DriveX</span> collection
         </h1>
 
