@@ -5,6 +5,7 @@ import BookingLayout from "../modules/booking/BookingLayout";
 import BookingFormPage from "../modules/bookingFormPage/BookingFormPage";
 import CarDetails from "../modules/carDetails/CarDetails";
 import Contact from "../modules/contact/Contact";
+import FAQ from "../modules/faq/FAQ";
 import HomePageLayout from "../modules/home/HomePageLayout";
 
 export const homePaths = [
@@ -17,6 +18,11 @@ export const homePaths = [
     name: "About us",
     path: "about",
     element: <About />,
+  },
+  {
+    name: "FAQ",
+    path: "faq",
+    element: <FAQ />,
   },
   {
     name: "Bookings",

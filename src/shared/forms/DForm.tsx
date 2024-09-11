@@ -17,6 +17,7 @@ type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
   className?: string;
+  isReset?: boolean ;
 } & TFormConfig;
 
 const DForm = ({
@@ -25,6 +26,7 @@ const DForm = ({
   defaultValues,
   resolver,
   className,
+  isReset,
 }: TFormProps) => {
   // Define the formConfig type to include possible UseFormProps
   const formConfig: Partial<UseFormProps<FieldValues>> = {};
@@ -42,7 +44,9 @@ const DForm = ({
 
   const submit: SubmitHandler<FieldValues> = (data) => {
     onSubmit(data);
-    methods.reset();
+    if (isReset) {
+      methods.reset();
+    }
   };
 
   return (

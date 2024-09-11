@@ -1,150 +1,174 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CalendarIcon, CarIcon, MapPinIcon, MenuIcon, SearchIcon } from "lucide-react"
 
-export default function Component() {
+const SearchCategoryAndSocal = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
-          <CarIcon className="h-6 w-6" />
-          <span className="sr-only">Mega Car</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Home
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Cars
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Locations
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            About
-          </Link>
-        </nav>
-      </header>
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-black">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white">
-                  Find Your Perfect Ride with Mega Car
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl">
-                  Discover our wide range of vehicles and book your dream car today.
-                </p>
-              </div>
-              <div className="w-full max-w-sm space-y-2">
-                <form className="flex flex-col space-y-2">
-                  <div className="flex space-x-2">
-                    <Select>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Pick-up Location" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="new-york">New York</SelectItem>
-                        <SelectItem value="los-angeles">Los Angeles</SelectItem>
-                        <SelectItem value="chicago">Chicago</SelectItem>
-                        <SelectItem value="miami">Miami</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <Select>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Drop-off Location" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="new-york">New York</SelectItem>
-                        <SelectItem value="los-angeles">Los Angeles</SelectItem>
-                        <SelectItem value="chicago">Chicago</SelectItem>
-                        <SelectItem value="miami">Miami</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="flex space-x-2">
-                    <Input type="date" placeholder="Pick-up Date" />
-                    <Input type="date" placeholder="Drop-off Date" />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    <SearchIcon className="mr-2 h-4 w-4" />
-                    Search Cars
-                  </Button>
-                </form>
-              </div>
-            </div>
+    <div>
+      <section className="bg-black 2xl:py-24 2xl:bg-gray-50">
+  <div className="px-4 mx-auto bg-black max-w-7xl sm:px-6 lg:px-8 2xl:rounded-xl">
+    <div className="py-10 sm:py-16 lg:py-24 2xl:pl-24">
+      <div className="grid items-center grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-8 2xl:gap-x-20">
+        <div className="lg:order-2 2xl:-mr-24">
+          <img
+            className="w-full shadow-xl rounded-xl"
+            src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/6/dashboard-screenshot.png"
+            alt=""
+          />
+        </div>
+        <div className="lg:order-1">
+          <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl lg:leading-snug">
+            Are you ready to <br className="hidden xl:block" />
+            join Celebration?
+          </h2>
+          <ul className="grid grid-cols-1 mt-4 sm:mt-10 sm:grid-cols-2 gap-x-10 xl:gap-x-16 gap-y-4 xl:gap-y-6">
+            <li className="flex items-center">
+              <svg
+                className="flex-shrink-0 w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="ml-3 font-medium text-white">
+                {" "}
+                120+ Coded Blocks{" "}
+              </span>
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="flex-shrink-0 w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="ml-3 font-medium text-white">
+                {" "}
+                Free Icons Included{" "}
+              </span>
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="flex-shrink-0 w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="ml-3 font-medium text-white">
+                {" "}
+                Made with TailwindCSS{" "}
+              </span>
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="flex-shrink-0 w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="ml-3 font-medium text-white">
+                {" "}
+                Dark &amp; Light Mode{" "}
+              </span>
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="flex-shrink-0 w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="ml-3 font-medium text-white">
+                {" "}
+                Edit &amp; Customize Easily{" "}
+              </span>
+            </li>
+            <li className="flex items-center">
+              <svg
+                className="flex-shrink-0 w-5 h-5 text-green-500"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="ml-3 font-medium text-white">
+                {" "}
+                Get Free Support{" "}
+              </span>
+            </li>
+          </ul>
+          <div className="flex flex-col items-start mt-8 sm:space-x-4 sm:flex-row sm:items-center lg:mt-12">
+            <a
+              href="#"
+              title=""
+              className="inline-flex items-center justify-center px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:bg-blue-700"
+              role="button"
+            >
+              <svg
+                className="w-5 h-5 mr-2 -ml-1"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Download Now
+            </a>
+            <a
+              href="#"
+              title=""
+              className="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black"
+              role="button"
+            >
+              {" "}
+              Explore UI Blocks{" "}
+            </a>
           </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-8">Our Car Categories</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card>
-                <CardContent className="flex flex-col items-center p-6">
-                  <CarIcon className="h-12 w-12 mb-4" />
-                  <h3 className="text-lg font-bold">Economy</h3>
-                  <p className="text-sm text-gray-500 text-center mt-2">
-                    Affordable and fuel-efficient cars for budget-conscious travelers.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="flex flex-col items-center p-6">
-                  <CarIcon className="h-12 w-12 mb-4" />
-                  <h3 className="text-lg font-bold">SUV</h3>
-                  <p className="text-sm text-gray-500 text-center mt-2">
-                    Spacious vehicles perfect for family trips and outdoor adventures.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="flex flex-col items-center p-6">
-                  <CarIcon className="h-12 w-12 mb-4" />
-                  <h3 className="text-lg font-bold">Luxury</h3>
-                  <p className="text-sm text-gray-500 text-center mt-2">
-                    Premium cars for those who want to travel in style and comfort.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-8">Special Offers</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold mb-2">Weekend Getaway Deal</h3>
-                  <p className="text-sm text-gray-500 mb-4">Get 20% off on weekend rentals. Perfect for short trips!</p>
-                  <Button>Book Now</Button>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold mb-2">Long-Term Rental Discount</h3>
-                  <p className="text-sm text-gray-500 mb-4">Enjoy 15% off on rentals of 7 days or more.</p>
-                  <Button>Book Now</Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500">© 2023 Mega Car Rentals. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </Link>
-        </nav>
-      </footer>
+        </div>
+      </div>
     </div>
-  )
-}
+  </div>
+</section>
+
+    </div>
+  );
+};
+
+export default SearchCategoryAndSocal;

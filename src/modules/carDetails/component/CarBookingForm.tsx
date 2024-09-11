@@ -11,12 +11,18 @@ import { extractErrorMessage } from "../../../types";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SlideUpModal from "../../../shared/modals/SlideUpModal";
+import { fieldsValidation } from "./utils";
+import InputError from "../../../shared/ui/inputError";
 
 const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
   const [bookCar] = useBookCarMutation();
   const navigate = useNavigate();
   const [bookingInfo, setBookingInfo] = useState<BookingInfo>({});
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isFormReset, setIsFormReset] = useState(false);
+  const [errorObj, setError] = useState<{ error?: string; message?: string} >(
+    {}
+  );
 
   interface BookingInfo {
     name?: string;
@@ -30,6 +36,13 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
     "drop-off-time"?: string;
   }
 
+  // Utility function to check for empty fields
+  // const areFieldsFilled = (data: FieldValues) => {
+  //   return Object.values(data).every(
+  //     (value) => value !== undefined && value !== ""
+  //   );
+  // };
+
   const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
     const formattedData: BookingInfo = {
       ...data,
@@ -42,15 +55,25 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
       ),
     };
 
-    setBookingInfo(formattedData);
-    setIsModalVisible(true); // Show confirmation modal
+    // Check if all fields are filled
+    try {
+      fieldsValidation(data);
+      setError({}); // Clear error if validation passes
+
+      // open modal & don't reset before final api hit
+      setIsFormReset(false);
+      setBookingInfo(formattedData);
+      setIsModalVisible(true);
+    } catch (error: any) {
+      setError(error);
+    }
   };
 
   const handleConfirmBooking = async () => {
     try {
       const res = await bookCar(bookingInfo);
-
       if (res?.data) {
+        setIsFormReset(true);
         toast.success("Car is booked successfully.");
         setIsModalVisible(false); // Close modal after success
         navigate("/all-cars");
@@ -58,6 +81,8 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
     } catch (error) {
       const errorMessage = extractErrorMessage(error);
       toast.error(errorMessage);
+
+      console.log({ error });
     }
   };
 
@@ -65,8 +90,10 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
     setIsModalVisible(false); // Close modal without booking
   };
 
+  
+
   return (
-    <div className="grid gap-4 md:gap-8 py-8 px-6 rounded-b-lg bg-[#35353579]">
+    <div className="grid gap-4 md:gap-8 py-8 px-6 rounded-b-lg bg-thickGray2">
       <div className="grid gap-2">
         <h2 className="text-3xl font-bold">Book Your Rental</h2>
         <p className="description mt-2 pb-3">
@@ -74,24 +101,30 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
         </p>
       </div>
       <DForm
+        isReset={isFormReset}
         onSubmit={handleSubmit}
-        className="grid sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 items-center"
+        className="grid sm:grid-cols-2 gap-3 lg:grid-cols-3 items-center"
       >
-        <DInput type="text" name="name" label="Full Name:" />
-        <DInput type="text" name="email" label="Email:" />
-        <DInput type="number" name="phone" label="Phone:" />
-        <DInput type="text" name="address" label="Address:" />
-        <DDatePicker name={"pick-up-date"} label={"Pick-up date"} />
-        <DDatePicker name={"drop-off-date"} label={"Drop-off date"} />
-        <DTimePicker name={"pick-up-time"} label={"Pick-up time"} />
-        <DTimePicker name={"drop-off-time"} label={"Drop-off time"} />
-        <Button
-          className="primaryGradient border-none mt-3 md:-mt-5 text-white"
-          htmlType="submit"
-        >
-          Reserve Now
-        </Button>
-      </DForm>
+        
+          <DInput type="text" name="name" label="Full Name:" {...{errorObj}}/>
+          <DInput type="text" name="email" label="Email:" {...{errorObj}}/>
+          <DInput type="number" name="phone" label="Phone:" {...{errorObj}}/>
+          <DInput type="text" name="address" label="Address:" {...{errorObj}}/>
+          <DDatePicker name={"pick-up-date"} label={"Pick-up date"} {...{errorObj}}/>
+          <DDatePicker name={"drop-off-date"} label={"Drop-off date"} {...{errorObj}}/>
+          <DTimePicker name={"pick-up-time"} label={"Pick-up time"} {...{errorObj}}/>
+          <DTimePicker name={"drop-off-time"} label={"Drop-off time"} {...{errorObj}}/>
+          <Button
+            className="primaryGradient border-none mt-3 md:-mt-5 text-white"
+            htmlType="submit"
+          >
+            Reserve Now
+          </Button>
+        
+        </DForm>
+            
+
+
 
       {/* Confirmation Modal */}
       <SlideUpModal
@@ -164,3 +197,14 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
 };
 
 export default CarBookingForm;
+
+
+
+
+
+
+
+
+
+
+

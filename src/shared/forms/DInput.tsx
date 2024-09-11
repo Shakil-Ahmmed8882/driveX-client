@@ -1,18 +1,24 @@
 import { Form, Input } from "antd";
 import { Controller } from "react-hook-form";
-
+import InputError from "../ui/inputError";
+import AnimateUp from "../animations/AnimateUp";
 type TInputProps = {
   type: string;
   name: string;
   label?: string;
   className?: string;
   defaultValue?: any;
+  errorObj?: {
+    error?: string;
+    message?: string;
+  };
 };
 
-const DInput = ({ type, name, label, className, defaultValue }: TInputProps) => {
+const DInput = ({ type, name, label, className, defaultValue, errorObj }: TInputProps) => {
   const { theme } = { theme: "dark" };
 
   return (
+    <AnimateUp>
     <Form.Item style={{ marginBottom: "20px" }}>
       <Controller
         name={name}
@@ -35,7 +41,9 @@ const DInput = ({ type, name, label, className, defaultValue }: TInputProps) => 
           />
         )}
       />
+      {errorObj?.error && errorObj?.error === name && <InputError errorText={errorObj?.message} />}
     </Form.Item>
+    </AnimateUp>
   );
 };
 

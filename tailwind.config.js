@@ -7,7 +7,8 @@ module.exports = {
       colors: {
         primaryColor: "#715BE6",
         lightGray: "#242424",
-        thickGray: "#2B2B2B"
+        thickGray1: "#2B2B2B",
+        thickGray2: "#313131",
       }
     },
   },

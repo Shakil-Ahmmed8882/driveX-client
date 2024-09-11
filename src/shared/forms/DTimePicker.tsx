@@ -4,14 +4,19 @@
 import { Form, TimePicker } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 import dayjs, { Dayjs } from "dayjs";
+import InputError from "../ui/inputError";
 
 type TTimePickerProps = {
   name: string;
   label?: string;
   defaultValue?: string;
+  errorObj?: {
+    error?: string;
+    message?: string;
+  };
 };
 
-const DTimePicker = ({ name, label, defaultValue }: TTimePickerProps) => {
+const DTimePicker = ({ name, label, defaultValue, errorObj }: TTimePickerProps) => {
   const { control } = useFormContext();
 
   const defaultDate: Dayjs | null = defaultValue
@@ -44,6 +49,7 @@ const DTimePicker = ({ name, label, defaultValue }: TTimePickerProps) => {
           />
         )}
       />
+      {errorObj?.error && errorObj?.error === name && <InputError  errorText={errorObj?.message} />}
     </Form.Item>
   );
 };
