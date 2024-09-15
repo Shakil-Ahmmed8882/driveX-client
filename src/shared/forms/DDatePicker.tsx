@@ -14,9 +14,12 @@ type TDatePickerProps = {
   };
 };
 
+
 const DDatePicker: React.FC<TDatePickerProps> = ({ name, label, defaultValue, errorObj }) => {
   // Convert the defaultValue string to a Dayjs object if provided
   const defaultDate: Dayjs | undefined = defaultValue ? dayjs(defaultValue) : undefined;
+
+  
 
   return (
     <Form.Item className="mb-5">
@@ -24,6 +27,7 @@ const DDatePicker: React.FC<TDatePickerProps> = ({ name, label, defaultValue, er
         name={name}
         render={({ field }) => (
           <DatePicker
+            
             defaultValue={defaultDate} // Use the Dayjs object or undefined
             className="custom-picker-placeholder-style p-2 bg-[#343434be] border-none text-white placeholder:text-[#8f8f8f] hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]"
             style={{ width: "100%" }}

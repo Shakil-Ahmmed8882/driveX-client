@@ -43,11 +43,11 @@
 
 
 - Select all image elements with the src attribute
-- let imageElements = document.querySelectorAll('img[src]');
-- let imageUrls = Array.from(imageElements).map(img => img.src);
-- let pngUrls = imageUrls.filter(url => url.endsWith('.png'));
-- console.log(pngUrls);
-- copy(pngUrls.join('\n'));
+ let imageElements = document.querySelectorAll('img[src]');
+ let imageUrls = Array.from(imageElements).map(img => img.src);
+ let pngUrls = imageUrls.filter(url => url.endsWith('.png'));
+ console.log(pngUrls);
+ copy(pngUrls.join('\n'));
 
 
 
@@ -55,12 +55,9 @@
 // Random design
 - https://dribbble.com/shots/22919340-Dark-UI
 
-
-
-
-
-
-
 */
+
+
+
 
 

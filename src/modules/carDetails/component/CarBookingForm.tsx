@@ -10,9 +10,10 @@ import { toast } from "sonner";
 import { extractErrorMessage } from "../../../types";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import SlideUpModal from "../../../shared/modals/SlideUpModal";
 import { fieldsValidation } from "../../../shared/ui/validations";
 import ConfirmationModal from "./ConfirmationModal";
+import dayjs from "dayjs";
+import formatBookingData from "../../shared/utils";
 
 const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
   const [bookCar] = useBookCarMutation();
@@ -28,7 +29,7 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
     name?: string;
     email?: string;
     phone?: string;
-    carId?: string;
+    car?: string;
     address?: string;
     "pick-up-date"?: string;
     "drop-off-date"?: string;
@@ -37,26 +38,23 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
   }
 
   const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const formattedData: BookingInfo = {
-      ...data,
-      carId,
-      "pick-up-date": moment(data["pick-up-date"]).format("YYYY-MM-DD"),
-      "drop-off-date": moment(data["drop-off-date"]).format("YYYY-MM-DD"),
-      "pick-up-time": moment(data["pick-up-time"], "HH:mm").format("HH:mm:ss"),
-      "drop-off-time": moment(data["drop-off-time"], "HH:mm").format(
-        "HH:mm:ss"
-      ),
-    };
 
-    // Check if all fields are filled
+
+
+    // const pickUpDate = data["pick-up-date"];
+    // const dropOffDate = data["drop-off-date"];
+
+    const bookingData = formatBookingData(data, carId, true)
+
+    
     try {
-      fieldsValidation(data);
+      fieldsValidation(data); // Validate all fields
       setError({}); // Clear error if validation passes
 
-      // open modal & don't reset before final api hit
+      // Show the confirmation modal before final API call
+      setBookingInfo(bookingData);
       setIsFormReset(false);
-      setBookingInfo(formattedData);
-      setIsModalVisible(true);
+      setIsModalVisible(true); // Open modal with the filled-in form
     } catch (error: any) {
       setError(error);
     }

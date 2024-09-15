@@ -16,7 +16,6 @@ export interface TCar {
   description: string;
   features: string[];
   image: string;
-  isBooked: boolean;
   isDeleted: boolean;
   isElectric: boolean;
   pricePerHour: number;
@@ -32,12 +31,12 @@ const CarDetails = (): JSX.Element => {
   if (isLoading) return <DSpinner />;
 
   // const {name,description,color,isElectric,status,
-  //   features,pricePerHour,isDeleted,image,createdAt,updatedAt,isBooked
+  //   features,pricePerHour,isDeleted,image,createdAt,updatedAt,
   // } = data?.data
   const car = data?.data as any;
 
   console.log(car);
-  const { name, pricePerHour, image, isBooked } = car;
+  const { name, pricePerHour, image} = car;
 
   return (
     <Container>
@@ -52,12 +51,7 @@ const CarDetails = (): JSX.Element => {
               className="flex-1 flex justify-end"
             >
               <Button
-                disabled={isBooked}
-                className={`${
-                  isBooked
-                    ? "!bg-[gray] !text-black "
-                    : "primaryGradient !text-white "
-                } w-full  md:!w-1/2  border-none `}
+                className={` w-full  md:!w-1/2  border-none `}
               >
                 Book
               </Button>

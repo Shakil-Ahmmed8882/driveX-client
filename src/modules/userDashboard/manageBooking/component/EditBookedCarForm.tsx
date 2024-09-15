@@ -13,6 +13,7 @@ import {
 import { toast } from "sonner";
 import { extractErrorMessage } from "../../../../types";
 import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
+import formatBookingData from "../../../shared/utils";
 
 const isValidMomentInput = (input: any): input is string | Date => {
   return moment(input).isValid();
@@ -49,36 +50,38 @@ const EditBookedCarForm = ({
     const dropOffTime = data["drop-off-time"];
 
     // Formatting data for submission
-    const formattedData = {
-      bookingId,
-      name: data["name"] || name,
-      email: data["email"] || email,
-      phone: data["phone"] || phone,
-      address: data["address"] || address, // Use existing data if not updated
-      "pick-up-date": isValidMomentInput(pickUpDate)
-        ? moment(pickUpDate).format("YYYY-MM-DD")
-        : isValidMomentInput(pickUpDate)
-        ? moment(pickUpDate).format("YYYY-MM-DD")
-        : pickUpDate,
-      "drop-off-date": isValidMomentInput(dropOffDate)
-        ? moment(dropOffDate).format("YYYY-MM-DD")
-        : isValidMomentInput(dropOffDate)
-        ? moment(dropOffDate).format("YYYY-MM-DD")
-        : dropOffDate,
-      "pick-up-time": isValidMomentInput(pickUpTime)
-        ? moment(pickUpTime).format("HH:mm:ss")
-        : isValidMomentInput(pickUpTime)
-        ? moment(pickUpTime).format("HH:mm:ss")
-        : pickUpTime,
-      "drop-off-time": isValidMomentInput(dropOffTime)
-        ? moment(dropOffTime).format("HH:mm:ss")
-        : isValidMomentInput(dropOffTime)
-        ? moment(dropOffTime).format("HH:mm:ss")
-        : dropOffTime,
-    };
+    // const formattedData = {
+    //   bookingId,
+    //   name: data["name"] || name,
+    //   email: data["email"] || email,
+    //   phone: data["phone"] || phone,
+    //   address: data["address"] || address, // Use existing data if not updated
+    //   "pick-up-date": isValidMomentInput(pickUpDate)
+    //     ? moment(pickUpDate).format("YYYY-MM-DD")
+    //     : isValidMomentInput(pickUpDate)
+    //     ? moment(pickUpDate).format("YYYY-MM-DD")
+    //     : pickUpDate,
+    //   "drop-off-date": isValidMomentInput(dropOffDate)
+    //     ? moment(dropOffDate).format("YYYY-MM-DD")
+    //     : isValidMomentInput(dropOffDate)
+    //     ? moment(dropOffDate).format("YYYY-MM-DD")
+    //     : dropOffDate,
+    //   "pick-up-time": isValidMomentInput(pickUpTime)
+    //     ? moment(pickUpTime).format("HH:mm:ss")
+    //     : isValidMomentInput(pickUpTime)
+    //     ? moment(pickUpTime).format("HH:mm:ss")
+    //     : pickUpTime,
+    //   "drop-off-time": isValidMomentInput(dropOffTime)
+    //     ? moment(dropOffTime).format("HH:mm:ss")
+    //     : isValidMomentInput(dropOffTime)
+    //     ? moment(dropOffTime).format("HH:mm:ss")
+    //     : dropOffTime,
+    // };
 
+
+    const bookingData = formatBookingData(data, bookingId, {isEditForm:true})
     try {
-      const res = await updateBooking({ bookingId, formattedData }).unwrap();
+      const res = await updateBooking({ bookingId, formattedData:bookingData }).unwrap();
 
       if (res.success) {
         toast.success("Booking is updated successfully.");
@@ -94,7 +97,7 @@ const EditBookedCarForm = ({
     <Container className="max-w-[1100px]">
       <div className="grid gap-4 md:gap-8 py-8 px-6 rounded-b-lg bg-[#35353579]">
         <div className="grid gap-2">
-          <h2 className="text-3xl font-bold">Book Your Rental</h2>
+          <h2 className="text-3xl font-bold">Edit booking</h2>
           <p className="description mt-2 pb-3">
             Fill out the form below to reserve your car.
           </p>
