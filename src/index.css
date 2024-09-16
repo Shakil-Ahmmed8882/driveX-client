@@ -61,17 +61,6 @@ body {
 .custom-select .ant-select-selection-placeholder {
   color: #aaa !important; /* Placeholder text color */
 }
-/* stick booking reveal on scroll */
-/* .sticky {
-  position: sticky;
-  top: 0;
-  transition: transform 0.3s ease-in-out;
-}
-
-.-top-full {
-  transform: translateY(-100%);
-} */
-
 
 /* button */
 .primaryGradient {
