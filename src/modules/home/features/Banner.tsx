@@ -28,6 +28,8 @@ const imageVariants = {
 
 const Banner = () => {
   return (
+    <section className="bg-[black]">
+    
     <Container className="">
       <div className="lg:flex gap-3 items-end">
         <article className="flex-2 w-full h-72 lg:h-auto flex flex-col items-center justify-center lg:w-2/3 absolute lg:static top-32 z-20">
@@ -102,6 +104,7 @@ const Banner = () => {
         </article>
       </div>
     </Container>
+    </section>
   );
 };
 

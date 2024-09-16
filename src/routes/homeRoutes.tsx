@@ -1,12 +1,12 @@
 import ProtectedRoute from "../layout/ProtectedRoute";
 import About from "../modules/about/About";
 import AllCarsLayout from "../modules/allCars/AllCarsLayout";
-import BookingLayout from "../modules/booking/BookingLayout";
 import BookingFormPage from "../modules/bookingFormPage/BookingFormPage";
 import CarDetails from "../modules/carDetails/CarDetails";
 import Contact from "../modules/contact/Contact";
 import FAQ from "../modules/faq/FAQ";
 import HomePageLayout from "../modules/home/HomePageLayout";
+import Test from "../modules/test/Test";
 
 export const homePaths = [
   {
@@ -15,7 +15,7 @@ export const homePaths = [
     element: <HomePageLayout />,
   },
   {
-    name: "About us",
+    name: "About",
     path: "about",
     element: <About />,
   },
@@ -24,16 +24,16 @@ export const homePaths = [
     path: "faq",
     element: <FAQ />,
   },
-  {
-    name: "Bookings",
-    path: "bookings",
-    element: <BookingLayout />,
-  },
   // blog
   {
     name: "Contact",
     path: "contact",
     element: <Contact />,
+  },
+  {
+    name: "Test",
+    path: "test",
+    element: <Test />,
   },
   {
     name: "All Cars",

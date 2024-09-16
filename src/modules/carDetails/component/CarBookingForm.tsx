@@ -44,7 +44,7 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
     // const pickUpDate = data["pick-up-date"];
     // const dropOffDate = data["drop-off-date"];
 
-    const bookingData = formatBookingData(data, carId, true)
+    const bookingData = formatBookingData(data, carId, false)
 
     
     try {

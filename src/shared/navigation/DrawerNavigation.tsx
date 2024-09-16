@@ -5,9 +5,10 @@ import { homePaths } from "../../routes/homeRoutes";
 import { Link, NavLink } from "react-router-dom";
 import { Menu } from "lucide-react";
 import Logo from "../ui/Logo";
+import { CiMenuFries } from "react-icons/ci";
 
 const DrawerNavigation = () => {
-  const [open, setOpen] = useState(false);
+const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState("left");
 
   const showDrawer = () => {
@@ -25,8 +26,8 @@ const DrawerNavigation = () => {
   return (
     <>
       <Space className="block md:hidden ml-auto my-3">
-        <Button  className="!bg-transparent border-none text-white hover:!text-primaryColor " onClick={showDrawer}>
-          <Menu/>
+        <Button  className="!bg-transparent border-none text-[#bdbdbd] cursor-pointer hover:!text-white " onClick={showDrawer}>
+        <CiMenuFries className=" lg:hidden text-3xl" />
         </Button>
       </Space>
       <Drawer
