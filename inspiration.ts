@@ -59,6 +59,13 @@
 // website 
 https://exponentwptheme.com/saas/?s=fou
 
+// features 
+- Notification 
+https://dribbble.com/shots/23248031-Dark-UI-for-a-notifications-modal
+
+// dashboard 
+https://dribbble.com/shots/23723309-Author-Dashboard-for-UI8 
+
 */
 
 

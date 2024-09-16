@@ -52,6 +52,12 @@ body {
   color: #ffff !important; /* Text color for the selected option and placeholder */
 }
 
+.custom-select-no-bg .ant-select-selector {
+  @apply w-full p-2 bg-white/10 text-white border border-white/20 rounded-md placeholder:text-white/70 !important; /* Dark background for the select box */
+  border: 1px solid #444 !important; /* Border color for the select box */
+  color: #ffff !important; /* Text color for the selected option and placeholder */
+}
+
 .custom-select .ant-select-selection-placeholder {
   color: #aaa !important; /* Placeholder text color */
 }
@@ -79,3 +85,6 @@ body {
 .tranistion500{
   @apply transition-all duration-500
 }
+
+
+/* primary gradient color */

@@ -1,95 +1,3 @@
-// import { Link, NavLink } from "react-router-dom";
-// import { homePaths } from "../../routes/homeRoutes";
-// import Logo from "../ui/Logo";
-// import DrawerNavigation from "./DrawerNavigation";
-// import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
-// import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-// import Container from "../layouts/Container";
-// import { ROLE } from "../constants/global";
-// import SearchIcon from "../ui/search/ui/SearchIcon";
-// import SearchResultLayout from "../ui/search/SearchResultLayout";
-// import { setSearchClick } from "../../redux/features/global/global.slice";
-
-// const Navbar = () => {
-
-//   return (
-//     <Container className="pb-0 pt-3">
-//       <header className="md:h-24 border-b pb-4 relative border-[#676767] z-50 items-center  flex justify-between ">
-//         <article className="flex gap-3  items-center  ">
-//           <Logo />
-//           <article className=" text-[#a6a5a5] hidden md:flex gap-3 pl-8">
-//             {homePaths?.map((route) => (
-//               <NavLink
-//                 to={route.path}
-//                 className={({ isActive }) => (isActive ? "text-white" : "")}
-//               >
-//                 {route?.name}
-//               </NavLink>
-//             ))}
-
-//             {/* Dashboard */}
-//             {user && (
-//               <NavLink
-//                 to={
-//                   user?.role == ROLE.USER
-//                     ? "/user/dashboard"
-//                     : "/admin/dashboard"
-//                 }
-//                 className={({ isActive }) =>
-//                   isActive ? "text-white" : " -ml-4"
-//                 }
-//               >
-//                 Dashboard
-//               </NavLink>
-//             )}
-//           </article>
-//         </article>
-
-//         {/* lg */}
-//         <div>
-//           <div className="flex items-center gap-6">
-//             <div className="flex justify-end w-full ml-auto ">
-//               <SearchIcon onClick={handleSearchClick}/>
-//               <SearchResultLayout/>
-//             </div>
-
-//             <div className="hidden md:flex items-center gap-6">
-
-//             {user ? (
-//               <div className="primaryGradient p-[2px] active:p-5 rounded-lg">
-//               <button
-//                 onClick={() => dispach(logout())}
-//                 className="text-[white] text-sm bg-[#171919]  p-2 rounded-lg px-5"
-//               >
-//                 Logout
-//               </button>
-//                 </div>
-//             ) : (
-//               <Link to={"/sign-up"}>
-//                 <div className="primaryGradient p-[2px] active:p-5 rounded-lg">
-//                 <button className="text-[white] text-sm bg-[#171919]  p-2 rounded-lg px-5">
-//                   Sign up
-//                 </button>
-
-//                 </div>
-//               </Link>
-//             )}
-//             </div>
-
-//           </div>
-//           {/* <div className="hidden md:flex">
-//       <button className="text-[white] text-sm bg-[#313030]  uppercase p-2 rounded-lg px-5">Sign Up</button>
-//       </div> */}
-//         </div>
-
-//         {/* sm */}
-//         <DrawerNavigation />
-//       </header>
-//     </Container>
-//   );
-// };
-
-// export default Navbar;
 
 import { Link } from "react-router-dom";
 import Logo from "../ui/Logo"; // Your custom Logo component
@@ -114,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className=" bg-[#0000003b] top-0 sticky right-0 left-0  z-50">
+    <header className=" bg-[#00000000] top-0 sticky right-0 left-0  z-50">
       <Container className="!p-0 !py-8">
         <div className="">
           <div className="flex items-center justify-between">
@@ -150,7 +58,7 @@ const Navbar = () => {
 
             {/* Sign Up Button */}
             <div className="relative hidden lg:inline-flex group">
-              <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg"></div>
+              <div className="absolute transition-all duration-200 rounded-full -inset-px primaryGradient group-hover:shadow-lg"></div>
               {user ? (
                 <button
                   onClick={() => dispach(logout())}

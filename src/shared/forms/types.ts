@@ -5,5 +5,7 @@ export type TFormSelectProps = {
     options: { value: string; label: string }[] | undefined;
     defaultValue?: string;
     disabled?: boolean;
+    className?: string;
+    placeholder?: string;
   };
   

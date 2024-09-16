@@ -9,6 +9,8 @@ const DSelect = ({
   options,
   defaultValue,
   disabled,
+  className,
+  placeholder
 }: TFormSelectProps): JSX.Element => {
   return (
     <Controller
@@ -16,14 +18,14 @@ const DSelect = ({
       render={({ field, fieldState: { error } }) => (
         <Form.Item>
           <Select
-            className="custom-select !text-white" // Apply the custom class
+            className={`${className} custom-select !text-white`} // Apply the custom class
             disabled={disabled}
             defaultValue={defaultValue}
             style={{ width: "100%" }}
             {...field}
             options={options}
             size="large"
-            placeholder={label}
+            placeholder={placeholder}
             // dropdownStyle={{backgroundColor:'#715BE6/', color:"#fff"}}
           />
           {error && <small style={{ color: "red" }}>{error.message}</small>}
