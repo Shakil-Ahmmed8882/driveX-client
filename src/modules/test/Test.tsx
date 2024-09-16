@@ -287,6 +287,9 @@ const Test = () => {
     
 
     <Demo1/>
+    <Pricing/>
+    <Card/>
+    <CarRentSection/>
     </>
   );
 };
@@ -908,3 +911,710 @@ const Demo1 =() => {
 
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const Pricing = () => {
+  return (
+    <>
+  {/*
+// v0 by Vercel.
+// https://v0.dev/t/SggkCC6WVpG
+*/}
+  <style
+    dangerouslySetInnerHTML={{
+      __html:
+        ":root{--background:0 0% 100%;--foreground:240 10% 3.9%;--card:0 0% 100%;--card-foreground:240 10% 3.9%;--popover:0 0% 100%;--popover-foreground:240 10% 3.9%;--primary:240 5.9% 10%;--primary-foreground:0 0% 98%;--secondary:240 4.8% 95.9%;--secondary-foreground:240 5.9% 10%;--muted:240 4.8% 95.9%;--muted-foreground:240 3.8% 45%;--accent:240 4.8% 95.9%;--accent-foreground:240 5.9% 10%;--destructive:0 72% 51%;--destructive-foreground:0 0% 98%;--border:240 5.9% 90%;--input:240 5.9% 90%;--ring:240 5.9% 10%;--chart-1:173 58% 39%;--chart-2:12 76% 61%;--chart-3:197 37% 24%;--chart-4:43 74% 66%;--chart-5:27 87% 67%;--radius:0.5rem;}"
+    }}
+  />
+  <style
+    dangerouslySetInnerHTML={{
+      __html:
+        "h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }\n"
+    }}
+  />
+  <style
+    dangerouslySetInnerHTML={{
+      __html:
+        "body { font-family: 'Inter', sans-serif; --font-sans-serif: 'Inter'; }\n"
+    }}
+  />
+  <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 lg:py-20">
+    <div className="grid gap-8 md:gap-12 lg:gap-16">
+      <div className="text-center space-y-4 md:space-y-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+          Pricing Plans
+        </h1>
+        <p className="text-muted-foreground text-lg md:text-xl">
+          Choose the plan that fits your needs and budget.
+        </p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+        <div
+          className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 lg:space-y-10"
+          data-v0-t="card"
+        >
+          <div className="space-y-4 md:space-y-6">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+              Starter
+            </h3>
+            <p className="text-muted-foreground text-lg md:text-xl">
+              Perfect for individuals and small teams.
+            </p>
+          </div>
+          <div className="space-y-2 md:space-y-3 lg:space-y-4">
+            <div className="flex items-end gap-2">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-bold">
+                $9
+              </span>
+              <span className="text-muted-foreground text-lg md:text-xl">
+                /month
+              </span>
+            </div>
+            <p className="text-muted-foreground text-sm md:text-base">
+              Billed annually at $99
+            </p>
+          </div>
+          <ul className="space-y-2 md:space-y-3 lg:space-y-4">
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>1 user</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>5 GB storage</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>Basic features</span>
+            </li>
+          </ul>
+          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+            Get Started
+          </button>
+        </div>
+        <div
+          className="rounded-lg border shadow-sm p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 lg:space-y-10 bg-primary text-primary-foreground"
+          data-v0-t="card"
+        >
+          <div className="space-y-4 md:space-y-6">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">Pro</h3>
+            <p className="text-primary-foreground text-lg md:text-xl">
+              Ideal for growing teams and businesses.
+            </p>
+          </div>
+          <div className="space-y-2 md:space-y-3 lg:space-y-4">
+            <div className="flex items-end gap-2">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-bold">
+                $29
+              </span>
+              <span className="text-primary-foreground text-lg md:text-xl">
+                /month
+              </span>
+            </div>
+            <p className="text-primary-foreground text-sm md:text-base">
+              Billed annually at $299
+            </p>
+          </div>
+          <ul className="space-y-2 md:space-y-3 lg:space-y-4">
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary-foreground"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>5 users</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary-foreground"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>50 GB storage</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary-foreground"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>Advanced features</span>
+            </li>
+          </ul>
+          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+            Get Started
+          </button>
+        </div>
+        <div
+          className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 lg:space-y-10"
+          data-v0-t="card"
+        >
+          <div className="space-y-4 md:space-y-6">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+              Enterprise
+            </h3>
+            <p className="text-muted-foreground text-lg md:text-xl">
+              Tailored for large teams and organizations.
+            </p>
+          </div>
+          <div className="space-y-2 md:space-y-3 lg:space-y-4">
+            <div className="flex items-end gap-2">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-bold">
+                $99
+              </span>
+              <span className="text-muted-foreground text-lg md:text-xl">
+                /month
+              </span>
+            </div>
+            <p className="text-muted-foreground text-sm md:text-base">
+              Billed annually at $999
+            </p>
+          </div>
+          <ul className="space-y-2 md:space-y-3 lg:space-y-4">
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>Unlimited users</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>Unlimited storage</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-primary"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span>Enterprise-grade features</span>
+            </li>
+          </ul>
+          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+            Get Started
+          </button>
+        </div>
+      </div>
+      <div className="grid gap-8 md:gap-12 lg:gap-16">
+        <div className="text-center space-y-4 md:space-y-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+            Compare Plans
+          </h2>
+          <p className="text-muted-foreground text-lg md:text-xl">
+            Find the plan that fits your needs.
+          </p>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full table-auto">
+            <thead>
+              <tr className="bg-muted">
+                <th className="px-4 py-3 text-left">Features</th>
+                <th className="px-4 py-3 text-center">Starter</th>
+                <th className="px-4 py-3 text-center">Pro</th>
+                <th className="px-4 py-3 text-center">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b">
+                <td className="px-4 py-3 text-left">Users</td>
+                <td className="px-4 py-3 text-center">1</td>
+                <td className="px-4 py-3 text-center">5</td>
+                <td className="px-4 py-3 text-center">Unlimited</td>
+              </tr>
+              <tr className="border-b">
+                <td className="px-4 py-3 text-left">Storage</td>
+                <td className="px-4 py-3 text-center">5 GB</td>
+                <td className="px-4 py-3 text-center">50 GB</td>
+                <td className="px-4 py-3 text-center">Unlimited</td>
+              </tr>
+              <tr className="border-b">
+                <td className="px-4 py-3 text-left">Bandwidth</td>
+                <td className="px-4 py-3 text-center">1 TB</td>
+                <td className="px-4 py-3 text-center">5 TB</td>
+                <td className="px-4 py-3 text-center">Unlimited</td>
+              </tr>
+              <tr className="border-b">
+                <td className="px-4 py-3 text-left">Integrations</td>
+                <td className="px-4 py-3 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-primary"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-primary"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-primary"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </td>
+              </tr>
+              <tr className="border-b">
+                <td className="px-4 py-3 text-left">24/7 Support</td>
+                <td className="px-4 py-3 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-primary"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-primary"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-primary"
+                  >
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-left">Price</td>
+                <td className="px-4 py-3 text-center">$9/month</td>
+                <td className="px-4 py-3 text-center">$29/month</td>
+                <td className="px-4 py-3 text-center">$99/month</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div className="grid gap-8 md:gap-12 lg:gap-16">
+        <div className="text-center space-y-4 md:space-y-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+            Payment Methods
+          </h2>
+          <p className="text-muted-foreground text-lg md:text-xl">
+            Choose your preferred payment method.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+          <div
+            className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 lg:space-y-10"
+            data-v0-t="card"
+          >
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+                Credit Card
+              </h3>
+              <p className="text-muted-foreground text-lg md:text-xl">
+                Pay securely with your credit or debit card.
+              </p>
+            </div>
+            <div className="space-y-4 md:space-y-6">
+              <form className="grid gap-4 md:gap-6">
+                <div className="grid gap-2 md:gap-3">
+                  <label
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    htmlFor="card-number"
+                  >
+                    Card Number
+                  </label>
+                  <input
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                    id="card-number"
+                    placeholder="1234 5678 9012 3456"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-4 md:gap-6">
+                  <div className="grid gap-2 md:gap-3">
+                    <label
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      htmlFor="expiry-date"
+                    >
+                      Expiry Date
+                    </label>
+                    <input
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="text"
+                      id="expiry-date"
+                      placeholder="MM/YY"
+                    />
+                  </div>
+                  <div className="grid gap-2 md:gap-3">
+                    <label
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      htmlFor="cvc"
+                    >
+                      CVC
+                    </label>
+                    <input
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="text"
+                      id="cvc"
+                      placeholder={"123"}
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+              Pay Now
+            </button>
+          </div>
+          <div
+            className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 lg:space-y-10"
+            data-v0-t="card"
+          >
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+                PayPal
+              </h3>
+              <p className="text-muted-foreground text-lg md:text-xl">
+                Pay securely with your PayPal account.
+              </p>
+            </div>
+            <div className="space-y-4 md:space-y-6">
+              <form className="grid gap-4 md:gap-6">
+                <div className="grid gap-2 md:gap-3">
+                  <label
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    htmlFor="paypal-email"
+                  >
+                    Email
+                  </label>
+                  <input
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="email"
+                    id="paypal-email"
+                    placeholder="m@example.com"
+                  />
+                </div>
+                <div className="grid gap-2 md:gap-3">
+                  <label
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    htmlFor="paypal-password"
+                  >
+                    Password
+                  </label>
+                  <input
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="password"
+                    id="paypal-password"
+                  />
+                </div>
+              </form>
+            </div>
+            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+              Pay with PayPal
+            </button>
+          </div>
+          <div
+            className="rounded-lg border bg-card text-card-foreground shadow-sm p-6 md:p-8 lg:p-10 space-y-6 md:space-y-8 lg:space-y-10"
+            data-v0-t="card"
+          >
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+                Bank Transfer
+              </h3>
+              <p className="text-muted-foreground text-lg md:text-xl">
+                Pay securely with a bank transfer.
+              </p>
+            </div>
+            <div className="space-y-4 md:space-y-6">
+              <form className="grid gap-4 md:gap-6">
+                <div className="grid gap-2 md:gap-3">
+                  <label
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    htmlFor="bank-name"
+                  >
+                    Bank Name
+                  </label>
+                  <input
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                    id="bank-name"
+                    placeholder="Bank of America"
+                  />
+                </div>
+                <div className="grid gap-2 m" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</>
+
+  )
+}
+
+
+
+const Card = () => {
+  return (
+    <section className="py-32">
+  <div className="container">
+    <div className="grid lg:grid-cols-2 gap-8 items-center bg-white">
+      <div className="flex items-center justify-center h-[400px] bg-zinc-100">
+        <img
+          src="/images/placeholders/minima/placeholder-1.svg"
+          width={100}
+          height={100}
+          alt="Placeholder image"
+        />
+      </div>
+      <div className="flex flex-col items-center lg:items-start justify-center">
+        <h1 className="text-5xl font-semibold text-center lg:text-left mb-6">
+          Medium length display headline
+        </h1>
+        <p className="text-center lg:text-left text-zinc-600 mb-8 max-w-xl">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique. Vivamus lacinia odio vitae
+          vestibulum vestibulum.
+        </p>
+        <div className="flex space-x-4 mb-8 lg:justify-start">
+          <button className="bg-black text-white py-2 px-4 rounded">
+            Primary Button
+          </button>
+          <button className="bg-white border border-zinc-300 text-black py-2 px-4 rounded">
+            Secondary Button
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  )
+}
+
+import car from "../../assets/images/home/banner/car2.png"
+
+
+const CarRentSection = () => {
+  return (
+    <div className="w-full min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-8">
+      {/* Top Row */}
+      <div className="flex justify-between items-center w-full max-w-6xl">
+        {/* Left - Rental Info */}
+        <div className="bg-white p-4 shadow-lg rounded-lg flex flex-col items-center space-y-2">
+          <h2 className="text-lg font-semibold text-gray-700">CULLINAN</h2>
+          <p className="text-2xl font-bold text-gray-900">£2,650.00</p>
+          <p className="text-sm text-gray-500">RENT. RR/d</p>
+        </div>
+
+        {/* Middle - Car Specs */}
+        <div className="flex space-x-4 text-gray-700">
+          <div className="flex flex-col items-center">
+            <span className="text-xs">255/45R-22 107Y</span>
+            <span className="text-xs">Tires</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-xs">4.5 Sec</span>
+            <span className="text-xs">0-60 mph</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-xs">6.7 Liter</span>
+            <span className="text-xs">Engine</span>
+          </div>
+        </div>
+
+        {/* Right - Performance */}
+        <div className="bg-white p-4 shadow-lg rounded-lg flex flex-col items-center space-y-2">
+          <a href="#" className="text-red-500 hover:underline">SEE + PERFORMANCE</a>
+          <p className="text-xs text-gray-500">The Cullinan's Twin-Turbo V-12</p>
+        </div>
+      </div>
+
+      {/* Car Image and 360 View */}
+      <div className="relative mt-6 w-full max-w-6xl h-72 rounded-lg overflow-hidden shadow-lg">
+        <img
+          src={car} // Replace with actual image path
+          alt="Car"
+          className="w-full h-full object-cover"
+        />
+        {/* 360 View */}
+        <div className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md">
+          <button className="text-sm text-gray-700">360° VIEW</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+

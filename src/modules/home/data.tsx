@@ -1,5 +1,7 @@
-import car1 from "../../assets/images/home/featured/car1.png";
-import car2 from "../../assets/images/home/featured/car2.png";
+import car1 from "../../assets/images/home/banner/searResultCar5.png";
+import car2 from "../../assets/images/home/banner/hcar1-removebg-preview.png";
+import car3 from "../../assets/images/home/banner/searResultCar2.png";
+import car4 from "../../assets/images/home/banner/car4.png";
 
 import customerS from "../../assets/images/home/whychooseUs/customerS2.png";
 import safety from "../../assets/images/home/whychooseUs/safety1.png";
@@ -27,7 +29,7 @@ export const cars = [
   {
     name: "718 Boxster",
     price: "AED 330,000",
-    imageUrl: car2,
+    imageUrl: car4,
     status: "Best Sellers",
   },
   {

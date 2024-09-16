@@ -26,7 +26,7 @@ const Banner = () => {
           <div className="lg:pr-8">
             <div className="">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl">
-                Drive Your <span className="text-indigo-400">Dreams</span>
+                Drive Your <span className="text-primaryColor">Dreams</span>
               </h1>
               <p className="mt-4 text-xl text-gray-300 sm:mt-6">
                 Unlock the road to adventure with our premium car rental
@@ -38,16 +38,18 @@ const Banner = () => {
                   "24/7 customer support",
                   "Flexible rental options",
                 ].map((benefit) => (
-                  <li key={benefit} className="flex items-center">
-                    <CheckCircleIcon className="h-5 w-5 text-indigo-400 mr-2" />
+                  <li key={benefit} className="flex items-center description">
+                    <CheckCircleIcon className="h-5 w-5 text-[#ffffff] mr-2" />
                     <span>{benefit}</span>
                   </li>
                 ))}
               </ul>
               <div className="mt-10">
-                <button className="inline-flex items-center rounded-full bg-indigo-600 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                  Learn More
+                <button className="inline-flex group items-center rounded-full bg-primaryColor">
+                  <div className="flex  p-3 group-hover:mt-1 transition-all duration-300 bg-[black] m-[1px] rounded-full">
                   <ArrowRightIcon className="ml-2 h-5 w-5" />
+                  Learn More
+                    </div>
                 </button>
               </div>
             </div>

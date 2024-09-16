@@ -53,7 +53,8 @@ body {
 }
 
 .custom-select-no-bg .ant-select-selector {
-  @apply w-full p-2 bg-white/10 text-white border border-white/20 rounded-md placeholder:text-white/70 !important; /* Dark background for the select box */
+  
+@apply w-full p-2 bg-white/10 text-white border border-white/20 rounded-md placeholder:text-white/70 !important; /* Dark background for the select box */
   border: 1px solid #444 !important; /* Border color for the select box */
   color: #ffff !important; /* Text color for the selected option and placeholder */
 }
@@ -61,10 +62,21 @@ body {
 .custom-select .ant-select-selection-placeholder {
   color: #aaa !important; /* Placeholder text color */
 }
+/* stick booking reveal on scroll */
+/* .sticky {
+  position: sticky;
+  top: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.-top-full {
+  transform: translateY(-100%);
+} */
+
 
 /* button */
 .primaryGradient {
-  @apply !bg-gradient-to-r !text-white transform from-[#4e009d] to-[#7904ff] hover:from-[#7904ff] hover:to-[#4e009d] transition-all duration-700 
+  @apply !bg-gradient-to-r !text-white transform from-[#007f8b] to-[#007c87] transition-all duration-700 
 }
 
 .ant-drawer-body{
@@ -74,6 +86,3 @@ body {
 .tranistion500{
   @apply transition-all duration-500
 }
-
-
-/* primary gradient color */

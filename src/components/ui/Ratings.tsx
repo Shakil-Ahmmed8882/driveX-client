@@ -4,7 +4,7 @@ const Ratings = ({times = [1,2,3,4], unfilled = true, className = ''}): JSX.Elem
   return (
     <div className={` flex items-center gap-2`}>
       {[...times].map(() => (
-        <FillStar className={`${className} text-[#f09903] size-5`} />
+        <FillStar className={`${className} text-primaryYellow size-5`} />
       ))}
       {
         unfilled && <FillStar className={`text-[gray] |`} />
