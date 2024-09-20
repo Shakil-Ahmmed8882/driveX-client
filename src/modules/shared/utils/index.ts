@@ -15,12 +15,12 @@ interface BookingInfo {
 const formatBookingData = (
   data: any,
   carId: string | undefined,
-  isEditForm: boolean
+  {isEditForm}: {isEditForm?: boolean}
 ): BookingInfo => {
   const formattedData: BookingInfo = {
     ...data,
     // Conditionally set car or bookingId based on isEditForm
-    ...(isEditForm ? { car: carId } : { bookingId: carId }),
+    ...(isEditForm ? { bookingId: carId }: { car: carId } ),
 
     // Format pick-up and drop-off dates
     "pick-up-date": dayjs(data["pick-up-date"]).isValid()

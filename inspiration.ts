@@ -58,6 +58,7 @@
 
 // website 
 https://exponentwptheme.com/saas/?s=fou
+https://www.microsoft.com/en-au/windows/windows-11?wa=wsignin1.0
 
 // features 
 - Notification 
@@ -65,6 +66,9 @@ https://dribbble.com/shots/23248031-Dark-UI-for-a-notifications-modal
 
 // dashboard 
 https://dribbble.com/shots/23723309-Author-Dashboard-for-UI8 
+
+// black banner white body below
+https://dribbble.com/shots/23933806-Villeneuve-Autos
 
 */
 

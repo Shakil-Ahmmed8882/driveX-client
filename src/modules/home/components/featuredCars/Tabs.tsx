@@ -10,7 +10,7 @@ interface TabsProps {
 const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
   const tabStyle = (isActive: boolean) =>
     `w-[150px] px-2 py-4 rounded-full transition-colors duration-300 ${
-      isActive ? 'border-b border-b-[3px] border-primaryColor text-white' : 'text-gray-500 bg-transparent'
+      isActive ? 'border-b border-b-[3px] border-primaryColor text-[#000] font-bold' : 'text-gray-400 bg-transparent'
     }`;
 
   return (
@@ -33,7 +33,7 @@ const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
       >
         <Link
           to={'/all-cars'}
-          className="text-gray-500 hover:text-primaryColor transition-colors duration-300"
+          className="text-gray-400 hover:text-primaryColor transition-colors duration-300"
         >
           See all
         </Link>

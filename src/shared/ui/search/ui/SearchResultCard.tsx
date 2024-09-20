@@ -12,11 +12,11 @@ const SearchResultCard = ({ item, searchValue }: { item: TCar, searchValue: stri
       <img
         src={item.image || carImg}
         onError={handleError}
-        className={`${searchValue ? "h-72" : ""} w-full object-cover object-top group-hover:scale-105 p-3 transition-all duration-500 rounded-lg`}
+        className={`${searchValue ? "h-72" : ""} !rounded-lg w-full object-cover object-top group-hover:scale-105 p-3 transition-all duration-500 `}
         alt={item.name}
       />
       <div className="group-hover:opacity-0 pt-3  transition-all p-3 pr-0 duration-500">
-      <h2 className="text-[16px]  font-bold text-black   ">{item.name}</h2>
+      <h2 className="text-[16px]  font-bold text-black   ">{item.name} gllo</h2>
         <p className="text-gray-600  border w-12 h-5 my-4  text-[13px] border-[#ababab] flex justify-center items-center rounded-full">${item.pricePerHour}</p>
       </div>
 

@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className=" bg-[#00000000] top-0 sticky right-0 left-0  z-50">
+    <header className=" !bg-gradient-to-tr from-[#1d013b] to-[#110122] top-0 sticky right-0 left-0  z-50">
       <Container className="!p-0 !py-8">
         <div className="">
           <div className="flex items-center justify-between">

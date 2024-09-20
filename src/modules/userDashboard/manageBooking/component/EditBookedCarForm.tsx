@@ -79,7 +79,7 @@ const EditBookedCarForm = ({
     // };
 
 
-    const bookingData = formatBookingData(data, bookingId, true)
+    const bookingData = formatBookingData(data, bookingId,{isEditForm: true} )
     try {
       const res = await updateBooking({ bookingId, formattedData:bookingData }).unwrap();
 

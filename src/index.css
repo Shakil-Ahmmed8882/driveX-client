@@ -5,17 +5,31 @@
 /* Font (inter) */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+
+
+@layer utilities{
+  .animation-delay-2000{
+    animation-delay: 2s;
+  }
+  .animation-delay-4000{
+    animation-delay: 4s;
+  }
+}
+
+
+
+
+
 body {
   /* background-color: #141414; */
-  background-color: #141414;
-  font-family: "Inter", system-ui;
+  background-color: transparent;
+  font-family: "Inter";
   font-optical-sizing: auto;
   font-style: normal;
-  color: #fff;
 }
 
 .description {
-  @apply text-[#c1c1c1];
+  @apply text-[#000];
 }
 .transition {
   @apply transition-all divide-neutral-400;

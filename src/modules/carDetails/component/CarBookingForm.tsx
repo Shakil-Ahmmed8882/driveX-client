@@ -4,7 +4,6 @@ import DInput from "../../../shared/forms/DInput";
 import { Button } from "antd";
 import DDatePicker from "../../../shared/forms/DDatePicker";
 import DTimePicker from "../../../shared/forms/DTimePicker";
-import moment from "moment";
 import { useBookCarMutation } from "../../../redux/features/user/booking.api";
 import { toast } from "sonner";
 import { extractErrorMessage } from "../../../types";
@@ -12,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { fieldsValidation } from "../../../shared/ui/validations";
 import ConfirmationModal from "./ConfirmationModal";
-import dayjs from "dayjs";
 import formatBookingData from "../../shared/utils";
 
 const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
@@ -44,7 +42,8 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
     // const pickUpDate = data["pick-up-date"];
     // const dropOffDate = data["drop-off-date"];
 
-    const bookingData = formatBookingData(data, carId, false)
+    const bookingData = formatBookingData(data, carId, {isEditForm: false})
+
 
     
     try {

@@ -8,7 +8,7 @@ const Container = ({
   className?: string;
 }) => {
   return (
-    <section className={`${className} px-3   py-8 max-w-6xl mx-auto  `}>
+    <section className={`${className} px-4 mx-auto relativea sm:px-6 lg:px-8 max-w-7xl  `}>
       {children}
     </section>
   );

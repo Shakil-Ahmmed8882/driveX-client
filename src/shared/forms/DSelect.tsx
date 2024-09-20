@@ -1,6 +1,7 @@
 import { Form, Select } from "antd";
 import { Controller } from "react-hook-form";
 import { TFormSelectProps } from "./types";
+import { MapPinIcon } from "lucide-react";
 
 
 const DSelect = ({
@@ -24,11 +25,15 @@ const DSelect = ({
             style={{ width: "100%" }}
             {...field}
             options={options}
+            clearIcon={true
+              
+            }
             size="large"
             placeholder={placeholder}
             // dropdownStyle={{backgroundColor:'#715BE6/', color:"#fff"}}
           />
           {error && <small style={{ color: "red" }}>{error.message}</small>}
+
         </Form.Item>
       )}
     />

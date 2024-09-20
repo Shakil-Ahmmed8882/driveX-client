@@ -13,8 +13,8 @@ const FeaturedCars = () => {
   );
 
   return (
+      <div className="!bg-[white]">
     <Container>
-      <div className="">
         <h2 className="text-3xl font-bold mb-6">Featured Cars</h2>
         <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
         <motion.div
@@ -25,8 +25,8 @@ const FeaturedCars = () => {
             ))}
           </AnimatePresence>
         </motion.div>
-      </div>
     </Container>
+      </div>
   );
 };
 
