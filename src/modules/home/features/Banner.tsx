@@ -1,10 +1,10 @@
 // /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import {
-  ArrowRightIcon,
   CalendarIcon,
-  CheckCircleIcon,
+  CarIcon,
   MapPinIcon,
+  ShieldCloseIcon,
 } from "lucide-react";
 import Container from "../../../shared/layouts/Container";
 import DForm from "../../../shared/forms/DForm";
@@ -14,53 +14,11 @@ import { Button } from "antd";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { categoryOptions, locationOptions } from "../../../constants";
 import { ReactNode, useState } from "react";
+import { SearchIcon } from "../../../assets/icons/Icons";
 
 const Banner = () => {
   return (
-    // <section className="bg-[url('https://images.pexels.com/photos/5054165/pexels-photo-5054165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] pt-32 -mt-32 bg-no-repeat !w-full h-full bg-cover object-center min-h-[600px] relative">
-    //   <div className="bg-gradient-to-tr from-[#000000] to-[#00000098] absolute  inset-0 "></div>
-    //   <Container className="relative">
-    //     <div className="absolute -top-44 -left-32">
-    //       <Gradient />
-    //     </div>
-
-    //     <div className="relative container   py-16  sm:py-24 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-11">
-    //       <div className="lg:pr-8">
-    //         <div className="">
-    //           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-5xl">
-    //             Drive Your <span className="text-primaryColor">Dreams</span>
-    //           </h1>
-    //           <p className="mt-4 text-xl text-gray-300 sm:mt-6">
-    //             Unlock the road to adventure with our premium car rental
-    //             service.
-    //           </p>
-    //           <ul className="mt-8 space-y-3">
-    //             {[
-    //               "Wide range of vehicles",
-    //               "24/7 customer support",
-    //               "Flexible rental options",
-    //             ].map((benefit) => (
-    //               <li key={benefit} className="flex items-center description">
-    //                 <CheckCircleIcon className="h-5 w-5 text-[#ffffff] mr-2" />
-    //                 <span>{benefit}</span>
-    //               </li>
-    //             ))}
-    //           </ul>
-    //           <div className="mt-10">
-    //             <button className="inline-flex group items-center rounded-full bg-primaryColor">
-    //               <div className="flex  p-3 group-hover:mt-1 transition-all duration-300 bg-[black] m-[1px] rounded-full">
-    //               <ArrowRightIcon className="ml-2 h-5 w-5" />
-    //               Learn More
-    //                 </div>
-    //             </button>
-    //           </div>
-    //         </div>
-    //       </div>
-    //         <SearchCarForm/>
-    //     </div>
-    //   </Container>
-    // </section>
-
+   
     <MoveUp>
       <DemoBanner />
     </MoveUp>
@@ -138,67 +96,175 @@ export const Gradient = () => {
   return (
     <>
       {/* First Group of Blobs */}
-      <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-[#5b0536] animate-blob filter blur-[200px]"></div>
-      <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-[#5b0536] animate-blob filter blur-[200px]"></div>
-      <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-[#5b0536] animate-blob filter blur-[200px]"></div>
-      <div className="absolute top-32 left-32 w-56 h-56 rounded-full bg-[#5b0536] animate-blob filter blur-[200px]"></div>
+      <div className="absolute top-0 left-0 w-80 h-80 rounded-full bg-[#23005C] animate-blob filter blur-[200px]"></div>
+      <div className="absolute top-10 left-[50%] w-72 h-72 rounded-full bg-[#23005C] animate-blob filter blur-[100px]"></div>
+      <div className="absolute top-20 left-[50%] w-64 h-64 rounded-full bg-[#23005C] animate-blob filter blur-[100px]"></div>
+      <div className="absolute top-32 left-[50%] w-56 h-56 rounded-full bg-[#5b0536] animate-blob filter blur-[200px]"></div>
 
       {/* Second Group of Blobs */}
-      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#22055b] animate-blob filter blur-[200px]"></div>
-      <div className="absolute top-10 right-10 w-72 h-72 rounded-full bg-[#22055b] animate-blob filter blur-[200px]"></div>
-      <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-[#22055b] animate-blob filter blur-[200px]"></div>
-      <div className="absolute top-32 right-32 w-56 h-56 rounded-full bg-[#22055b] animate-blob filter blur-[200px]"></div>
+      <div className="absolute top-0 right-[50%] w-80 h-80 rounded-full bg-[#13004A] animate-blob filter blur-[50px]"></div>
+      <div className="absolute top-10 right-[50%] w-72 h-72 rounded-full bg-[#16004E] animate-blob filter blur-[200px]"></div>
+      <div className="absolute top-20 right-[50%] w-64 h-64 rounded-full bg-[#170151] animate-blob filter blur-[100px]"></div>
+      <div className="absolute top-32 right-[50%] w-56 h-56 rounded-full bg-[#1C0155] animate-blob filter blur-[200px]"></div>
 
       {/* Bottom Blobs */}
-      <div className="absolute bottom-10 left-0 w-72 h-72 mix-blend-multiply rounded-full bg-[#300388] animate-blob filter blur-[200px] animation-delay-2000"></div>
-      <div className="absolute bottom-20 left-10 w-64 h-64 mix-blend-multiply rounded-full bg-[#300388] animate-blob filter blur-[200px] animation-delay-2000"></div>
-      <div className="absolute bottom-32 left-20 w-56 h-56 mix-blend-multiply rounded-full bg-[#300388] animate-blob filter blur-[200px] animation-delay-2000"></div>
+      <div className="absolute bottom-10 left-[50%]  w-72 h-72  rounded-full bg-[##2E0164] animate-blob  filter blur-[200px] animation-delay-2000"></div>
+      <div className="absolute bottom-20 left-[50%]  w-64 h-64 rounded-full bg-[#2E0164] animate-blob filter blur-[100px] animation-delay-2000"></div>
+      <div className="absolute bottom-32 left-[50%]  w-56 h-56 rounded-full bg-[#300388] animate-blob filter blur-[200px] animation-delay-2000"></div>
 
       {/* Additional Blobs to balance out the shape */}
-      <div className="absolute bottom-10 right-0 w-72 h-72 mix-blend-multiply rounded-full bg-[#300388] animate-blob filter blur-[200px] animation-delay-4000"></div>
-      <div className="absolute bottom-20 right-10 w-64 h-64 mix-blend-multiply rounded-full bg-[#300388] animate-blob filter blur-[200px] animation-delay-4000"></div>
-      <div className="absolute bottom-32 right-20 w-56 h-56 mix-blend-multiply rounded-full bg-[#300388] animate-blob filter blur-[200px] animation-delay-4000"></div>
+
+      <div className="absolute bottom-20 right-[50%]  w-64 h-64  rounded-full bg-[#300388] animate-blob  filter blur-[200px] animation-delay-4000"></div>
+      <div className="absolute bottom-20 right-[50%]  w-64 h-64  rounded-full bg-[#300388] animate-blob  filter blur-[200px] animation-delay-4000"></div>
+      <div className="absolute bottom-32 right-[50%]  w-56 h-56  rounded-full bg-[#300388] animate-blob  filter blur-[200px] animation-delay-4000"></div>
     </>
   );
 };
 
 const MoveUp = ({ children }: { children: ReactNode }) => {
-  return <div className="-mt-44 pt-44 bg-transparent">{children}</div>;
+  return (
+    <div className="-mt-44 pt-44 bg-black relative overflow-hidden">
+      <Gradient />
+      {children}
+    </div>
+  );
 };
 
-
-
-
-
 export const DemoBanner = () => {
-
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
   return (
     <section className=" pb-44 pt-32 overflow-hidden bg-black  ">
       <Container className="relative">
-        <div  className=" relative z-10 left-0 top-0 bg-[#5b0536] animate-blob filter blur-[200px] ">
-        <Gradient/>
-        </div>
         <div className="">
           <div className="">
             <div className=" relative !z-30  text-white text-center">
               <h1 className="text-4xl  font-normal sm:text-5xl lg:text-6xl xl:text-7xl">
-                 Travel The World with <span className="font-thin italic text-primaryColor">DriveX</span>
+                Travel the world
               </h1>
               <p className="mt-4 text-lg font-normal text-[#c9c9c9] sm:mt-8">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                 amet sint. Velit offic
               </p>
-              <Button onClick={() => setShow(!show)} className="w-1/3 rounded-full py-6 mt-12">Get Available cars</Button>
-         
+              
             </div>
-            
           </div>
         </div>
-        <div className="absolute top-0 z-30 right-0 ">
-        {show && <SearchCarForm/>}
-        </div>
+        <Search />
       </Container>
     </section>
   );
 };
+
+import { useEffect, useRef } from "react";
+
+export function Search() {
+  // State to control the visibility of the search icon
+  const [isIconVisible, setIconVisible] = useState(false);
+  const [isSearchAvailableCars, setIsSearchAvailableCars] = useState(false);
+
+  // Refs to track clicks inside/outside the fields
+  const containerRef = useRef(null);
+
+  // Show the search icon when a field is clicked
+  const handleFieldClick = () => {
+    setIconVisible(true);
+  };
+
+  // Hide the search icon when clicking outside the input fields
+  const handleClickOutside = (event: MouseEvent) => {
+    if (containerRef.current && !containerRef.current.contains(event.target)) {
+      setIconVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
+  };
+
+
+return (
+    <>
+    <div
+      ref={containerRef}
+      className={` ${isIconVisible?"mt-24":"mt-16"} transition-all duration-500 delay-300 w-full lg:max-w-[70%] pt-6 pb-3 mx-auto relative bg-[#222222] lg:rounded-full px-5 shadow-lg`}
+    >
+      <DForm onSubmit={onSubmit}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-2 px-3">
+          <div className="relative min-w-[120px]" onClick={handleFieldClick}>
+            <MapPinIcon className="absolute text-gray-400 right-3 top-5 transform -translate-y-1/2 h-4 w-4 z-40" />
+            <DSelect options={locationOptions} label="Location" name="location" />
+          </div>
+
+          <div className="relative min-w-[120px]" onClick={handleFieldClick}>
+            <CalendarIcon className="absolute right-3 top-6 pb-3 p-5 transform -translate-y-1/2 text-gray-400 h-4 w-4 z-40" />
+            <DDatePicker name="pick-up-date" label="Pick up date" />
+          </div>
+
+          <div className="relative min-w-[120px]" onClick={handleFieldClick}>
+            <CalendarIcon className="absolute right-3 top-6 pb-3 p-5 transform -translate-y-1/2 text-gray-400 h-4 w-4 z-40" />
+            <DDatePicker name="drop-off-date" label="Drop off date" />
+          </div>
+
+          <div className="relative min-w-[120px]" onClick={handleFieldClick}>
+            <CarIcon className="absolute right-3 top-5 transform -translate-y-1/2 text-gray-400 h-4 w-4 z-40" />
+            <DSelect options={categoryOptions} label="Category" name="category" />
+          </div>
+        </div>
+
+        {/* Search button with transition */}
+        <Button
+        
+          onClick={() => setIsSearchAvailableCars(true)}
+          className={`bg-[#13004A] rounded-full h-11 w-20 absolute right-6 -top-14 border-none text-white px-4 text-sm whitespace-nowrap transition-all duration-300 delay-300 ${
+            isIconVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-20px]"
+          }`}
+        >
+          <SearchIcon />
+        </Button>
+
+        <Button
+          className={`bg-[#5d05051f] rounded-full h-11 w-20 right-28 absolute  -top-14 border-none text-white px-4 text-sm whitespace-nowrap transition-all duration-300 delay-300 ${
+            isIconVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-20px]"
+          }`}
+        >
+          Clear
+        </Button>
+      </DForm>
+    </div>
+      {isSearchAvailableCars && <AvailableCars {...{setIsSearchAvailableCars}}/>}
+    </>
+    
+  );
+}
+
+
+
+
+
+export function AvailableCars({setIsSearchAvailableCars}:{setIsSearchAvailableCars: (p: boolean) => void}) {
+  
+
+
+return <div className="bg-white w-full h-[90vh] fixed inset-0 top-32 z-[99]">
+
+  <ShieldCloseIcon onClick={() => setIsSearchAvailableCars(false)} className="text-red-600 absolute right-0 size-11"/>
+  Availbale cars
+  <Skeleton/>
+</div>
+}
+
+
+
+
+
+import { Skeleton as AntSkeleton } from 'antd';
+
+const Skeleton: React.FC = () => <AntSkeleton active/>;
+

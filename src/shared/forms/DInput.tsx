@@ -1,9 +1,10 @@
 import { Form, Input } from "antd";
 import { Controller } from "react-hook-form";
-import InputError from "../ui/inputError";
+
 import AnimateUp from "../animations/AnimateUp";
+import InputError from "../ui/inputError";
 type TInputProps = {
-  type: string;
+  type?: string;
   name: string;
   label?: string;
   className?: string;
@@ -14,7 +15,7 @@ type TInputProps = {
   };
 };
 
-const DInput = ({ type, name, label, className, defaultValue, errorObj }: TInputProps) => {
+const DInput = ({ type = 'text', name, label, className, defaultValue, errorObj }: TInputProps) => {
   const { theme } = { theme: "dark" };
 
   return (
