@@ -16,4 +16,13 @@ export interface CarFormProps {
     isDeleted?: boolean;
     image?: string;
   }
+
+
+  export interface ICar extends CarFormValues {
+    _id: string
+    image: string
+    type: string
+    location: string
+  }
+  
   

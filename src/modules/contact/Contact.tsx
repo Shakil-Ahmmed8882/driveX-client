@@ -6,7 +6,7 @@ import DTextArea from "../../shared/forms/DTextArea";
 import { Button, Col, Row } from "antd";
 import { fieldsValidation } from "./utils";
 import { toast } from "sonner";
-import { Gradient } from "../home/features/Banner";
+import { DarkGradient } from "../../shared/animations/grident/DarkGradient";
 
 const ContactPage = () => {
   const [errorObj, setError] = useState<{ error?: string; message?: string }>(
@@ -26,10 +26,10 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen  relative p-3 md:p-6 lg:pt-36 -mt-36">
-      <Gradient/>
-      <div className="max-w-3xl mx-auto bg-[#313131] mt-11 p-8 py-11 rounded-lg">
-        <h1 className="text-3xl font-bold mb-8 text-center md:pb-8">
+    <div className="min-h-screen bg-[black]   relative p-3 md:p-6 lg:pt-36 -mt-36">
+      <DarkGradient/>
+      <div className="max-w-3xl mx-auto bg-[#313131] z-[999] relative mt-11 p-8 py-11 rounded-lg">
+        <h1 className="text-3xl font-bold mb-8 text-center md:pb-8 text-white">
           Contact Us
         </h1>
         <DForm onSubmit={handleSubmit} className="space-y-6">
