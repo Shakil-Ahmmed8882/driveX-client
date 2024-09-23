@@ -29,6 +29,9 @@ module.exports = {
         primaryYellow: "#f09903",
         thickGray1: "#2B2B2B",
         thickGray2: "#313131",
+
+        // description
+        lightDescription:"#989898"
       },
     },
   },
