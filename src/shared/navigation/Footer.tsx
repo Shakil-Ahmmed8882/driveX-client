@@ -1,126 +1,151 @@
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
-import { Link } from "react-router-dom";
-import Container from "../layouts/Container";
 
-const Footer = () => {
+
+
+
+import { Layout, Row, Col, Typography, Space, Divider } from "antd";
+import {
+  FacebookOutlined,
+  TwitterOutlined,
+  InstagramOutlined,
+  LinkedinOutlined,
+} from "@ant-design/icons";
+
+const { Footer } = Layout;
+const { Title, Text, Link } = Typography;
+
+export const AppFooter = () => {
   return (
-    <footer className="bg-[#000000a3] text-gray-300 py-12">
-      <Container>
-        <div className=" mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-white text-lg font-semibold mb-4">
-                Quick Links
-              </h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    to="/vehicles"
-                    className="hover:text-white transition-colors"
-                  >
-                    Our Vehicles
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/locations"
-                    className="hover:text-white transition-colors"
-                  >
-                    Locations
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/reservations"
-                    className="hover:text-white transition-colors"
-                  >
-                    Reservations
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/about"
-                    className="hover:text-white transition-colors"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/faq"
-                    className="hover:text-white transition-colors"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-white text-lg font-semibold mb-4">
+    <Footer
+      style={{
+        background: "linear-gradient(to right, #000, #070917)",
+        padding: "48px 0",
+      }}
+    >
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 16px" }}>
+        <Row gutter={[32, 32]}>
+          <Col xs={24} sm={12} md={6}>
+            <Title level={3} style={{ color: "#fff", marginBottom: "24px" }}>
+              DriveX
+            </Title>
+            <Space direction="vertical" size="small">
+              <Link href="/about" style={{ color: "#a0aec0" }}>
+                About Us
+              </Link>
+              <Link href="/fleet" style={{ color: "#a0aec0" }}>
+                Our Fleet
+              </Link>
+              <Link href="/locations" style={{ color: "#a0aec0" }}>
+                Locations
+              </Link>
+              <Link href="/contact" style={{ color: "#a0aec0" }}>
                 Contact Us
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex items-center">
-                  <Phone className="w-5 h-5 mr-2" />
-                  <span>1-800-CAR-RENT</span>
-                </li>
-                <li className="flex items-center">
-                  <Mail className="w-5 h-5 mr-2" />
-                  <a
-                    href="mailto:info@carrentalsite.com"
-                    className="hover:text-white transition-colors"
-                  >
-                    info@carrentalsite.com
-                  </a>
-                </li>
-                <li className="flex items-center">
-                  <MapPin className="w-5 h-5 mr-2" />
-                  <span>123 Rental St, Car City, CC 12345</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-white text-lg font-semibold mb-4">
-                Business Hours
-              </h3>
-              <ul className="space-y-2">
-                <li>Monday - Friday: 8am - 8pm</li>
-                <li>Saturday: 9am - 6pm</li>
-                <li>Sunday: 10am - 4pm</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-white text-lg font-semibold mb-4">
-                Follow Us
-              </h3>
-              <div className="flex space-x-4">
-                <a href="https://www.facebook.com/profile.php?id=100089922151860" className="hover:text-white transition-colors">
-                  <Facebook className="w-6 h-6" />
-                  <span className="sr-only">Facebook</span>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100089922151860" className="hover:text-white transition-colors">
-                  <Instagram className="w-6 h-6" />
-                  <span className="sr-only">Instagram</span>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100089922151860" className="hover:text-white transition-colors">
-                  <Twitter className="w-6 h-6" />
-                  <span className="sr-only">Twitter</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </Container>
-    </footer>
+              </Link>
+            </Space>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Title level={4} style={{ color: "#fff", marginBottom: "24px" }}>
+              Services
+            </Title>
+            <Space direction="vertical" size="small">
+              <Link href="/rentals" style={{ color: "#a0aec0" }}>
+                Car Rentals
+              </Link>
+              <Link href="/chauffeur" style={{ color: "#a0aec0" }}>
+                Chauffeur Service
+              </Link>
+              <Link href="/airport" style={{ color: "#a0aec0" }}>
+                Airport Transfers
+              </Link>
+              <Link href="/events" style={{ color: "#a0aec0" }}>
+                Event Transportation
+              </Link>
+            </Space>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Title level={4} style={{ color: "#fff", marginBottom: "24px" }}>
+              Support
+            </Title>
+            <Space direction="vertical" size="small">
+              <Link href="/faq" style={{ color: "#a0aec0" }}>
+                FAQ
+              </Link>
+              <Link href="/terms" style={{ color: "#a0aec0" }}>
+                Terms of Service
+              </Link>
+              <Link href="/privacy" style={{ color: "#a0aec0" }}>
+                Privacy Policy
+              </Link>
+              <Link href="/support" style={{ color: "#a0aec0" }}>
+                Customer Support
+              </Link>
+            </Space>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Title level={4} style={{ color: "#fff", marginBottom: "24px" }}>
+              Connect With Us
+            </Title>
+            <Space size="large">
+              <Link
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookOutlined
+                  style={{ fontSize: "24px", color: "#a0aec0" }}
+                />
+              </Link>
+              <Link
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TwitterOutlined
+                  style={{ fontSize: "24px", color: "#a0aec0" }}
+                />
+              </Link>
+              <Link
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramOutlined
+                  style={{ fontSize: "24px", color: "#a0aec0" }}
+                />
+              </Link>
+              <Link
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedinOutlined
+                  style={{ fontSize: "24px", color: "#a0aec0" }}
+                />
+              </Link>
+            </Space>
+          </Col>
+        </Row>
+        <Divider
+          style={{ borderColor: "rgba(255,255,255,0.1)", margin: "32px 0" }}
+        />
+        <Row justify="space-between" align="middle">
+          <Col>
+            <Text style={{ color: "#a0aec0" }}>
+              © {new Date().getFullYear()} DriveX Luxury Car Rentals. All rights
+              reserved.
+            </Text>
+          </Col>
+          <Col>
+            <Space size="large">
+              <Link href="/sitemap" style={{ color: "#a0aec0" }}>
+                Sitemap
+              </Link>
+              <Link href="/accessibility" style={{ color: "#a0aec0" }}>
+                Accessibility
+              </Link>
+            </Space>
+          </Col>
+        </Row>
+      </div>
+    </Footer>
   );
 };
-
-export default Footer;
