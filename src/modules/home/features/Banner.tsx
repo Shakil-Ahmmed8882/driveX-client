@@ -1,55 +1,33 @@
 // /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import {
-  CalendarIcon,
-  CarIcon,
-  MapPinIcon,
-  ShieldCloseIcon,
-} from "lucide-react";
 import Container from "../../../shared/layouts/Container";
-import DForm from "../../../shared/forms/DForm";
-import DSelect from "../../../shared/forms/DSelect";
-import DDatePicker from "../../../shared/forms/DDatePicker";
-import { Button } from "antd";
-import { FieldValues, SubmitHandler } from "react-hook-form";
-import { categoryOptions, locationOptions } from "../../../constants";
-import { useState } from "react";
-import { SearchIcon } from "../../../assets/icons/Icons";
 
 import { MoveUp } from "../../../shared/wrapper/MoveUp";
 import FilterAvaialbeCar from "../components/banner/FilterAvaialbeCar";
 
-
-
-
-
-
 const Banner = () => {
   return (
     <MoveUp>
-          <section className=" pb-44 pt-32 overflow-hidden bg-black  ">
-      <Container className="relative">
-        <div className="">
+      <section className=" pb-44 pt-32 overflow-hidden bg-black  ">
+        <Container className="relative">
           <div className="">
-            <div className=" relative !z-30  text-white text-center">
-              <h1 className="text-4xl  font-normal sm:text-5xl lg:text-6xl xl:text-7xl">
-                Travel the world
-              </h1>
-              <p className="mt-4 text-lg font-normal text-[#c9c9c9] sm:mt-8">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit offic
-              </p>
+            <div className="">
+              <div className=" relative !z-30  text-white text-center">
+                <h1 className="text-4xl  font-normal sm:text-5xl lg:text-6xl xl:text-7xl">
+                  Travel the world
+                </h1>
+                <p className="mt-4 text-lg font-normal text-[#c9c9c9] sm:mt-8">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit offic
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <FilterAvaialbeCar/>
-      </Container>
-    </section>
+          <FilterAvaialbeCar />
+        </Container>
+      </section>
     </MoveUp>
   );
 };
 
 export default Banner;
-
-
-

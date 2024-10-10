@@ -86,8 +86,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Button, Dropdown, Space, Row, Col } from 'antd';
-import { CarOutlined, UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { Layout, Menu, Dropdown, Space, Row, Col } from 'antd';
+import { DownOutlined, SearchOutlined } from '@ant-design/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";

@@ -5,7 +5,7 @@ const Skeleton = () => {
   return (
     <Container>
         <div className=" grid md:grid-cols-2 gap-x-3 gap-y-8">
-          {[...Array(9)].map(item => (<CardSkeleton/>))}
+          {[...Array(9)].map((_item) => (<CardSkeleton/>))}
         </div>
       </Container>
       

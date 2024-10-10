@@ -1,6 +1,6 @@
 import car1 from "../../assets/images/home/banner/searResultCar5.png";
 import car2 from "../../assets/images/home/banner/hcar1-removebg-preview.png";
-import car3 from "../../assets/images/home/banner/searResultCar2.png";
+
 import car4 from "../../assets/images/home/banner/car4.png";
 
 import customerS from "../../assets/images/home/whychooseUs/customerS2.png";

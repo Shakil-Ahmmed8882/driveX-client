@@ -2,7 +2,7 @@ import { Button } from "antd";
 import DForm from "../../../../shared/forms/DForm";
 import DInput from "../../../../shared/forms/DInput";
 import Container from "../../../../shared/layouts/Container";
-import moment from "moment";
+
 import { FieldValues, SubmitErrorHandler } from "react-hook-form";
 import DDatePicker from "../../../../shared/forms/DDatePicker";
 import DTimePicker from "../../../../shared/forms/DTimePicker";
@@ -15,9 +15,6 @@ import { extractErrorMessage } from "../../../../types";
 import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
 import formatBookingData from "../../../shared/utils";
 
-const isValidMomentInput = (input: any): input is string | Date => {
-  return moment(input).isValid();
-};
 
 const EditBookedCarForm = ({
   bookingId,
@@ -43,40 +40,7 @@ const EditBookedCarForm = ({
   } = data?.data || {};
 
   const handleSubmit: SubmitErrorHandler<FieldValues> = async (data) => {
-    // Extracting form data
-    const pickUpDate = data["pick-up-date"];
-    const dropOffDate = data["drop-off-date"];
-    const pickUpTime = data["pick-up-time"];
-    const dropOffTime = data["drop-off-time"];
-
-    // Formatting data for submission
-    // const formattedData = {
-    //   bookingId,
-    //   name: data["name"] || name,
-    //   email: data["email"] || email,
-    //   phone: data["phone"] || phone,
-    //   address: data["address"] || address, // Use existing data if not updated
-    //   "pick-up-date": isValidMomentInput(pickUpDate)
-    //     ? moment(pickUpDate).format("YYYY-MM-DD")
-    //     : isValidMomentInput(pickUpDate)
-    //     ? moment(pickUpDate).format("YYYY-MM-DD")
-    //     : pickUpDate,
-    //   "drop-off-date": isValidMomentInput(dropOffDate)
-    //     ? moment(dropOffDate).format("YYYY-MM-DD")
-    //     : isValidMomentInput(dropOffDate)
-    //     ? moment(dropOffDate).format("YYYY-MM-DD")
-    //     : dropOffDate,
-    //   "pick-up-time": isValidMomentInput(pickUpTime)
-    //     ? moment(pickUpTime).format("HH:mm:ss")
-    //     : isValidMomentInput(pickUpTime)
-    //     ? moment(pickUpTime).format("HH:mm:ss")
-    //     : pickUpTime,
-    //   "drop-off-time": isValidMomentInput(dropOffTime)
-    //     ? moment(dropOffTime).format("HH:mm:ss")
-    //     : isValidMomentInput(dropOffTime)
-    //     ? moment(dropOffTime).format("HH:mm:ss")
-    //     : dropOffTime,
-    // };
+    
 
 
     const bookingData = formatBookingData(data, bookingId,{isEditForm: true} )

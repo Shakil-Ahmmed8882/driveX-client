@@ -1,4 +1,4 @@
-import banner from "../../assets/images/banner/banner2.png";
+
 
 
 const Test = () => {
@@ -1535,8 +1535,8 @@ const Card = () => {
 };
 
 import car from "../../assets/images/home/banner/car2.png";
-import Container from "../../shared/layouts/Container";
-import { Gradient } from "../home/features/Banner";
+
+
 
 const CarRentSection = () => {
   return (

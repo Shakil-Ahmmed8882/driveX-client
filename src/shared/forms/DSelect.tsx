@@ -1,11 +1,11 @@
 import { Form, Select } from "antd";
 import { Controller } from "react-hook-form";
 import { TFormSelectProps } from "./types";
-import { MapPinIcon } from "lucide-react";
+
 
 
 const DSelect = ({
-  label,
+
   name,
   options,
   defaultValue,

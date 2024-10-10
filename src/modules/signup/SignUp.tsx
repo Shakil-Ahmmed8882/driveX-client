@@ -43,7 +43,7 @@ function Signup() {
       <div className="flex bg-[#313131]  shadow-lg rounded-lg overflow-hidden max-w-4xl w-full my-11">
         <div className="w-full md:w-1/2 px-4 md:px-8 py-10">
           <div className="flex flex-col items-center mb-10">
-            <Logo isLabel={false} />
+            <Logo />
             <h2 className="mt-6 text-3xl font-extrabold text-white">
               Sign up to your account
             </h2>

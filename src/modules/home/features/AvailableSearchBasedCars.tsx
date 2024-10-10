@@ -1,9 +1,6 @@
-import { ShieldCloseIcon } from "lucide-react";
 import Skeleton from "../components/Skeleton";
-import { TCar } from "../../allCars/type";
-import { Button } from "antd";
+
 import CarHorizontalCard from "../../../shared/ui/CarHorizontalCard";
-import Container from "../../../shared/layouts/Container";
 import { Close } from "../../../assets/icons/Icons";
 
 type Props = {
@@ -28,7 +25,10 @@ export function AvailableSearchBasedCars({
       } transition-all duration-500 bg-white w-full 
       fixed inset-0 bottom-0 z-[99] overflow-scroll h-screen rounded-t-xl `}
     >
-      <button className="bg-[#ebebeb] group-hover:bg-transparent text-[#999999] hover:text-[white] tranistion500 group rounded-full absolute overflow-hidden right-8 top-8 p-3" onClick={() => setIsSearchAvailableCars(false)}>
+      <button
+        className="bg-[#ebebeb] group-hover:bg-transparent text-[#999999] hover:text-[white] tranistion500 group rounded-full absolute overflow-hidden right-8 top-8 p-3"
+        onClick={() => setIsSearchAvailableCars(false)}
+      >
         <div className="bg-[#ff8e8e] absolute left-32 top-32 group-hover:top-0 z-10 group-hover:left-0 transition-all duration-500 w-full h-full rounded-full "></div>
         <Close className=" relative font-bold z-10 !size-8" />
       </button>
