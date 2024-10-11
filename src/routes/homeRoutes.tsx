@@ -4,6 +4,7 @@ import AllCarsLayout from "../modules/allCars/AllCarsLayout";
 import BookingFormPage from "../modules/bookingFormPage/BookingFormPage";
 import CarDetails from "../modules/carDetails/CarDetails";
 import Contact from "../modules/contact/Contact";
+import CarFilterPage from "../modules/dynamic-pages/category-page/CarFilterPage";
 import FAQ from "../modules/faq/FAQ";
 import HomePageLayout from "../modules/home/HomePageLayout";
 import Test from "../modules/test/Test";
@@ -29,6 +30,10 @@ export const homePaths = [
     name: "Contact",
     path: "contact",
     element: <Contact />,
+  },
+  {
+    path: "filter",
+    element: <CarFilterPage/>,
   },
   {
     name: "Test",
