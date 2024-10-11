@@ -1,4 +1,3 @@
-
 // import { Link } from "react-router-dom";
 // import Logo from "../ui/Logo"; // Your custom Logo component
 // import { homePaths } from "../../routes/homeRoutes";
@@ -84,11 +83,11 @@
 
 // export default Navbar;
 
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Layout, Menu, Dropdown, Space, Row, Col } from 'antd';
-import { DownOutlined, SearchOutlined } from '@ant-design/icons';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Layout, Menu, Dropdown, Space, Row, Col } from "antd";
+import { DownOutlined, SearchOutlined } from "@ant-design/icons";
+import { motion, AnimatePresence } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { setSearchClick } from "../../redux/features/global/global.slice";
@@ -96,39 +95,9 @@ import Logo from "../ui/Logo";
 import SearchResultLayout from "../ui/search/SearchResultLayout";
 import DrawerNavigation from "./DrawerNavigation";
 import Container from "../layouts/Container";
+import { navItems } from "./constants";
 
 const { Header } = Layout;
-
-// Example navitem route array
-const navItems = [
-  {
-    name: 'Our Fleet',
-    path: '/fleet',
-    children: [
-      { name: 'Luxury Sedans', path: '/fleet/luxury-sedans' },
-      { name: 'Sports Cars', path: '/fleet/sports-cars' },
-      { name: 'SUVs', path: '/fleet/suvs' },
-      { name: 'Electric Vehicles', path: '/fleet/electric-vehicles' },
-      { name: 'Convertibles', path: '/fleet/convertibles' },
-      { name: 'Vans', path: '/fleet/vans' },
-    ],
-  },
-  {
-    name: 'Services',
-    path: '/services',
-    children: [
-      { name: 'Airport Transfers', path: '/services/airport-transfers' },
-      { name: 'Chauffeur Services', path: '/services/chauffeur-services' },
-      { name: 'Corporate Rentals', path: '/services/corporate-rentals' },
-      { name: 'Wedding Car Hire', path: '/services/wedding-car-hire' },
-      { name: 'Long-term Rentals', path: '/services/long-term-rentals' },
-      { name: 'Special Events', path: '/services/special-events' },
-    ],
-  },
-  { name: 'About Us', path: '/about' },
-  { name: 'All Cars', path: '/all-cars' },
-  { name: 'Contact', path: '/contact' },
-];
 
 const Navbar: React.FC = () => {
   const [visible, setVisible] = useState(true);
@@ -147,21 +116,28 @@ const Navbar: React.FC = () => {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   const handleSearchClick = () => {
     dispatch(setSearchClick(true));
   };
 
-  const renderMegaMenu = (children:any) => (
-    <Menu className='relative z-[9999]' style={{ width: '400px', padding: '16px' }}>
+  const renderMegaMenu = (item:any,children: any) => (
+    <Menu
+      className="relative z-[9999]"
+      style={{ width: "600px", padding: "16px" }}
+    >
+        <h2 className="text-4xl font-bold ml-3 pb-5">{item.name === "Our Fleet"?"Our Fleet":"Services"}</h2>
       <Row gutter={[16, 16]}>
-        {children.map((item:any, index:number) => (
+        {children.map((item: any, index: number) => (
           <Col span={12} key={index}>
             <Menu.Item key={item.path}>
-              <Link to={item.path}>{item.name}</Link>
+              <div className="flex gap-3 items-center">
+                <img className="size-20 rounded-lg object-cover" src={item.image} />
+                <Link className="" to={item.path}>{item.name}</Link>
+              </div>
             </Menu.Item>
           </Col>
         ))}
@@ -188,13 +164,13 @@ const Navbar: React.FC = () => {
                 </div>
 
                 <nav className="hidden ml-10 mr-auto space-x-8 lg:flex md:items-center md:justify-start">
-                  {navItems.map((item) => (
+                  {navItems.map((item) =>
                     item.children ? (
-                      <Dropdown 
+                      <Dropdown
                         key={item.name}
-                        overlay={renderMegaMenu(item.children)} 
+                        overlay={renderMegaMenu(item,item.children)}
                         placement="bottomCenter"
-                        overlayStyle={{ marginTop: '10px' }}
+                        overlayStyle={{ marginTop: "10px" }}
                       >
                         <Link to={item.path}>
                           <Space className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
@@ -210,7 +186,7 @@ const Navbar: React.FC = () => {
                         </a>
                       </Link>
                     )
-                  ))}
+                  )}
                 </nav>
 
                 <div className="flex items-center gap-3 md:mr-5">
