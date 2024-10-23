@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.3 }}
         >
-          <Header className="!bg-transparent top-0 sticky right-0 left-0 z-50">
+          <Header className="!bg-transparent top-0 sticky right-0 left-0 z-20">
             <Container className="!p-0 !py-8">
               <div className="flex items-center justify-between">
                 <div className="shrink-0">
@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
                         overlayStyle={{ marginTop: "10px" }}
                       >
                         <Link to={item.path}>
-                          <Space className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                          <Space className="text-base font-normal  transition-all duration-200 hover:bg-white p-2 rounded-full">
                             {item.name}
                             <DownOutlined />
                           </Space>
@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
                       </Dropdown>
                     ) : (
                       <Link to={item.path} key={item.name}>
-                        <a className="text-base font-normal text-gray-400 transition-all duration-200 hover:text-white">
+                        <a className="text-base font-normal  transition-all duration-200 hover:bg-white p-2 rounded-full">
                           {item.name}
                         </a>
                       </Link>
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
 
                 <div className="flex items-center gap-3 md:mr-5">
                   <SearchOutlined
-                    className="size-6 text-[#bdbdbd] cursor-pointer hover:text-white"
+                    className="size-6  cursor-pointer "
                     onClick={handleSearchClick}
                   />
                   <SearchResultLayout />
@@ -63,18 +63,18 @@ const Navbar: React.FC = () => {
                 </div>
 
                 <div className="relative hidden lg:inline-flex group">
-                  <div className="absolute transition-all duration-200 rounded-full -inset-px primaryGradient group-hover:shadow-lg"></div>
+                  <div className=""></div>
                   {user ? (
                     <button
                       onClick={() => dispatch(logout())}
-                      className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full w-full"
+                      className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-primaryColor border-none rounded-full w-full   hover:text-white  hover:bg-primaryColor/90"
                     >
                       Sign out
                     </button>
                   ) : (
                     <Link
                       to="/sign-up"
-                      className="relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full w-full"
+                      className="relative inline-flex items-center justify-center px-6 py-2  hover:text-white  hover:bg-primaryColor/90 text-base font-normal text-white bg-primaryColor border-none rounded-full w-full"
                     >
                       Sign up
                     </Link>

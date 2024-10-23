@@ -46,11 +46,11 @@ function Login() {
   };
   return (
     <div className="min-h-screen flex items-center justify-center ">
-      <div className="flex bg-[#313131]  shadow-lg rounded-lg overflow-hidden max-w-4xl w-full">
+      <div className="flex  shadow-lg rounded-lg overflow-hidden max-w-4xl w-full">
         <div className="w-full md:w-1/2 px-4 md:px-8 py-10 ">
           <div className="flex flex-col items-center mb-10">
             <Logo/>
-            <h2 className="mt-6 text-3xl font-extrabold text-white">
+            <h2 className="mt-6 text-3xl font-extrabold ">
               Sign in to your account
             </h2>
           </div>
@@ -62,11 +62,11 @@ function Login() {
             <RememberAndForgetPassword />
             <button
               type="submit"
-              className="mt-6 w-full primaryGradient text-white py-3 rounded-md font-semibold hover:primaryGradient/90 transition divide-neutral-400"
+              className="mt-12 w-full bg-primaryColor  py-2  text-white rounded-md font-semibold hover:bg-primaryColor/90 transition divide-neutral-400"
             >
               Sign in
             </button>
-            <p className="mt-4 text-center text-sm text-white">
+            <p className="mt-4 text-center text-sm ">
               Don't have an account?{" "}
               <Link
                 to={"/sign-up"}
@@ -81,7 +81,7 @@ function Login() {
         <SidePanel
           title="Explore New Horizons"
           description="Discover new adventures with us."
-          backgroundImage="https://i.pinimg.com/564x/13/27/8b/13278b291f6a68609fe317a4309cac45.jpg"
+          backgroundImage="https://images.pexels.com/photos/1172109/pexels-photo-1172109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         />
       </div>
     </div>

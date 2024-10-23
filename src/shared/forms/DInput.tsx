@@ -16,7 +16,7 @@ type TInputProps = {
 };
 
 const DInput = ({ type = 'text', name, label, className, defaultValue, errorObj }: TInputProps) => {
-  const { theme } = { theme: "dark" };
+  
 
   return (
     <AnimateUp>
@@ -30,11 +30,7 @@ const DInput = ({ type = 'text', name, label, className, defaultValue, errorObj 
             placeholder={label}
             className={`
               ${className}
-              ${
-                theme === "dark"
-                  ? "bg-[#343434be] shadow placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3f99] focus-within:bg-[#343434be]  text-[white] p-2"
-                  : ""
-              }
+               shadow  placeholder:text-[#989898]   placeholder:text-sm border-none p-2 
               text-xl`}
             {...field}
             type={type}

@@ -54,6 +54,7 @@ const ReservationDetails = () => {
           Ensure to review all the terms and conditions before confirming your reservation. 
           Please be aware that additional charges may apply depending on the selected options.
         </p>
+      
       </section>
 
     </div>

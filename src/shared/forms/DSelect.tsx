@@ -19,7 +19,7 @@ const DSelect = ({
       render={({ field, fieldState: { error } }) => (
         <Form.Item>
           <Select
-            className={`${className} custom-select !text-white`} // Apply the custom class
+            className={`${className} placeholder:text-[#555555]  `} // Apply the custom class
             disabled={disabled}
             defaultValue={defaultValue}
             style={{ width: "100%" }}

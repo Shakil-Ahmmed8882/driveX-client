@@ -65,7 +65,7 @@ export function FilterAvaialbeCar() {
     const queryArray = Object.entries(criteria)
   .filter(([, value]) => !!value) // Filter out any entries with falsy values
   .map(([key, value]) => ({
-    name: key === 'category' ? 'type' : key, // Rename 'category' to 'type'
+    name: key === 'category' ? 'type' : key, 
     value,
   }));
 
@@ -84,16 +84,18 @@ export function FilterAvaialbeCar() {
         ref={containerRef}
         className={`${
           isIconVisible ? "mt-24" : "mt-16"
-        } transition-all duration-500 delay-300 w-full lg:max-w-[70%] pt-6 pb-3 mx-auto relative bg-[#222222] lg:rounded-full px-5 shadow-lg`}
+        } transition-all duration-500 delay-300 w-full lg:max-w-[70%] pt-6 pb-3 mx-auto relative bg-[#fff] lg:rounded-full px-5 `}
       >
         <DForm onSubmit={onSubmit}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-2 px-3">
             <div className="relative min-w-[120px]" onClick={handleFieldClick}>
-              <MapPinIcon className="absolute text-gray-400 right-3 top-5 h-4 w-4 z-40" />
+              {/* <MapPinIcon className="absolute text-gray-400 right-3 top-5 h-4 w-4 z-40" /> */}
               <DSelect
                 options={locationOptions}
                 label="Location"
                 name="location"
+                placeholder="Location"
+                className="!placeholder:text-black border-none"
               />
             </div>
 
@@ -113,6 +115,7 @@ export function FilterAvaialbeCar() {
                 options={categoryOptions}
                 label="Category"
                 name="category"
+                placeholder=""
               />
             </div>
           </div>

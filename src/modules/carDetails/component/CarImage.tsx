@@ -8,14 +8,14 @@ const CarImage = ({ url }: { url: string }) => {
   // Handle image error
 
   return (
-    <img
+    <div >
+      <img
       src={url || placeholder}
-      alt="Car Image"
-      width="800"
-      height="600"
-      className="w-full rounded-lg overflow-hidden object-cover aspect-[4/3]"
+      alt=" Car Image"
+      className="w-full h-full rounded-lg overflow-hidden "
       onError={handleError} // Attach the error handler
     />
+    </div>
   );
 };
 

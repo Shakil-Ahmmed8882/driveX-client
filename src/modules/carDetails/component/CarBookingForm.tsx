@@ -12,12 +12,13 @@ import { useState } from "react";
 import { fieldsValidation } from "../../../shared/ui/validations";
 import ConfirmationModal from "./ConfirmationModal";
 import formatBookingData from "../../shared/utils";
+import { DarkGradient } from "../../../shared/animations/grident/DarkGradient";
 
 const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
   const [bookCar] = useBookCarMutation();
   const navigate = useNavigate();
   const [bookingInfo, setBookingInfo] = useState<BookingInfo>({});
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(true);
   const [isFormReset, setIsFormReset] = useState(false);
   const [errorObj, setError] = useState<{ error?: string; message?: string }>(
     {}
@@ -79,7 +80,9 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
   };
 
   return (
-    <div className="grid gap-4 md:gap-8 py-8 px-6 rounded-b-lg bg-thickGray2">
+
+    <section>
+    <div className="grid gap-4 md:gap-8 relative z-20 bg-[#fff] py-8 my-11 mt20 px-6 rounded-b-lg ">
       <div className="grid gap-2">
         <h2 className="text-3xl font-bold">Book Your Rental</h2>
         <p className="description mt-2 pb-3">
@@ -118,7 +121,7 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
           {...{ errorObj }}
         />
         <Button
-          className="primaryGradient border-none mt-3 md:-mt-5 text-white"
+          className="bg-primaryColor border-none mt-3 md:-mt-5 text-white"
           htmlType="submit"
         >
           Reserve Now
@@ -127,8 +130,10 @@ const CarBookingForm = ({ carId }: { carId: string | undefined }) => {
 
       <ConfirmationModal
         {...{ handleCancel, handleConfirmBooking, bookingInfo, isModalVisible }}
-      />
+        />
     </div>
+        <DarkGradient/>
+    </section>
   );
 };
 

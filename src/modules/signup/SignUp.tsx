@@ -10,6 +10,7 @@ import { validateFieldsOfSingUpForm } from "../../utils/validation";
 import { toast } from "sonner";
 import { extractErrorMessage } from "../../types";
 import { SignUpResponse } from "./type";
+import { DarkGradient } from "../../shared/animations/grident/DarkGradient";
 
 function Signup() {
   const [signUp] = useSignUpMutation();
@@ -40,11 +41,11 @@ function Signup() {
   };
   return (
     <div className="min-h-screen flex items-center justify-center ">
-      <div className="flex bg-[#313131]  shadow-lg rounded-lg overflow-hidden max-w-4xl w-full my-11">
+      <div className="flex  relative z-20 bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full my-11">
         <div className="w-full md:w-1/2 px-4 md:px-8 py-10">
           <div className="flex flex-col items-center mb-10">
             <Logo />
-            <h2 className="mt-6 text-3xl font-extrabold text-white">
+            <h2 className="mt-6 text-3xl font-extrabold ">
               Sign up to your account
             </h2>
           </div>
@@ -59,7 +60,7 @@ function Signup() {
             <RememberAndForgetPassword />
             <Button
               htmlType="submit"
-              className="border-none  hover:!primaryGradient/90 hover:!text-white mt-6 w-full primaryGradient text-white"
+              className="border-none   hover:!text-white mt-6 w-full bg-primaryColor text-white"
             >
               Sign up
             </Button>
@@ -71,7 +72,8 @@ function Signup() {
         <SidePanel
           title="Explore New Horizons"
           description="Discover new adventures with us."
-          backgroundImage="https://i.pinimg.com/564x/5b/11/3c/5b113c0a440669c34ecd34ea92c4d068.jpg"
+          // backgroundImage="https://images.pexels.com/photos/1280553/pexels-photo-1280553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          backgroundImage="https://images.pexels.com/photos/16495925/pexels-photo-16495925/free-photo-of-back-view-of-a-white-mercedes-car.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         />
       </div>
     </div>
@@ -82,7 +84,7 @@ export default Signup;
 
 const SwitchBetweenLoginToSignin = () => {
   return (
-    <p className="pt-3 text-center text-sm text-white">
+    <p className="pt-3 text-center text-sm ">
       Alreadt have an account?{" "}
       <Link to="/login" className="text-blue-400 hover:text-blue-500">
         Sign in
@@ -94,14 +96,14 @@ const SwitchBetweenLoginToSignin = () => {
 export const RememberAndForgetPassword = () => {
   return (
     <div className="flex px-4 items-center justify-between py-3">
-      <label className="flex items-center text-sm text-white">
+      <label className="flex items-center text-sm ">
         <input
           type="checkbox"
           className="form-checkbox h-4 w-4 text-blue-500"
         />
         <span className="ml-2">T&Q</span>
       </label>
-      <a href="#" className="text-sm text-white hover:text-blue-400">
+      <a href="#" className="text-sm text-blue-400">
         Forgot password?
       </a>
     </div>

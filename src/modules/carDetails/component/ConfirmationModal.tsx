@@ -1,5 +1,6 @@
 import React from 'react';
 import SlideUpModal from "../../../shared/modals/SlideUpModal";
+import { Divider } from 'antd';
 
 // Define the interface for booking information
 interface BookingInfo {
@@ -28,7 +29,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   handleConfirmBooking,
 }) => {
   return (
-    <section>
+    <section className='relative z-50'>
       {/* Confirmation Modal */}
       <SlideUpModal
         className="w-[500px]"
@@ -36,61 +37,63 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         onClose={handleCancel}
       >
         <div className="text-left">
-          <h3 className="text-3xl mb-3">Confirm Your Booking</h3>
-          <div className="mb-4 description">
+          <h3 className="text-3xl  mb-2 font-bold ">Confirm Your Booking</h3>
+          <p className='mb-5 text-gray-500'>Ensure that all of your infomation are accurate. This is essential to get you for the rentals.</p>
+          
+          <div className="mb-4 description space-y-3">
             <p>
-              <strong className="text-[green] text-[17px]">Full Name:</strong>{" "}
+              <span className="text-primaryColor text-[17px]">Full Name:</span>{" "}
               {bookingInfo.name}
             </p>
             <p>
-              <strong className="text-[green] text-[17px]">Email:</strong>{" "}
+              <span className="text-primaryColor text-[17px]">Email:</span>{" "}
               {bookingInfo.email}
             </p>
             <p>
-              <strong className="text-[green] text-[17px]">Phone:</strong>{" "}
+              <span className="text-primaryColor text-[17px]">Phone:</span>{" "}
               {bookingInfo.phone}
             </p>
             <p>
-              <strong className="text-[green] text-[17px]">Address:</strong>{" "}
+              <span className="text-primaryColor text-[17px]">Address:</span>{" "}
               {bookingInfo.address}
             </p>
             <p>
-              <strong className="text-[green] text-[17px]">
+              <span className="text-primaryColor text-[17px]">
                 Pick-up Date:
-              </strong>{" "}
+              </span>{" "}
               {bookingInfo["pick-up-date"]}
             </p>
             <p>
-              <strong className="text-[green] text-[17px]">
+              <span className="text-primaryColor text-[17px]">
                 Drop-off Date:
-              </strong>{" "}
+              </span>{" "}
               {bookingInfo["drop-off-date"]}
             </p>
             <p>
-              <strong className="text-[green] text-[17px]">
+              <span className="text-primaryColor text-[17px]">
                 Pick-up Time:
-              </strong>{" "}
+              </span>{" "}
               {bookingInfo["pick-up-time"]}
             </p>
             <p>
-              <strong className="text-[green] text-[17px]">
+              <span className="text-primaryColor text-[17px]">
                 Drop-off Time:
-              </strong>{" "}
+              </span>{" "}
               {bookingInfo["drop-off-time"]}
             </p>
           </div>
-          <div className="flex gap-2 pt-8">
-            <button
-              onClick={handleConfirmBooking}
-              className="bg-[#313030] text-white px-4 py-2 rounded hover:bg-green-600"
-            >
-              Confirm Booking
-            </button>
+          <div className="flex justify-end gap-2 pt-8">
             <button
               onClick={handleCancel}
-              className="bg-[#313030] text-white px-4 py-2 rounded hover:bg-red-600"
+              className="   bg-gray-100  px-4 py-2 rounded hover:bg-gray-200"
             >
               Edit Details
+            </button>
+            <button
+              onClick={handleConfirmBooking}
+              className="bg-primaryColor text-white px-4 py-2 rounded hover:bg-primaryColor/90"
+            >
+              Confirm Booking
             </button>
           </div>
         </div>

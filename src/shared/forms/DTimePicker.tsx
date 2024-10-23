@@ -31,7 +31,7 @@ const DTimePicker = ({ name, label, defaultValue, errorObj }: TTimePickerProps) 
         control={control}
         render={({ field }) => (
           <TimePicker
-            className="custom-picker-placeholder-style p-2 bg-[#343434be] placeholder:text-[#8f8f8f] placeholder:text-sm border-none hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be] !text-[white]"
+            className=" p-2 custom-date-picker placeholder:text-sm border-none placeholder:text-[#555555]"
             value={field.value ? dayjs(field.value, "HH:mm:ss") : null}
             style={{ width: "100%" }}
             size="large"

@@ -30,7 +30,7 @@ const DDatePicker: React.FC<TDatePickerProps> = ({ name, label, defaultValue, er
           <DatePicker
             
             defaultValue={defaultDate} // Use the Dayjs object or undefined
-            className="custom-picker-placeholder-style p-2 bg-[#343434be] border-none text-white placeholder:text-[#8f8f8f] hover:bg-[#3f3f3fbe] focus-within:bg-[#343434be]"
+            className=" p-2 custom-date-picker text-[black]  "
             style={{ width: "100%" }}
             size="large"
             {...field}
