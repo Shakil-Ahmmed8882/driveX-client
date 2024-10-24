@@ -11,8 +11,8 @@ import { toast } from "sonner";
 import { TError } from "../../types";
 
 const baseQuery = fetchBaseQuery({
-  // baseUrl: "http://localhost:5000/api",
-  baseUrl: "https://drivex-backend.vercel.app/api",
+  baseUrl: "http://localhost:5000/api",
+  // baseUrl: "https://drivex-backend.vercel.app/api",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;

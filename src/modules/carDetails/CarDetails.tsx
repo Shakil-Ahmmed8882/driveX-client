@@ -7,7 +7,6 @@ import ReservationDetails from "./component/ReservationDetails";
 import { useGetSingleCarQuery } from "../../redux/features/cars/carsApi";
 import { Button } from "antd";
 import { DSpinner } from "../../shared/ui/loading/DSpinner";
-import BookingFormPage from "../bookingFormPage/BookingFormPage";
 import CarSuggestionList from "./feature/CarSuggestionList";
 // import { TCar } from "../allCars/type";
 
@@ -42,7 +41,7 @@ const CarDetails = (): JSX.Element => {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 bg-muted  rounded-lg shadow-lg items-start min-h-screen">
+      <div className="grid grid-cols-1 pt-16 md:grid-cols-3 gap-8 bg-muted  rounded-lg shadow-lg items-start min-h-screen">
         <div className="grid gap-4 relative z-20  md:col-span-2 border-b ">
           <CarImage url={image} />
           <CarDetailsContent price={pricePerHour} title={name} />

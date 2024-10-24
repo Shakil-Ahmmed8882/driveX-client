@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Layout } from "antd";
+import { Card, Col, Layout } from "antd";
 import { useLocation } from "react-router-dom";
 
 import Container from "../../../shared/layouts/Container";
@@ -8,6 +8,9 @@ import CarBanner from "./components/CarBanner";
 import CarSearch from "./components/CarSearch";
 import CarList from "./components/CarList";
 import { carListings } from "./components/mockData";
+import { useGetAllCarsQuery } from "../../../redux/features/cars/carsApi";
+import CarsLoadingSkeleton from "../../../shared/ui/CarsLoadingSkeleton";
+import { TCar } from "../../allCars/type";
 
 const { Content } = Layout;
 
@@ -15,6 +18,7 @@ export default function CarFilterPage() {
   const location = useLocation();
   const [filter, setFilter] = useState("All");
 
+  const [searchValue, setSearchValue] = useState("");
   const getCategoryFromUrl = () => {
     const queryParams = new URLSearchParams(location.search);
     return queryParams.get("category") || "";
@@ -22,10 +26,13 @@ export default function CarFilterPage() {
 
   const category = getCategoryFromUrl();
 
-  const filteredCars =
-    filter === "All"
-      ? carListings
-      : carListings.filter((car) => car.category === filter);
+  const { data: carData, isLoading } = useGetAllCarsQuery([
+    { name: "searchTerm", value: searchValue },
+    { name: "type", value: category },
+  ]);
+
+
+  const cars: TCar[] = carData?.data || [];
 
   const getBannerImage = () => {
     for (const item of navItems) {
@@ -46,8 +53,12 @@ export default function CarFilterPage() {
       <Content>
         <CarBanner bannerImage={bannerImage} category={category} />
         <Container>
-          <CarSearch setFilter={setFilter} />
-          <CarList cars={filteredCars} />
+          <CarSearch setSearchValue={setSearchValue} setFilter={setFilter} />
+          {!isLoading ? (
+            <CarsLoadingSkeleton/>
+          ) : (
+            <CarList cars={cars} />
+          )}
         </Container>
       </Content>
     </Layout>

@@ -5,17 +5,18 @@ const { Option } = Select;
 
 
 interface CarSearchProps {
-    setFilter: (value: string) => void; // Specify that setFilter returns void
+    setFilter: (value: string) => void;
+    setSearchValue: (value: string) => void;
   }
   
-  export default function CarSearch({ setFilter }: CarSearchProps) {
+  export default function CarSearch({ setSearchValue, setFilter }: CarSearchProps) {
     const handleFilterChange = (value: string) => {
       setFilter(value);
     };
   
   return (
     <div className="mb-8 flex justify-between items-center">
-      <Input placeholder="Search cars..." prefix={<SearchOutlined />} style={{ width: 300 }} />
+      <Input onChange={(e) => setSearchValue(e.target.value)} placeholder="Search cars..." prefix={<SearchOutlined />} style={{ width: 300 }} />
       <Select defaultValue="All" style={{ width: 120 }} onChange={handleFilterChange}>
         <Option value="All">All Categories</Option>
         <Option value="Sedan">Sedan</Option>
