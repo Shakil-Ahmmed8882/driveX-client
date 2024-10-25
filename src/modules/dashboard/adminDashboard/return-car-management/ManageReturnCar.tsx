@@ -3,12 +3,12 @@ import Card from "../../../userDashboard/manageBooking/component/Card";
 import ReusableTable from "../../../../shared/tables/DTable";
 import { Badge } from "antd";
 import ReturnCar from "./components/ReturnCar";
-import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
+import Spinner from "../../../../shared/ui/Spinner";
 
 const ManageBookings = (): JSX.Element => {
   const { data, isLoading } = useGetAllBookingsQuery([]);
 
-  if (isLoading) return <DSpinner/>;
+  if (isLoading) return <Spinner/>;
 
   const columns = [
     {

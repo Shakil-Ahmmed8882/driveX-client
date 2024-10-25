@@ -18,3 +18,16 @@ export type TCar = {
   export type Tdata = {
     data: TCar
   }
+
+
+  export interface BookingInfo {
+    name?: string;
+    email?: string;
+    phone?: string;
+    car?: string;
+    address?: string;
+    "pick-up-date"?: string;
+    "drop-off-date"?: string;
+    "pick-up-time"?: string;
+    "drop-off-time"?: string;
+  }

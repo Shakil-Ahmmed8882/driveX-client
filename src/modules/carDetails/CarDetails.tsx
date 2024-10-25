@@ -6,8 +6,9 @@ import CarImage from "./component/CarImage";
 import ReservationDetails from "./component/ReservationDetails";
 import { useGetSingleCarQuery } from "../../redux/features/cars/carsApi";
 import { Button } from "antd";
-import { DSpinner } from "../../shared/ui/loading/DSpinner";
+
 import CarSuggestionList from "./feature/CarSuggestionList";
+import Spinner from "../../shared/ui/Spinner";
 // import { TCar } from "../allCars/type";
 
 export interface TCar {
@@ -29,7 +30,7 @@ const CarDetails = (): JSX.Element => {
   const { id } = useParams();
   const { data, isLoading } = useGetSingleCarQuery(id || "", { skip: !id });
 
-  if (isLoading) return <DSpinner />;
+  if (isLoading) return <Spinner />;
 
   // const {name,description,color,isElectric,status,
   //   features,pricePerHour,isDeleted,image,createdAt,updatedAt,
@@ -41,7 +42,7 @@ const CarDetails = (): JSX.Element => {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 pt-16 md:grid-cols-3 gap-8 bg-muted  rounded-lg shadow-lg items-start min-h-screen">
+      <div className="grid grid-cols-1 p-3 pt-16 md:grid-cols-3 gap-8 bg-muted  rounded-lg  items-start min-h-screen">
         <div className="grid gap-4 relative z-20  md:col-span-2 border-b ">
           <CarImage url={image} />
           <CarDetailsContent price={pricePerHour} title={name} />

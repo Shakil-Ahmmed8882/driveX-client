@@ -1,29 +1,38 @@
-import { Input, Select } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Select } from "antd";
+import SearchBar from "../../../../shared/ui/SearchBar";
+import { useNavigate } from "react-router-dom";
+import { categoryType } from "../../../../constants";
 
 const { Option } = Select;
 
 
 interface CarSearchProps {
-    setFilter: (value: string) => void;
     setSearchValue: (value: string) => void;
   }
   
-  export default function CarSearch({ setSearchValue, setFilter }: CarSearchProps) {
-    const handleFilterChange = (value: string) => {
-      setFilter(value);
+  export default function CarSearch({ setSearchValue }: CarSearchProps) {
+    
+
+
+    const navigate = useNavigate()
+
+
+    const handleDropdownCategory = (category: string) => {
+      const reshapedCategory = category.split(" ").join("+");
+      navigate(`/filter?category=${reshapedCategory}`);
     };
   
+  
   return (
-    <div className="mb-8 flex justify-between items-center">
-      <Input onChange={(e) => setSearchValue(e.target.value)} placeholder="Search cars..." prefix={<SearchOutlined />} style={{ width: 300 }} />
-      <Select defaultValue="All" style={{ width: 120 }} onChange={handleFilterChange}>
+    <div className="mb-8 md:flex justify-between items-center pt-3">
+      <SearchBar onChange={setSearchValue}/>
+      <Select defaultValue="All" style={{ width: 120 }} onChange={handleDropdownCategory}>
         <Option value="All">All Categories</Option>
-        <Option value="Sedan">Sedan</Option>
-        <Option value="SUV">SUV</Option>
-        <Option value="Sports">Sports</Option>
-        <Option value="Electric">Electric</Option>
-        <Option value="Compact">Compact</Option>
+        
+        {
+          categoryType?.map(item => (<Option value={item.value}>{item.label}</Option>))
+        }
+        
       </Select>
     </div>
   );

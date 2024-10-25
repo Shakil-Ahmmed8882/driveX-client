@@ -16,12 +16,13 @@ import Vans from "../../assets/images/navbar/fleet/Vans.jfif"
 
 export const navItems = [
   {
-    name: 'Our Fleet',
+    name: 'Fleet',
+    description: "Explore our exclusive fleet of high-performance vehicles tailored to match your luxury and business travel needs. From sleek convertibles to spacious SUVs and electric cars, we ",
     path: '/',
     children: [
       { 
-        image: "https://as1.ftcdn.net/v2/jpg/10/05/81/84/1000_F_1005818411_ZzYEJib0TXux4a3DE5PTn8SHEf7NQhTi.jpg", 
-        name: 'Luxury', 
+        image: "https://images.pexels.com/photos/5049270/pexels-photo-5049270.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 
+        name: 'SUV', 
         path: '/fleet/luxury-sedans' 
       },
       { 
@@ -53,6 +54,7 @@ export const navItems = [
   },  
     {
       name: 'Services',
+      description: "Our diverse range of luxury and business-class vehicles, from sedans to SUVs, designed to provide a premium travel experience.",
       path: '/',
       children: [
         { image:AirportTransfers, name: 'Airport Transfers', path: '/services/airport-transfers' },

@@ -12,8 +12,8 @@ import {
 } from "../../../../redux/features/user/booking.api";
 import { toast } from "sonner";
 import { extractErrorMessage } from "../../../../types";
-import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
 import formatBookingData from "../../../shared/utils";
+import Spinner from "../../../../shared/ui/Spinner";
 
 
 const EditBookedCarForm = ({
@@ -26,7 +26,7 @@ const EditBookedCarForm = ({
   const { data, isLoading } = useGetSingleBookingQuery(bookingId);
   const [updateBooking] = useUpdateBookingMutation();
 
-  if (isLoading) return <DSpinner/>;
+  if (isLoading) return <Spinner/>;
 
   const {
     "pick-up-date": pickUpDate,

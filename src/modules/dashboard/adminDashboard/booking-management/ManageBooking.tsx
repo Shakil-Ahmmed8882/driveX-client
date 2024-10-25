@@ -4,7 +4,8 @@ import { Badge } from "antd";
 import CarHeaders from "../car-management/compoents/CarHeaders";
 import ReusableTable from "../../../../shared/tables/DTable";
 import StatusModal from "./components/StatusModal";
-import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
+import Spinner from "../../../../shared/ui/Spinner";
+ 
 
 
 const ManageBookings = (): JSX.Element => {
@@ -15,7 +16,7 @@ const ManageBookings = (): JSX.Element => {
     { name: "searchTerm", value: searchValue },
   ]);
 
-  if (isLoading) return <DSpinner/>;
+  if (isLoading) return <Spinner/>;
 
   const columns = [
     {

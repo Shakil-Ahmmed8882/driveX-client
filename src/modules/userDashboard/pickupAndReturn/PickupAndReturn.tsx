@@ -8,7 +8,7 @@ import { handleError } from "../../carDetails/component/CarImage";
 import useClickOutside from "../../../hooks/useClickOutside";
 import SlideUpModal from "../../../shared/modals/SlideUpModal";
 import { TCar } from "../../allCars/type";
-import { DSpinner } from "../../../shared/ui/loading/DSpinner";
+import Spinner from "../../../shared/ui/Spinner";
 
 const ReturnAndPaymentPage: React.FC = () => {
   const { data, isLoading } = useGetMyAllBookingsQuery(undefined);
@@ -53,7 +53,7 @@ const ReturnAndPaymentPage: React.FC = () => {
 
   useClickOutside(modalRef, () => handleCancel());
 
-  if (isLoading) return <DSpinner />;
+  if (isLoading) return <Spinner />;
 
   const allUserBookings = data?.data?.result;
 

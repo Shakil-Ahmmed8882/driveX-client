@@ -35,11 +35,12 @@ const Navbar: React.FC = () => {
                         overlay={renderMegaMenu(item, item.children)}
                         placement="bottomCenter"
                         overlayStyle={{ marginTop: "10px" }}
+                        className="group"
                       >
                         <Link to={item.path}>
-                          <Space className="text-base font-normal  transition-all duration-200 hover:bg-white p-2 rounded-full">
+                          <Space className="  text-base font-normal  transition-all duration-200 hover:bg-white p-2 rounded-full">
                             {item.name}
-                            <DownOutlined />
+                            <DownOutlined className="!size-3 text-gray-400 group-hover:rotate-180 tranisl transition300"/>
                           </Space>
                         </Link>
                       </Dropdown>
@@ -105,5 +106,6 @@ import DrawerNavigation from "../DrawerNavigation";
 import Container from "../../layouts/Container";
 import { navItems } from "../constants";
 import { renderMegaMenu } from "./RenderMegaMenu";
+import { ArrowDown, ArrowDown01, ArrowDown01Icon } from "lucide-react";
 
 const { Header } = Layout;

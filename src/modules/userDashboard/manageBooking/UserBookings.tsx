@@ -5,7 +5,8 @@ import ReusableTable from "../../../shared/tables/DTable";
 import Card from "./component/Card";
 import EditBookedCarForm from "./component/EditBookedCarForm";
 import DeleteModel from "./component/DeleteModel";
-import { DSpinner } from "../../../shared/ui/loading/DSpinner";
+import Spinner from "../../../shared/ui/Spinner";
+
 
 const UserBookings = (): JSX.Element => {
   // Fetch bookings data from API
@@ -14,7 +15,7 @@ const UserBookings = (): JSX.Element => {
   const [bookingId,setBookingId] = useState("")
   const [isDelete,setIsDelete] = useState(false)
   // Handle loading state
-  if (isLoading) return <DSpinner/>;
+  if (isLoading) return <Spinner/>;
 
   // Define columns
   const columns = [

@@ -3,7 +3,7 @@ import {
   useGetAllBookingsQuery,
 } from "../../../../redux/features/user/booking.api";
 import RadialChart from "../../../../shared/charts/RadialChart";
-import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
+import Spinner from "../../../../shared/ui/Spinner";
 import { Tbooking } from "../../../../types/booking.type";
 import Notification from "../../../userDashboard/dashboard/compoents/Notification";
 import OverviewCard from "../../../userDashboard/dashboard/compoents/OverviewCard";
@@ -36,7 +36,7 @@ const AdminDashboard: React.FC = () => {
   const { data: carData } = useGetAllCarsQuery([
     { name: "status", value: "available" },
   ]);
-  if (isLoading) return <DSpinner/>;
+  if (isLoading) return <Spinner/>;
 
   const allBookedData = data?.data? data.data : [];
   const allCarData = carData?.data? carData?.data : []

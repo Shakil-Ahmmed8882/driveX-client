@@ -5,7 +5,7 @@ import RecentActivity from "./compoents/RecentActivity";
 import Notification from "./compoents/Notification";
 import { DashboardData } from "./types";
 import { useGetMyAllBookingsQuery } from "../../../redux/features/user/booking.api";
-import { DSpinner } from "../../../shared/ui/loading/DSpinner";
+import Spinner from "../../../shared/ui/Spinner";
 
 // Sample data
 const dashboardData: DashboardData = {
@@ -30,7 +30,7 @@ const dashboardData: DashboardData = {
 const CustomerDashboard: React.FC = () => {
   const { data, isLoading } = useGetMyAllBookingsQuery(undefined);
 
-  if (isLoading) return <DSpinner/>;
+  if (isLoading) return <Spinner/>;
 
   const bookingData = data?.data?.result;
 

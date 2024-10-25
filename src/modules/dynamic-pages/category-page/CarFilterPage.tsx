@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Col, Layout } from "antd";
+import { Layout } from "antd";
 import { useLocation } from "react-router-dom";
 
 import Container from "../../../shared/layouts/Container";
@@ -7,16 +7,16 @@ import { navItems } from "../../../shared/navigation/constants";
 import CarBanner from "./components/CarBanner";
 import CarSearch from "./components/CarSearch";
 import CarList from "./components/CarList";
-import { carListings } from "./components/mockData";
 import { useGetAllCarsQuery } from "../../../redux/features/cars/carsApi";
 import CarsLoadingSkeleton from "../../../shared/ui/CarsLoadingSkeleton";
 import { TCar } from "../../allCars/type";
+import notFound from '../../.../../.../../../assets/images/shared/not-found.svg'
+
 
 const { Content } = Layout;
 
 export default function CarFilterPage() {
   const location = useLocation();
-  const [filter, setFilter] = useState("All");
 
   const [searchValue, setSearchValue] = useState("");
   const getCategoryFromUrl = () => {
@@ -24,12 +24,18 @@ export default function CarFilterPage() {
     return queryParams.get("category") || "";
   };
 
+
+
+
+
   const category = getCategoryFromUrl();
+
 
   const { data: carData, isLoading } = useGetAllCarsQuery([
     { name: "searchTerm", value: searchValue },
-    { name: "type", value: category },
+    ...(category !== 'All' ? [{ name: "type", value: category }] : [])
   ]);
+  
 
 
   const cars: TCar[] = carData?.data || [];
@@ -53,11 +59,14 @@ export default function CarFilterPage() {
       <Content>
         <CarBanner bannerImage={bannerImage} category={category} />
         <Container>
-          <CarSearch setSearchValue={setSearchValue} setFilter={setFilter} />
-          {!isLoading ? (
+          <CarSearch setSearchValue={setSearchValue} />
+          {isLoading ? (
             <CarsLoadingSkeleton/>
           ) : (
-            <CarList cars={cars} />
+            
+              cars.length > 0 ? <><CarList cars={cars} /></>: <>
+                <img className="w-full h-96" alt="not-found" src={notFound}/>
+              </>
           )}
         </Container>
       </Content>

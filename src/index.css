@@ -35,6 +35,9 @@ body {
 .transition {
   @apply transition-all divide-neutral-400;
 }
+.transition300 {
+  @apply transition-all duration-300;
+}
 
 /* Custom CSS to change placeholder text color */
 

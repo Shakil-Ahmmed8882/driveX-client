@@ -1,6 +1,6 @@
 import React from 'react';
 import SlideUpModal from "../../../shared/modals/SlideUpModal";
-import { Divider } from 'antd';
+
 
 // Define the interface for booking information
 interface BookingInfo {

@@ -10,7 +10,8 @@ import EditCarForm from "./compoents/EditCarForm";
 import DeleteCar from "./compoents/DeleteCar";
 import AddCar from "./compoents/AddCar";
 import { TCar } from "../../../allCars/type";
-import { DSpinner } from "../../../../shared/ui/loading/DSpinner";
+import Spinner from "../../../../shared/ui/Spinner";
+
 
 const ManageCars = (): JSX.Element => {
   // Fetch bookings data from API
@@ -26,7 +27,7 @@ const ManageCars = (): JSX.Element => {
   ]);
 
   
-  if (isLoading) return <DSpinner/>;
+  if (isLoading) return <Spinner/>;
   
 
   // Define columns
