@@ -11,12 +11,8 @@ interface CarSearchProps {
   }
   
   export default function CarSearch({ setSearchValue }: CarSearchProps) {
-    
-
 
     const navigate = useNavigate()
-
-
     const handleDropdownCategory = (category: string) => {
       const reshapedCategory = category.split(" ").join("+");
       navigate(`/filter?category=${reshapedCategory}`);

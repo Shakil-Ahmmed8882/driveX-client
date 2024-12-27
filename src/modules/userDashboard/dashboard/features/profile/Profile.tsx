@@ -23,7 +23,7 @@ const SidebarProfile: React.FC<SidebarProfileProps> = ({ showProfile, setShowPro
     <div
     ref={sidebarProfileRef}
     className={`
-    ${showProfile?'visible w-80 translate-x-0':'translate-x-80 invisible w-80'}
+    ${showProfile?'visible w-80 !text-white translate-x-0':'translate-x-80 invisible w-80'}
     transition-all duration-500
     
     fixed z-50 overflow-y-auto pb-32 right-0 top-0 pt-32 bg-[#2D2D2F]  shadow-lg rounded-lg p-6 h-screen `}>
@@ -90,7 +90,7 @@ const SidebarProfile: React.FC<SidebarProfileProps> = ({ showProfile, setShowPro
           placeholder="What are you thinking..."
           className="w-full p-3 rounded-md border-none !bg-[#2C2C2E] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
-        <button className="w-full mt-4 primaryGradient text-white py-2 rounded-md hover:bg-blue-600">
+        <button className="w-full  bg-primaryColor mt-20 text-white py-2 rounded-md hover:bg-blue-600">
           Post
         </button>
       </div>

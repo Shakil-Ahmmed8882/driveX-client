@@ -36,7 +36,7 @@ const DashboardSidebar = (): JSX.Element => {
           isMenuOpen
             ? "visible w-[400px] translate-x-0"
             : " invisible md:visible md:-translate-x-0 w-0 md:w-[400px] -translate-x-32"
-        } fixed sm:static z-50 top-0 bottom-0 transition-all duration-300 transform 
+        } fixed !text-[#bebebe] sm:static z-50 top-0 bottom-0 transition-all duration-300 transform 
     `}
     >
       <div className="py-3">

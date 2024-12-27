@@ -12,13 +12,7 @@ const Logo = () => {
     </div> */}
 
       <div className="shrink-0">
-        <a href="#" title="" className="flex">
-          <img
-            className="w-auto h-9"
-            src="https://landingfoliocom.imgix.net/store/collection/dusk/images/logo.svg"
-            alt=""
-          />
-        </a>
+        <Link to="/" className="text-3xl flex text-[white] items-center">Drive<span className="text-primaryColor font-bold">X</span></Link>
       </div>
     </Link>
   );

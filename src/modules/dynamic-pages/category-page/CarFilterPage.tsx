@@ -16,26 +16,29 @@ import notFound from '../../.../../.../../../assets/images/shared/not-found.svg'
 const { Content } = Layout;
 
 export default function CarFilterPage() {
-  const location = useLocation();
 
+
+
+
+  const location = useLocation();
   const [searchValue, setSearchValue] = useState("");
   const getCategoryFromUrl = () => {
     const queryParams = new URLSearchParams(location.search);
     return queryParams.get("category") || "";
   };
-
-
-
-
-
   const category = getCategoryFromUrl();
 
 
-  const { data: carData, isLoading } = useGetAllCarsQuery([
+  const queryParams = [
     { name: "searchTerm", value: searchValue },
-    ...(category !== 'All' ? [{ name: "type", value: category }] : [])
-  ]);
+    ...(category ? (category !== 'All' ? [{ name: "category", value: category }] : []) : [])
+  ];
   
+
+  
+  console.log(queryParams)
+  const { data: carData, isLoading } = useGetAllCarsQuery(queryParams);
+
 
 
   const cars: TCar[] = carData?.data || [];

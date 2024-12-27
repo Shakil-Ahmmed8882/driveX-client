@@ -6,7 +6,7 @@ interface RecentActivityProps {
 }
 
 const RecentActivity: React.FC<RecentActivityProps> = ({ activities }) => (
-  <section className="bg-gradient-to-r from-[#2d2d2d] to-[#2B2B2B] shadow-2xl p-7 rounded-lg mb-10">
+  <section className="bg-gradient-to-r text-[white] from-[#2d2d2d] to-[#2B2B2B] shadow-2xl p-7 rounded-lg mb-10">
     <h2 className="text-3xl font-semibold mb-6">Recent Activities</h2>
     <ul className="space-y-4">
       {activities.map((activity, index) => (
