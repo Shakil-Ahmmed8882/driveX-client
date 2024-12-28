@@ -8,7 +8,7 @@ interface InputProps {
   style?: React.CSSProperties;
 }
 
-const SearchBar: React.FC<InputProps> = ({ onChange, placeholder = "Enter text...", prefix, style }) => {
+const SearchBar: React.FC<InputProps> = ({ onChange, placeholder = "Enter text...", prefix }) => {
   return (
     <div className='md:w-1/2'>
       {prefix && <span style={{ marginRight: 8 }}>{prefix}</span>}

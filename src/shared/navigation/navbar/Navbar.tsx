@@ -106,6 +106,5 @@ import DrawerNavigation from "../DrawerNavigation";
 import Container from "../../layouts/Container";
 import { navItems } from "../constants";
 import { renderMegaMenu } from "./RenderMegaMenu";
-import { ArrowDown, ArrowDown01, ArrowDown01Icon } from "lucide-react";
 
 const { Header } = Layout;

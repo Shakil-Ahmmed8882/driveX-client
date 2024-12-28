@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Card, Typography, Button, List } from 'antd'
 import { ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'

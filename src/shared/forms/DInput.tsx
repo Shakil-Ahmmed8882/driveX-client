@@ -2,7 +2,6 @@ import { Form, Input } from "antd";
 import { Controller } from "react-hook-form";
 
 import AnimateUp from "../animations/AnimateUp";
-import InputError from "../ui/inputError";
 type TInputProps = {
   type?: string;
   name: string;
@@ -38,7 +37,7 @@ const DInput = ({ type = 'text', name, label, className, defaultValue, errorObj 
           />
         )}
       />
-      {errorObj?.error && errorObj?.error === name && <InputError errorText={errorObj?.message} />}
+      {errorObj?.error && errorObj?.error === name && <small className="text-red-500">{errorObj?.message}</small>}
     </Form.Item>
     </AnimateUp>
   );

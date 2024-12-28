@@ -4,7 +4,7 @@
 import { Form, TimePicker } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 import dayjs, { Dayjs } from "dayjs";
-import InputError from "../ui/inputError";
+
 
 type TTimePickerProps = {
   name: string;
@@ -49,7 +49,7 @@ const DTimePicker = ({ name, label, defaultValue, errorObj }: TTimePickerProps) 
           />
         )}
       />
-      {errorObj?.error && errorObj?.error === name && <InputError  errorText={errorObj?.message} />}
+      {errorObj?.error && errorObj?.error === name && <small className="text-red-500">{errorObj?.message}</small>}
     </Form.Item>
   );
 };

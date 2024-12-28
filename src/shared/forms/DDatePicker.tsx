@@ -2,7 +2,7 @@ import { Form, DatePicker } from "antd";
 import { Controller } from "react-hook-form";
 import React from "react";
 import dayjs, { Dayjs } from "dayjs";
-import InputError from "../ui/inputError";
+
 
 
 type TDatePickerProps = {
@@ -39,7 +39,7 @@ const DDatePicker: React.FC<TDatePickerProps> = ({ name, label, defaultValue, er
           />
         )}
       />
-      {errorObj?.error && errorObj?.error === name && <InputError errorText={errorObj?.message} />}
+      {errorObj?.error && errorObj?.error === name && <small className="text-red-500">{errorObj?.message}</small>}
     </Form.Item>
   );
 };

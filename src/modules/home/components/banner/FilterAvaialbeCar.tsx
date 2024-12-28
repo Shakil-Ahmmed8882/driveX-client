@@ -1,7 +1,7 @@
 // src/components/Banner/Search.tsx
 
 import { useState, useEffect, useRef } from "react";
-import { CalendarIcon, CarIcon, MapPinIcon } from "lucide-react";
+import { CalendarIcon, CarIcon } from "lucide-react";
 
 import { Button } from "antd";
 

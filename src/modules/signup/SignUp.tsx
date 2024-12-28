@@ -10,7 +10,7 @@ import { validateFieldsOfSingUpForm } from "../../utils/validation";
 import { toast } from "sonner";
 import { extractErrorMessage } from "../../types";
 import { SignUpResponse } from "./type";
-import { DarkGradient } from "../../shared/animations/grident/DarkGradient";
+
 
 function Signup() {
   const [signUp] = useSignUpMutation();

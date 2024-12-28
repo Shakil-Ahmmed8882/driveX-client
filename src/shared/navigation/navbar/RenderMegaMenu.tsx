@@ -33,7 +33,7 @@ export const renderMegaMenu = (item: any, children: any) => {
       >
         {/* First half of the children */}
         <Col span={7}>
-          {children.slice(0, half).map((childItem: any, index: number) => (
+          {children.slice(0, half).map((childItem: any) => (
             <Menu.Item
               key={childItem.path}
               className="!bg-transparent hover:!bg-[#efefef] transition-all duration-300"
@@ -66,7 +66,7 @@ export const renderMegaMenu = (item: any, children: any) => {
 
         {/* Second half of the children */}
         <Col span={7}>
-          {children.slice(half).map((childItem: any, index: number) => (
+          {children.slice(half).map((childItem: any) => (
             <Menu.Item
               key={childItem.path}
               className="!bg-transparent hover:!bg-[#efefef] transition-all duration-300"
